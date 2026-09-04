@@ -7,7 +7,7 @@
 
 The localization-testing product is moving from **comparison-based** review (localized site vs. source site) to **standalone** review (judge one locale on its own evidence). That change invalidates most of the existing detection path, and there is currently nothing to develop or measure against — no target site, no known defects, no way to tell whether a detector run that finds 40 issues missed 200.
 
-`rgt-global-fixture` is that missing piece: a small, deliberately broken, **fully catalogued** website. Its only purpose is to be a measurable target.
+`stc-global-fixture` is that missing piece: a small, deliberately broken, **fully catalogued** website. Its only purpose is to be a measurable target.
 
 The critical property is **ground truth**. A detector is only as good as its measured precision and recall, and neither can be computed without knowing the right answer in advance. So the fixture is built clean, then defects are applied from a machine-readable manifest — meaning the manifest and the site can never disagree, and a clean control build comes out of the same pipeline for free.
 
@@ -145,7 +145,7 @@ Verified against the real source, not the README. Carry these over exactly:
 ## Directory tree
 
 ```
-temp3/rgt-global-fixture/
+temp3/stc-global-fixture/
 ├── .claude/plans/                     ← this plan
 ├── fixtures/
 │   ├── manifest.json                  ← GROUND TRUTH — generates the defects
@@ -330,7 +330,7 @@ The **"locale resets after login"** defect is one flag away: when set, the post-
 
 | Phase | Deliverable                                                                                        | Done when                                                                              |
 | ----- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| 0     | Create `temp3/rgt-global-fixture/` and `.claude/plans/`, copy this plan in                         | Folder exists with the plan inside it                                                  |
+| 0     | Create `temp3/stc-global-fixture/` and `.claude/plans/`, copy this plan in                         | Folder exists with the plan inside it                                                  |
 | 1     | Scaffold, conventions, routing, locale resolution, 10 pages clean in en-US                         | `npm run dev` serves all routes, `/` redirects correctly, lint + typecheck clean       |
 | 2     | i18n wired; de-DE and hi-IN resources complete and hand-corrected                                  | All three locales render fully, no missing keys, switcher and cookie persistence work  |
 | 3     | Manifest schema, seeding, flag generation, dual build, prerender, `vercel.json` generation         | Both builds produce output; clean build's flag set is empty; determinism script passes |
