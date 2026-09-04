@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build:seeded",
-  "outputDirectory": "dist-seeded",
+  "buildCommand": "npm run build:clean",
+  "outputDirectory": "dist-clean",
   "installCommand": "npm ci",
   "framework": null,
   "trailingSlash": false,
@@ -33,7 +33,7 @@
         },
         {
           "key": "X-RGT-Fixture-Mode",
-          "value": "seeded"
+          "value": "clean"
         }
       ]
     },
@@ -88,42 +88,6 @@
         {
           "key": "Content-Language",
           "value": "hi-IN"
-        }
-      ]
-    },
-    {
-      "source": "/de-DE/pricing",
-      "headers": [
-        {
-          "key": "Content-Language",
-          "value": "en-US"
-        }
-      ]
-    },
-    {
-      "source": "/en-US/events",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/html; charset=ISO-8859-1"
-        }
-      ]
-    },
-    {
-      "source": "/en-US/about",
-      "headers": [
-        {
-          "key": "Content-Language",
-          "value": "de-DE"
-        }
-      ]
-    },
-    {
-      "source": "/hi-IN/blog",
-      "headers": [
-        {
-          "key": "Content-Language",
-          "value": "en-US"
         }
       ]
     }
