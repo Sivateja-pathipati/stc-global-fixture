@@ -1,0 +1,330 @@
+{
+  "about": {
+    "hero": {
+      "eyebrow": "Über uns",
+      "lead": "RGT Global wurde 2009 gegründet und ist von einer Beratung mit vier Personen zu einem verteilten Entwicklungspartner mit Lieferzentren auf drei Kontinenten gewachsen.",
+      "title": "Wir sind Ingenieure, die die Systeme selbst betrieben haben, zu denen wir beraten"
+    },
+    "offices": {
+      "heading": "Wo Sie uns finden",
+      "lead": "Drei Lieferzentren, eine Entwicklungskultur."
+    },
+    "story": {
+      "heading": "Unsere Geschichte",
+      "p1": "RGT Global entstand, als vier Plattform-Ingenieure einen großen Systemintegrator verließen, überzeugt davon, dass die meisten Probleme mit Unternehmenssoftware organisatorischer und nicht technischer Natur sind. Diese Überzeugung prägt bis heute unsere Arbeitsweise: Wir arbeiten in Ihren Teams mit, statt Ergebnisse über die Mauer zu werfen.",
+      "p2": "Heute beschäftigen wir 1.180 Ingenieurinnen und Ingenieure in Lieferzentren in Hyderabad, Berlin und Toronto. Etwa zwei Drittel unserer Arbeit sind mehrjährige Plattformprojekte; der Rest sind kurzfristige Modernisierungs- und Bewertungsaufträge.",
+      "p3": "Wir sind bewusst kein Personaldienstleister. Jedes Projekt wird von einem festen Team mit einer benannten technischen Leitung besetzt, und wir lehnen Aufträge ab, die wir nicht gut umsetzen können."
+    },
+    "values": {
+      "heading": "Wie wir arbeiten",
+      "oneBody": "Kontinuität schlägt Personalstärke. Unsere Projekte laufen im Median 26 Monate mit demselben Kernteam.",
+      "oneTitle": "Kleine Teams, lange Projekte",
+      "threeBody": "Erfolg heißt, dass Ihr Team die Plattform ohne uns betreibt. Wir planen die Übergabe ab der ersten Woche.",
+      "threeTitle": "Wartbar hinterlassen",
+      "twoBody": "Entscheidungen werden mit ihrer Begründung festgehalten, damit die nächste Person die Argumentation erbt und nicht nur das Ergebnis.",
+      "twoTitle": "Schreiben Sie es auf"
+    }
+  },
+  "auth": {
+    "account": {
+      "emailLabel": "E-Mail-Adresse",
+      "invoiceAmountLabel": "Betrag",
+      "invoiceDateLabel": "Ausgestellt am",
+      "invoiceHeading": "Letzte Rechnung",
+      "invoiceNumberLabel": "Rechnungsnummer",
+      "nameLabel": "Name",
+      "planLabel": "Aktueller Tarif",
+      "profileHeading": "Profil",
+      "renewalLabel": "Nächste Verlängerung",
+      "seatsLabel": "Genutzte Arbeitsplätze",
+      "signOut": "Abmelden",
+      "title": "Ihr Konto",
+      "welcome": "Willkommen zurück"
+    },
+    "login": {
+      "demoHint": "Demozugang: demo@rgtglobal.example / fixture-demo",
+      "emailLabel": "E-Mail-Adresse",
+      "emailPlaceholder": "sie@unternehmen.de",
+      "errorEmpty": "Bitte geben Sie sowohl Ihre E-Mail-Adresse als auch Ihren Zugangscode ein.",
+      "errorInvalid": "Diese Zugangsdaten wurden nicht erkannt.",
+      "lead": "Zugang zum Kundenportal für bestehende Projekte.",
+      "passcodeLabel": "Zugangscode",
+      "passcodePlaceholder": "Ihr Zugangscode",
+      "submit": "Anmelden",
+      "title": "Anmelden"
+    }
+  },
+  "blog": {
+    "article": {
+      "authorLabel": "Geschrieben von",
+      "backToList": "Zurück zu allen Einblicken",
+      "relatedHeading": "Weiterführende Artikel",
+      "shareLabel": "Diesen Artikel teilen"
+    },
+    "empty": {
+      "body": "Zu diesem Thema gibt es noch keine Artikel. Wählen Sie ein anderes Thema oder zeigen Sie alle Artikel an.",
+      "title": "Keine Artikel gefunden"
+    },
+    "hero": {
+      "eyebrow": "Einblicke",
+      "lead": "Geschrieben von den Menschen, die die Arbeit machen, nicht von einer Redaktion.",
+      "title": "Notizen aus unserer Entwicklungspraxis"
+    },
+    "list": {
+      "filterAll": "Alle Themen",
+      "filterLabel": "Nach Thema filtern",
+      "publishedLabel": "Veröffentlicht",
+      "readingTimeLabel": "Lesedauer",
+      "resultCount": "3 Artikel",
+      "tagsLabel": "Themen"
+    }
+  },
+  "common": {
+    "actions": {
+      "backHome": "Zurück zur Startseite",
+      "contactSales": "Vertrieb kontaktieren",
+      "getStarted": "Jetzt starten",
+      "learnMore": "Mehr erfahren",
+      "readArticle": "Artikel lesen",
+      "signIn": "Anmelden",
+      "signOut": "Abmelden",
+      "submit": "Absenden",
+      "viewAll": "Alle anzeigen"
+    },
+    "brand": {
+      "name": "RGT Global",
+      "product": "CloudBridge",
+      "tagline": "Technik für globale Skalierung"
+    },
+    "breadcrumb": {
+      "home": "Startseite",
+      "label": "Brotkrumennavigation"
+    },
+    "footer": {
+      "accessibility": "Barrierefreiheit",
+      "companyHeading": "Unternehmen",
+      "imprint": "Impressum",
+      "legalEntity": "RGT Global Technologies Pvt. Ltd.",
+      "legalHeading": "Rechtliches",
+      "note": "Tätig in 14 Ländern.",
+      "platformVersion": "Plattform-Release 1.000",
+      "privacy": "Datenschutzhinweis",
+      "resourcesHeading": "Ressourcen",
+      "rights": "Alle Rechte vorbehalten.",
+      "terms": "Nutzungsbedingungen"
+    },
+    "labels": {
+      "email": "Email",
+      "login": "Login",
+      "ok": "OK",
+      "team": "Team"
+    },
+    "localeSwitcher": {
+      "description": "Wählen Sie Ihre Sprache",
+      "label": "Sprache"
+    },
+    "nav": {
+      "about": "Über uns",
+      "blog": "Einblicke",
+      "contact": "Kontakt",
+      "events": "Veranstaltungen",
+      "home": "Startseite",
+      "pricing": "Preise",
+      "primaryLabel": "Hauptnavigation",
+      "services": "Leistungen",
+      "skipToContent": "Zum Inhalt springen",
+      "toggleLabel": "Hauptmenü öffnen"
+    }
+  },
+  "contact": {
+    "form": {
+      "countryLabel": "Land",
+      "countryPlaceholder": "Land auswählen",
+      "emailLabel": "Geschäftliche E-Mail-Adresse",
+      "emailPlaceholder": "sie@unternehmen.de",
+      "heading": "Schreiben Sie uns",
+      "messageLabel": "Wie können wir helfen?",
+      "messagePlaceholder": "Eine kurze Beschreibung Ihrer Plattform und des Problems",
+      "nameLabel": "Vollständiger Name",
+      "namePlaceholder": "Ihr vollständiger Name",
+      "phoneLabel": "Telefonnummer",
+      "phonePlaceholder": "Mit Ländervorwahl angeben",
+      "postalLabel": "Postleitzahl",
+      "postalPlaceholder": "Postleitzahl",
+      "submit": "Nachricht senden",
+      "successBody": "Vielen Dank. Eine Ingenieurin oder ein Ingenieur antwortet innerhalb von zwei Werktagen.",
+      "successTitle": "Nachricht gesendet"
+    },
+    "hero": {
+      "eyebrow": "Kontakt",
+      "lead": "Sagen Sie uns, was Sie bauen. Wir antworten innerhalb von zwei Werktagen.",
+      "title": "Sprechen Sie mit einer Ingenieurin oder einem Ingenieur"
+    },
+    "offices": {
+      "heading": "Unsere Standorte",
+      "hoursLabel": "Öffnungszeiten",
+      "phoneLabel": "Telefon"
+    },
+    "validation": {
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "emailRequired": "Bitte geben Sie Ihre geschäftliche E-Mail-Adresse ein.",
+      "messageRequired": "Bitte teilen Sie uns mit, wie wir helfen können.",
+      "nameRequired": "Bitte geben Sie Ihren vollständigen Namen ein.",
+      "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer für das gewählte Land ein.",
+      "postalInvalid": "Bitte geben Sie eine gültige Postleitzahl für das gewählte Land ein."
+    }
+  },
+  "errors": {
+    "notFound": {
+      "action": "Zurück zur Startseite",
+      "body": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+      "code": "404",
+      "title": "Seite nicht gefunden"
+    },
+    "serverError": {
+      "action": "Zurück zur Startseite",
+      "body": "Auf unserer Seite ist ein unerwarteter Fehler aufgetreten. Die Einzelheiten wurden protokolliert.",
+      "code": "500",
+      "title": "Etwas ist schiefgelaufen"
+    }
+  },
+  "events": {
+    "calendar": {
+      "heading": "Vorausplanen",
+      "timezoneNote": "Alle Zeiten werden in der Ortszeit der gastgebenden Stadt angegeben.",
+      "weekStartsNote": "Unser veröffentlichter Terminplan folgt der örtlichen Arbeitswoche."
+    },
+    "empty": {
+      "body": "Für diese Region sind derzeit keine Termine geplant. Schauen Sie im nächsten Quartal wieder vorbei.",
+      "title": "Keine Termine geplant"
+    },
+    "hero": {
+      "eyebrow": "Veranstaltungen",
+      "lead": "Workshops und Vorträge unserer Ingenieurinnen und Ingenieure. Die Teilnahme ist kostenlos, die Plätze sind begrenzt.",
+      "title": "Wo Sie uns treffen"
+    },
+    "list": {
+      "heading": "Kommende Termine",
+      "registerCta": "Anmelden",
+      "seatsHeading": "Verfügbarkeit",
+      "sessionHeading": "Veranstaltung",
+      "whenHeading": "Wann",
+      "whereHeading": "Wo"
+    }
+  },
+  "home": {
+    "cta": {
+      "body": "Sagen Sie uns, wo Ihre Plattform Probleme macht, und wir schicken eine Ingenieurin oder einen Ingenieur, keine Vertriebskraft.",
+      "button": "Vertrieb kontaktieren",
+      "title": "Bereit für den ersten Schritt?"
+    },
+    "hero": {
+      "eyebrow": "Globale Technologieberatung",
+      "lead": "RGT Global unterstützt Entwicklungsorganisationen dabei, Plattformen zu entwerfen, zu bauen und zu betreiben, die über Sprachen, Währungen und Regulierungsräume hinweg tragfähig bleiben.",
+      "primaryCta": "Jetzt starten",
+      "secondaryCta": "Sprechen Sie mit unserem Team",
+      "title": "Software ausliefern, die in jedem Markt funktioniert"
+    },
+    "pillars": {
+      "dataBody": "Data Warehouses, Pipelines und Governance, die einer Prüfung standhalten und trotzdem schnell Antworten liefern.",
+      "dataTitle": "Daten und Analytik",
+      "heading": "Was wir tun",
+      "lead": "Drei Praxisbereiche, ein Liefermodell.",
+      "modernisationBody": "Schrittweise Migration weg von Altsystemen, während der Betrieb durchgehend weiterläuft.",
+      "modernisationTitle": "Modernisierung",
+      "platformBody": "Wir bauen die internen Plattformen, auf denen Ihre Produktteams ausliefern, damit Releases keine Ereignisse mehr sind.",
+      "platformTitle": "Plattform-Engineering"
+    },
+    "stats": {
+      "clientsLabel": "Unternehmenskunden",
+      "clientsValue": "240",
+      "countriesLabel": "Betreute Länder",
+      "countriesValue": "14",
+      "engineersLabel": "Ingenieurinnen und Ingenieure",
+      "engineersValue": "1.180",
+      "heading": "Zahlen und Fakten",
+      "uptimeLabel": "Plattformverfügbarkeit",
+      "uptimeValue": "99,95 %"
+    },
+    "testimonial": {
+      "attribution": "Leiter Entwicklung, europäische Logistikgruppe",
+      "englishOriginalNote": "Zitiert im englischen Original.",
+      "heading": "Was unsere Kunden sagen",
+      "quote": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter."
+    }
+  },
+  "pricing": {
+    "cta": {
+      "body": "Ab 500 Arbeitsplätzen kalkulieren wir pro Organisation. Schildern Sie uns Ihre Lage und wir erstellen ein Angebot.",
+      "button": "Vertrieb kontaktieren",
+      "title": "Brauchen Sie mehr?"
+    },
+    "hero": {
+      "eyebrow": "Preise",
+      "lead": "CloudBridge wird pro Arbeitsplatz und Monat abgerechnet. Beratungsprojekte werden gesondert angeboten.",
+      "title": "Transparente Plattformpreise"
+    },
+    "notes": {
+      "annualDiscount": "Bei jährlicher Zahlung sparen Sie 15 %.",
+      "heading": "Hinweise zur Abrechnung",
+      "productCode": "Geben Sie bei einer Bestellung diesen Produktcode an: 12/05/2024.",
+      "seatOverage": "Zusätzliche Arbeitsplätze werden zum gleichen Satz abgerechnet.",
+      "vat": "Alle Preise verstehen sich zuzüglich der gesetzlichen Umsatzsteuer."
+    },
+    "table": {
+      "cadence": "pro Monat",
+      "featuredBadge": "Am beliebtesten",
+      "featuresHeading": "Enthaltene Leistungen",
+      "planHeading": "Tarif",
+      "priceHeading": "Preis",
+      "seatsHeading": "Enthaltene Arbeitsplätze",
+      "uptimeHeading": "Zugesicherte Verfügbarkeit"
+    }
+  },
+  "services": {
+    "data": {
+      "body": "Data Warehouses, Streaming-Pipelines und die Governance, die sie vertrauenswürdig hält.",
+      "bullet1": "Warehouse- und Lakehouse-Entwurf",
+      "bullet2": "Streaming- und Batch-Pipelines",
+      "bullet3": "Data Governance und Herkunftsnachweis",
+      "cta": "Daten und Analytik entdecken",
+      "title": "Daten und Analytik"
+    },
+    "engagement": {
+      "heading": "So beginnt ein Projekt",
+      "step1Body": "Zwei bis vier Wochen. Wir lesen den Code, sprechen mit den Teams und halten schriftlich fest, was wir gefunden haben.",
+      "step1Title": "Bewertung",
+      "step2Body": "Ein Team, ein Arbeitsablauf, durchgängig umgesetzt, damit sich der Ansatz bewährt, bevor er skaliert.",
+      "step2Title": "Pilot",
+      "step3Body": "Ein benanntes Team, das mit Ihrem zusammenarbeitet, mit einem Übergabeplan ab dem ersten Tag.",
+      "step3Title": "Festes Team"
+    },
+    "hero": {
+      "eyebrow": "Leistungen",
+      "lead": "Die meisten Kunden beginnen mit einer Bewertung und wachsen in ein dauerhaftes Projekt hinein.",
+      "title": "Drei Praxisbereiche, die als ein Liefermodell zusammenwirken"
+    },
+    "modernisation": {
+      "body": "Schrittweise Migration weg von Altsystemen, während der Betrieb durchgehend weiterläuft.",
+      "bullet1": "Bewertung und Kartierung von Altsystemen",
+      "bullet2": "Migration nach dem Strangler-Muster",
+      "bullet3": "Abschaltung und Übergabe",
+      "cta": "Modernisierung entdecken",
+      "title": "Modernisierung"
+    },
+    "notes": {
+      "configFile": "Pipelines werden in deploy.config.yaml im Wurzelverzeichnis deklariert.",
+      "heading": "Hinweise zur Umsetzung",
+      "nullRegion": "Ein null-Wert für die Region bedeutet, dass die Standardregion verwendet wird.",
+      "regionExample": "Geben Sie eine Region explizit an, zum Beispiel { \"region\": \"eu-central-1\" }."
+    },
+    "platform": {
+      "body": "Interne Entwicklungsplattformen, CI/CD, Observability und die betriebliche Praxis darum herum.",
+      "bullet1": "Build- und Release-Pipelines",
+      "bullet2": "Kubernetes- und Laufzeitplattformen",
+      "bullet3": "Observability und Incident-Praxis",
+      "cta": "Plattform-Engineering entdecken",
+      "title": "Plattform-Engineering"
+    }
+  }
+}

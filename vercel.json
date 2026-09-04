@@ -1,0 +1,131 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build:seeded",
+  "outputDirectory": "dist-seeded",
+  "installCommand": "npm ci",
+  "framework": null,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/de-DE/:path*",
+      "destination": "/de-DE/index.html"
+    },
+    {
+      "source": "/en-US/:path*",
+      "destination": "/en-US/index.html"
+    },
+    {
+      "source": "/hi-IN/:path*",
+      "destination": "/hi-IN/index.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-RGT-Fixture-Mode",
+          "value": "seeded"
+        }
+      ]
+    },
+    {
+      "source": "/de-DE/:path*",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "de-DE"
+        }
+      ]
+    },
+    {
+      "source": "/en-US/:path*",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "en-US"
+        }
+      ]
+    },
+    {
+      "source": "/hi-IN/:path*",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "hi-IN"
+        }
+      ]
+    },
+    {
+      "source": "/de-DE",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "de-DE"
+        }
+      ]
+    },
+    {
+      "source": "/en-US",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "en-US"
+        }
+      ]
+    },
+    {
+      "source": "/hi-IN",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "hi-IN"
+        }
+      ]
+    },
+    {
+      "source": "/de-DE/pricing",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "en-US"
+        }
+      ]
+    },
+    {
+      "source": "/en-US/events",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=ISO-8859-1"
+        }
+      ]
+    },
+    {
+      "source": "/en-US/about",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "de-DE"
+        }
+      ]
+    },
+    {
+      "source": "/hi-IN/blog",
+      "headers": [
+        {
+          "key": "Content-Language",
+          "value": "en-US"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "about": {
+    "hero": {
+      "eyebrow": "About us",
+      "lead": "Founded in 2009, RGT Global has grown from a four-person consultancy into a distributed engineering partner with delivery centres on three continents.",
+      "title": "We are engineers who have run the systems we advise on"
+    },
+    "offices": {
+      "heading": "Where we are",
+      "lead": "Three delivery centres, one engineering culture."
+    },
+    "story": {
+      "heading": "Our story",
+      "p1": "RGT Global began when four platform engineers left a large systems integrator, convinced that most enterprise software problems were organisational rather than technical. That conviction still shapes how we work: we embed with your teams rather than delivering over a wall.",
+      "p2": "Today we employ 1,180 engineers across delivery centres in Hyderabad, Berlin and Toronto. Roughly two-thirds of our work is multi-year platform engagements; the remainder is short-run modernisation and assessment work.",
+      "p3": "We are deliberately not a body shop. Every engagement is staffed by a standing team with a named technical lead, and we decline work we do not believe we can deliver well."
+    },
+    "values": {
+      "heading": "How we work",
+      "oneBody": "Continuity beats headcount. Our median engagement runs 26 months with the same core team.",
+      "oneTitle": "Small teams, long engagements",
+      "threeBody": "Success is your team operating the platform without us. We plan the handover from the first week.",
+      "threeTitle": "Leave it maintainable",
+      "twoBody": "Decisions are recorded with their reasoning, so the next engineer inherits the argument and not just the outcome.",
+      "twoTitle": "Write it down"
+    }
+  },
+  "auth": {
+    "account": {
+      "emailLabel": "Email",
+      "invoiceAmountLabel": "Amount",
+      "invoiceDateLabel": "Issued",
+      "invoiceHeading": "Latest invoice",
+      "invoiceNumberLabel": "Invoice number",
+      "nameLabel": "Name",
+      "planLabel": "Current plan",
+      "profileHeading": "Profile",
+      "renewalLabel": "Next renewal",
+      "seatsLabel": "Seats in use",
+      "signOut": "Sign out",
+      "title": "Your account",
+      "welcome": "Welcome back"
+    },
+    "login": {
+      "demoHint": "Demo access: demo@rgtglobal.example / fixture-demo",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@company.com",
+      "errorEmpty": "Please enter both your email and passcode.",
+      "errorInvalid": "Those credentials were not recognised.",
+      "lead": "Client portal access for existing engagements.",
+      "passcodeLabel": "Passcode",
+      "passcodePlaceholder": "Your access passcode",
+      "submit": "Sign in",
+      "title": "Sign in"
+    }
+  },
+  "blog": {
+    "article": {
+      "authorLabel": "Written by",
+      "backToList": "Back to all insights",
+      "relatedHeading": "Related reading",
+      "shareLabel": "Share this article"
+    },
+    "empty": {
+      "body": "No articles match this topic yet. Try another topic or view all articles.",
+      "title": "No articles found"
+    },
+    "hero": {
+      "eyebrow": "Insights",
+      "lead": "Written by the people doing the work, not a content team.",
+      "title": "Notes from our engineering practice"
+    },
+    "list": {
+      "filterAll": "All topics",
+      "filterLabel": "Filter by topic",
+      "publishedLabel": "Published",
+      "readingTimeLabel": "Reading time",
+      "resultCount": "3 articles",
+      "tagsLabel": "Topics"
+    }
+  },
+  "common": {
+    "actions": {
+      "backHome": "Back to home",
+      "contactSales": "Contact sales",
+      "getStarted": "Get started",
+      "learnMore": "Learn more",
+      "readArticle": "Read article",
+      "signIn": "Sign in",
+      "signOut": "Sign out",
+      "submit": "Submit",
+      "viewAll": "View all"
+    },
+    "brand": {
+      "name": "RGT Global",
+      "product": "CloudBridge",
+      "tagline": "Engineering for global scale"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "label": "Breadcrumb"
+    },
+    "footer": {
+      "accessibility": "Accessibility",
+      "companyHeading": "Company",
+      "imprint": "Imprint",
+      "legalEntity": "RGT Global Technologies Pvt. Ltd.",
+      "legalHeading": "Legal",
+      "note": "Operating across 14 countries.",
+      "platformVersion": "Platform release 1.000",
+      "privacy": "Privacy notice",
+      "resourcesHeading": "Resources",
+      "rights": "All rights reserved.",
+      "terms": "Terms of service"
+    },
+    "labels": {
+      "email": "Email",
+      "login": "Login",
+      "ok": "OK",
+      "team": "Team"
+    },
+    "localeSwitcher": {
+      "description": "Choose your language",
+      "label": "Language"
+    },
+    "nav": {
+      "about": "About",
+      "blog": "Insights",
+      "contact": "Contact",
+      "events": "Events",
+      "home": "Home",
+      "pricing": "Pricing",
+      "primaryLabel": "Primary navigation",
+      "services": "Services",
+      "skipToContent": "Skip to content",
+      "toggleLabel": "Open main menu"
+    }
+  },
+  "contact": {
+    "form": {
+      "countryLabel": "Country",
+      "countryPlaceholder": "Select a country",
+      "emailLabel": "Work email",
+      "emailPlaceholder": "you@company.com",
+      "heading": "Send us a message",
+      "messageLabel": "How can we help?",
+      "messagePlaceholder": "A short description of your platform and the problem",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Your full name",
+      "phoneLabel": "Phone number",
+      "phonePlaceholder": "Include your country code",
+      "postalLabel": "Postal code",
+      "postalPlaceholder": "Postal code",
+      "submit": "Send message",
+      "successBody": "Thank you. An engineer will reply within two working days.",
+      "successTitle": "Message sent"
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "lead": "Tell us what you are building. We reply within two working days.",
+      "title": "Talk to an engineer"
+    },
+    "offices": {
+      "heading": "Our offices",
+      "hoursLabel": "Opening hours",
+      "phoneLabel": "Phone"
+    },
+    "validation": {
+      "emailInvalid": "Please enter a valid email address.",
+      "emailRequired": "Please enter your work email.",
+      "messageRequired": "Please tell us how we can help.",
+      "nameRequired": "Please enter your full name.",
+      "phoneInvalid": "Please enter a valid phone number for the selected country.",
+      "postalInvalid": "Please enter a valid postal code for the selected country."
+    }
+  },
+  "errors": {
+    "notFound": {
+      "action": "Back to home",
+      "body": "The page you are looking for does not exist or may have been moved.",
+      "code": "404",
+      "title": "Page not found"
+    },
+    "serverError": {
+      "action": "Back to home",
+      "body": "An unexpected error occurred on our side. The details have been logged.",
+      "code": "500",
+      "title": "Something went wrong"
+    }
+  },
+  "events": {
+    "calendar": {
+      "heading": "Planning ahead",
+      "timezoneNote": "All times are shown in the local time of the host city.",
+      "weekStartsNote": "Our published schedule follows the local working week."
+    },
+    "empty": {
+      "body": "There are no upcoming sessions in this region right now. Check back next quarter.",
+      "title": "No sessions scheduled"
+    },
+    "hero": {
+      "eyebrow": "Events",
+      "lead": "Workshops and talks run by our engineers. Attendance is free; seats are limited.",
+      "title": "Where you can find us"
+    },
+    "list": {
+      "heading": "Upcoming sessions",
+      "registerCta": "Register",
+      "seatsHeading": "Availability",
+      "sessionHeading": "Session",
+      "whenHeading": "When",
+      "whereHeading": "Where"
+    }
+  },
+  "home": {
+    "cta": {
+      "body": "Tell us where your platform hurts and we will send an engineer, not a salesperson.",
+      "button": "Contact sales",
+      "title": "Ready to start?"
+    },
+    "hero": {
+      "eyebrow": "Global technology consulting",
+      "lead": "RGT Global helps engineering organisations design, build and operate platforms that hold up across languages, currencies and regulatory regimes.",
+      "primaryCta": "Get started",
+      "secondaryCta": "Talk to our team",
+      "title": "Ship software that works in every market you enter"
+    },
+    "pillars": {
+      "dataBody": "Warehouses, pipelines and governance that survive an audit and still answer questions quickly.",
+      "dataTitle": "Data and analytics",
+      "heading": "What we do",
+      "lead": "Three practices, one delivery model.",
+      "modernisationBody": "Incremental migration off legacy systems, with the business running throughout.",
+      "modernisationTitle": "Modernisation",
+      "platformBody": "We build the internal platforms your product teams deploy on, so releases stop being events.",
+      "platformTitle": "Platform engineering"
+    },
+    "stats": {
+      "clientsLabel": "Enterprise clients",
+      "clientsValue": "240",
+      "countriesLabel": "Countries served",
+      "countriesValue": "14",
+      "engineersLabel": "Engineers on staff",
+      "engineersValue": "1,180",
+      "heading": "By the numbers",
+      "uptimeLabel": "Platform uptime",
+      "uptimeValue": "99.95%"
+    },
+    "testimonial": {
+      "attribution": "Head of Engineering, a European logistics group",
+      "englishOriginalNote": "Quoted in the original English.",
+      "heading": "What our clients say",
+      "quote": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter."
+    }
+  },
+  "pricing": {
+    "cta": {
+      "body": "Above 500 seats we price per organisation. Tell us your shape and we will quote.",
+      "button": "Contact sales",
+      "title": "Need something larger?"
+    },
+    "hero": {
+      "eyebrow": "Pricing",
+      "lead": "CloudBridge is billed per seat, per month. Consulting engagements are quoted separately.",
+      "title": "Transparent platform pricing"
+    },
+    "notes": {
+      "annualDiscount": "Annual billing saves 15%.",
+      "heading": "Billing notes",
+      "productCode": "Reference this product code when raising a purchase order: 12/05/2024.",
+      "seatOverage": "Additional seats are billed at the same rate.",
+      "vat": "Prices exclude applicable sales tax."
+    },
+    "table": {
+      "cadence": "per month",
+      "featuredBadge": "Most popular",
+      "featuresHeading": "What is included",
+      "planHeading": "Plan",
+      "priceHeading": "Price",
+      "seatsHeading": "Included seats",
+      "uptimeHeading": "Uptime commitment"
+    }
+  },
+  "services": {
+    "data": {
+      "body": "Warehouses, streaming pipelines and the governance that keeps them trustworthy.",
+      "bullet1": "Warehouse and lakehouse design",
+      "bullet2": "Streaming and batch pipelines",
+      "bullet3": "Data governance and lineage",
+      "cta": "Explore data and analytics",
+      "title": "Data and analytics"
+    },
+    "engagement": {
+      "heading": "How an engagement starts",
+      "step1Body": "Two to four weeks. We read the code, interview the teams and write down what we found.",
+      "step1Title": "Assessment",
+      "step2Body": "One team, one workflow, delivered end to end so the approach is proven before it scales.",
+      "step2Title": "Pilot",
+      "step3Body": "A named team embedded with yours, with a handover plan from day one.",
+      "step3Title": "Standing team"
+    },
+    "hero": {
+      "eyebrow": "Services",
+      "lead": "Most clients start with an assessment and grow into a standing engagement.",
+      "title": "Three practices that work as one delivery model"
+    },
+    "modernisation": {
+      "body": "Incremental migration off legacy systems, with the business running throughout.",
+      "bullet1": "Legacy assessment and mapping",
+      "bullet2": "Strangler-pattern migration",
+      "bullet3": "Decommissioning and handover",
+      "cta": "Explore modernisation",
+      "title": "Modernisation"
+    },
+    "notes": {
+      "configFile": "Pipelines are declared in deploy.config.yaml at the repository root.",
+      "heading": "Implementation notes",
+      "nullRegion": "A null region means the platform default is used.",
+      "regionExample": "Pin a region explicitly, for example { \"region\": \"eu-central-1\" }."
+    },
+    "platform": {
+      "body": "Internal developer platforms, CI/CD, observability and the operational practice around them.",
+      "bullet1": "Build and release pipelines",
+      "bullet2": "Kubernetes and runtime platforms",
+      "bullet3": "Observability and incident practice",
+      "cta": "Explore platform engineering",
+      "title": "Platform engineering"
+    }
+  }
+}

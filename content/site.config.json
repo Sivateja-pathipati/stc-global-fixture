@@ -1,0 +1,9 @@
+{
+  "siteName": "RGT Global",
+  "origins": {
+    "clean": "https://rgt-global-clean.vercel.app",
+    "seeded": "https://rgt-global-seeded.vercel.app"
+  },
+  "ogImagePath": "/images/og-default.svg",
+  "fixtureVersion": "1.0.0"
+}

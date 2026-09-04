@@ -1,0 +1,238 @@
+{
+  "version": "1.1.0",
+  "note": "Maps the fixture's own defect vocabulary onto the detector's IssueType enum. Keyed per kind, not per entry: the relationship is taxonomic, and 150 per-entry copies would drift the first time a type is renamed. issueType null means no rule covers this kind yet - level says when it is expected to. Trap rows carry guards instead: the rules that must stay silent on them.",
+  "kinds": {
+    "dom.altTextMissing": {
+      "issueType": null,
+      "level": 3
+    },
+    "dom.altTextUntranslated": {
+      "issueType": null,
+      "level": 3
+    },
+    "dom.ariaUntranslated": {
+      "issueType": null,
+      "level": 3
+    },
+    "dom.clipped": {
+      "issueType": null,
+      "level": 4
+    },
+    "dom.overflow": {
+      "issueType": null,
+      "level": 4
+    },
+    "dom.placeholderUntranslated": {
+      "issueType": null,
+      "level": 3
+    },
+    "dom.textInImage": {
+      "issueType": null,
+      "level": 4
+    },
+    "dom.wrapped": {
+      "issueType": null,
+      "level": 4
+    },
+    "format.address": {
+      "issueType": null,
+      "level": 2
+    },
+    "format.currency": {
+      "issueType": null,
+      "level": 2
+    },
+    "format.date": {
+      "issueType": null,
+      "level": 2
+    },
+    "format.number": {
+      "issueType": null,
+      "level": 2
+    },
+    "format.phone": {
+      "issueType": null,
+      "level": 2
+    },
+    "format.time": {
+      "issueType": null,
+      "level": 2
+    },
+    "head.byteOrderMark": {
+      "issueType": "EncodingBomError",
+      "level": 1
+    },
+    "head.canonical": {
+      "issueType": null,
+      "level": 3
+    },
+    "head.charset": {
+      "issueType": null,
+      "level": 3
+    },
+    "head.description": {
+      "issueType": null,
+      "level": 3
+    },
+    "head.hreflang": {
+      "issueType": null,
+      "level": 3
+    },
+    "head.lang": {
+      "issueType": null,
+      "level": 3
+    },
+    "head.og": {
+      "issueType": null,
+      "level": 3
+    },
+    "head.title": {
+      "issueType": null,
+      "level": 3
+    },
+    "header.contentLanguage": {
+      "issueType": null,
+      "level": 3
+    },
+    "header.contentType": {
+      "issueType": null,
+      "level": 3
+    },
+    "route.localeIgnored": {
+      "issueType": null,
+      "level": 3
+    },
+    "route.localeLostOnAuth": {
+      "issueType": null,
+      "level": 3
+    },
+    "route.notFoundUnlocalized": {
+      "issueType": null,
+      "level": 3
+    },
+    "route.precedenceViolation": {
+      "issueType": null,
+      "level": 3
+    },
+    "translation.byteOrderMark": {
+      "issueType": "EncodingBomError",
+      "level": 1
+    },
+    "translation.concatenated": {
+      "issueType": "MalformedConcatenation",
+      "level": 1
+    },
+    "translation.controlChar": {
+      "issueType": "UnsupportedCharacter",
+      "level": 1
+    },
+    "translation.diacriticsStripped": {
+      "issueType": null,
+      "level": 2
+    },
+    "translation.hardcoded": {
+      "issueType": null,
+      "level": 2
+    },
+    "translation.icuSyntax": {
+      "issueType": "IcuSyntaxError",
+      "level": 1
+    },
+    "translation.marker": {
+      "issueType": "TranslationMarkerLeak",
+      "level": 1
+    },
+    "translation.missing": {
+      "issueType": null,
+      "level": 2
+    },
+    "translation.mojibake": {
+      "issueType": "EncodingError",
+      "level": 1
+    },
+    "translation.nullValue": {
+      "issueType": "NullOrUndefinedRendered",
+      "level": 1
+    },
+    "translation.placeholder": {
+      "issueType": "UnresolvedPlaceholder",
+      "level": 1
+    },
+    "translation.rawKey": {
+      "issueType": "RawResourceKey",
+      "level": 1
+    },
+    "translation.truncated": {
+      "issueType": null,
+      "level": 2
+    },
+    "translation.untranslated": {
+      "issueType": null,
+      "level": 2
+    },
+    "translation.wrongLanguage": {
+      "issueType": null,
+      "level": 2
+    },
+    "trap.bracedLiteral": {
+      "issueType": null,
+      "level": null,
+      "guards": ["UnresolvedPlaceholder", "IcuSyntaxError"]
+    },
+    "trap.brandName": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.cognate": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.dottedIdentifier": {
+      "issueType": null,
+      "level": null,
+      "guards": ["RawResourceKey"]
+    },
+    "trap.internationalPhone": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.latinNumerals": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.legalEntity": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.loanword": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.nullInProse": {
+      "issueType": null,
+      "level": null,
+      "guards": ["NullOrUndefinedRendered"]
+    },
+    "trap.productCode": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.taggedForeignQuote": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    },
+    "trap.versionString": {
+      "issueType": null,
+      "level": null,
+      "guards": []
+    }
+  }
+}

@@ -1,0 +1,331 @@
+{
+  "plans": [
+    {
+      "id": "starter",
+      "featured": false,
+      "name": { "en-US": "Starter", "de-DE": "Starter", "hi-IN": "स्टार्टर" },
+      "price": { "en-US": "$349", "de-DE": "319,00 €", "hi-IN": "₹28,900" },
+      "cadence": { "en-US": "per month", "de-DE": "pro Monat", "hi-IN": "प्रति माह" },
+      "seats": { "en-US": "Up to 25", "de-DE": "Bis zu 25", "hi-IN": "25 तक" },
+      "uptime": { "en-US": "99.5%", "de-DE": "99,5 %", "hi-IN": "99.5%" },
+      "features": {
+        "en-US": ["Build pipelines", "Standard support", "Two environments"],
+        "de-DE": ["Build-Pipelines", "Standard-Support", "Zwei Umgebungen"],
+        "hi-IN": ["बिल्ड पाइपलाइन", "मानक सहायता", "दो परिवेश"]
+      }
+    },
+    {
+      "id": "team",
+      "featured": true,
+      "name": { "en-US": "Team", "de-DE": "Team", "hi-IN": "Team" },
+      "price": { "en-US": "$1,349", "de-DE": "1.249,00 €", "hi-IN": "₹1,03,900" },
+      "cadence": { "en-US": "per month", "de-DE": "pro Monat", "hi-IN": "प्रति माह" },
+      "seats": { "en-US": "Up to 120", "de-DE": "Bis zu 120", "hi-IN": "120 तक" },
+      "uptime": { "en-US": "99.95%", "de-DE": "99,95 %", "hi-IN": "99.95%" },
+      "features": {
+        "en-US": [
+          "Everything in Starter",
+          "Observability suite",
+          "Unlimited environments",
+          "Priority support"
+        ],
+        "de-DE": [
+          "Alles aus Starter",
+          "Observability-Paket",
+          "Unbegrenzte Umgebungen",
+          "Bevorzugter Support"
+        ],
+        "hi-IN": [
+          "स्टार्टर की सभी सुविधाएँ",
+          "ऑब्ज़र्वेबिलिटी सूट",
+          "असीमित परिवेश",
+          "प्राथमिकता सहायता"
+        ]
+      }
+    },
+    {
+      "id": "enterprise",
+      "featured": false,
+      "name": { "en-US": "Enterprise", "de-DE": "Enterprise", "hi-IN": "एंटरप्राइज़" },
+      "price": { "en-US": "Custom", "de-DE": "Auf Anfrage", "hi-IN": "अनुरोध पर" },
+      "cadence": {
+        "en-US": "billed annually",
+        "de-DE": "jährliche Abrechnung",
+        "hi-IN": "वार्षिक बिलिंग"
+      },
+      "seats": { "en-US": "500 and above", "de-DE": "Ab 500", "hi-IN": "500 और अधिक" },
+      "uptime": { "en-US": "99.99%", "de-DE": "99,99 %", "hi-IN": "99.99%" },
+      "features": {
+        "en-US": [
+          "Everything in Team",
+          "Dedicated delivery lead",
+          "Custom data residency",
+          "24/7 incident response"
+        ],
+        "de-DE": [
+          "Alles aus Team",
+          "Feste Projektleitung",
+          "Individueller Datenstandort",
+          "Störungsdienst rund um die Uhr"
+        ],
+        "hi-IN": [
+          "Team की सभी सुविधाएँ",
+          "समर्पित वितरण प्रमुख",
+          "अनुकूलित डेटा निवास",
+          "24/7 इंसिडेंट प्रतिक्रिया"
+        ]
+      }
+    }
+  ],
+
+  "events": [
+    {
+      "id": "berlin-platform",
+      "city": { "en-US": "Berlin", "de-DE": "Berlin", "hi-IN": "बर्लिन" },
+      "title": {
+        "en-US": "Platform engineering in regulated industries",
+        "de-DE": "Plattform-Engineering in regulierten Branchen",
+        "hi-IN": "विनियमित उद्योगों में प्लेटफ़ॉर्म इंजीनियरिंग"
+      },
+      "when": {
+        "en-US": "17 March 2026, 14:00 CET",
+        "de-DE": "17. März 2026, 14:00 Uhr MEZ",
+        "hi-IN": "17 मार्च 2026, दोपहर 2:00 बजे CET"
+      },
+      "seatsLabel": { "en-US": "12 seats left", "de-DE": "Noch 12 Plätze", "hi-IN": "12 सीटें शेष" }
+    },
+    {
+      "id": "hyderabad-data",
+      "city": { "en-US": "Hyderabad", "de-DE": "Hyderabad", "hi-IN": "हैदराबाद" },
+      "title": {
+        "en-US": "Designing a lakehouse that survives an audit",
+        "de-DE": "Ein Lakehouse entwerfen, das einer Prüfung standhält",
+        "hi-IN": "ऐसा लेकहाउस डिज़ाइन करना जो ऑडिट में खरा उतरे"
+      },
+      "when": {
+        "en-US": "24 March 2026, 10:00 IST",
+        "de-DE": "24. März 2026, 10:00 Uhr IST",
+        "hi-IN": "24 मार्च 2026, सुबह 10:00 बजे IST"
+      },
+      "seatsLabel": { "en-US": "40 seats left", "de-DE": "Noch 40 Plätze", "hi-IN": "40 सीटें शेष" }
+    },
+    {
+      "id": "toronto-modernisation",
+      "city": { "en-US": "Toronto", "de-DE": "Toronto", "hi-IN": "टोरंटो" },
+      "title": {
+        "en-US": "Strangling a mainframe without stopping the business",
+        "de-DE": "Einen Großrechner ablösen, ohne den Betrieb anzuhalten",
+        "hi-IN": "कारोबार रोके बिना मेनफ़्रेम को चरणबद्ध रूप से हटाना"
+      },
+      "when": {
+        "en-US": "2 April 2026, 09:30 EDT",
+        "de-DE": "2. April 2026, 09:30 Uhr EDT",
+        "hi-IN": "2 अप्रैल 2026, सुबह 9:30 बजे EDT"
+      },
+      "seatsLabel": { "en-US": "Waiting list", "de-DE": "Warteliste", "hi-IN": "प्रतीक्षा सूची" }
+    }
+  ],
+
+  "offices": [
+    {
+      "id": "berlin",
+      "city": { "en-US": "Berlin", "de-DE": "Berlin", "hi-IN": "बर्लिन" },
+      "addressLines": {
+        "en-US": ["Chausseestraße 112", "10115 Berlin", "Germany"],
+        "de-DE": ["Chausseestraße 112", "10115 Berlin", "Deutschland"],
+        "hi-IN": ["Chausseestraße 112", "10115 बर्लिन", "जर्मनी"]
+      },
+      "phone": { "en-US": "+49 30 901820", "de-DE": "+49 30 901820", "hi-IN": "+49 30 901820" },
+      "hours": {
+        "en-US": "Monday to Friday, 09:00–17:30",
+        "de-DE": "Montag bis Freitag, 09:00–17:30 Uhr",
+        "hi-IN": "सोमवार से शुक्रवार, 09:00–17:30"
+      }
+    },
+    {
+      "id": "hyderabad",
+      "city": { "en-US": "Hyderabad", "de-DE": "Hyderabad", "hi-IN": "हैदराबाद" },
+      "addressLines": {
+        "en-US": ["Plot 42, HITEC City", "Hyderabad 500081", "India"],
+        "de-DE": ["Plot 42, HITEC City", "Hyderabad 500081", "Indien"],
+        "hi-IN": ["प्लॉट 42, हाइटेक सिटी", "हैदराबाद 500081", "भारत"]
+      },
+      "phone": {
+        "en-US": "+91 40 2345 6789",
+        "de-DE": "+91 40 2345 6789",
+        "hi-IN": "+91 40 2345 6789"
+      },
+      "hours": {
+        "en-US": "Monday to Friday, 09:30–18:30",
+        "de-DE": "Montag bis Freitag, 09:30–18:30 Uhr",
+        "hi-IN": "सोमवार से शुक्रवार, 09:30–18:30"
+      }
+    },
+    {
+      "id": "toronto",
+      "city": { "en-US": "Toronto", "de-DE": "Toronto", "hi-IN": "टोरंटो" },
+      "addressLines": {
+        "en-US": ["330 Bay Street, Suite 1400", "Toronto, ON M5H 2S8", "Canada"],
+        "de-DE": ["330 Bay Street, Suite 1400", "Toronto, ON M5H 2S8", "Kanada"],
+        "hi-IN": ["330 बे स्ट्रीट, सुइट 1400", "टोरंटो, ON M5H 2S8", "कनाडा"]
+      },
+      "phone": {
+        "en-US": "+1 416 555 0142",
+        "de-DE": "+1 416 555 0142",
+        "hi-IN": "+1 416 555 0142"
+      },
+      "hours": {
+        "en-US": "Monday to Friday, 08:30–17:00",
+        "de-DE": "Montag bis Freitag, 08:30–17:00 Uhr",
+        "hi-IN": "सोमवार से शुक्रवार, 08:30–17:00"
+      }
+    }
+  ],
+
+  "posts": [
+    {
+      "slug": "scaling-globally",
+      "author": "Priya Raghavan",
+      "heroImage": "/images/article-platform.svg",
+      "tags": ["platform", "scale"],
+      "published": {
+        "en-US": "12 February 2026",
+        "de-DE": "12. Februar 2026",
+        "hi-IN": "12 फ़रवरी 2026"
+      },
+      "readingTime": {
+        "en-US": "7 min read",
+        "de-DE": "7 Min. Lesezeit",
+        "hi-IN": "7 मिनट का पठन"
+      },
+      "title": {
+        "en-US": "What actually breaks when you scale to a second region",
+        "de-DE": "Was tatsächlich bricht, wenn Sie in eine zweite Region skalieren",
+        "hi-IN": "जब आप दूसरे क्षेत्र में विस्तार करते हैं तो वास्तव में क्या टूटता है"
+      },
+      "excerpt": {
+        "en-US": "It is rarely the database. Six failures we see repeatedly in the first ninety days of a multi-region rollout.",
+        "de-DE": "Es ist selten die Datenbank. Sechs Fehler, die uns in den ersten neunzig Tagen einer Multi-Region-Einführung immer wieder begegnen.",
+        "hi-IN": "यह शायद ही कभी डेटाबेस होता है। बहु-क्षेत्रीय रोलआउट के पहले नब्बे दिनों में बार-बार दिखने वाली छह विफलताएँ।"
+      },
+      "heroAlt": {
+        "en-US": "Diagram of a two-region deployment topology",
+        "de-DE": "Diagramm einer Bereitstellungstopologie über zwei Regionen",
+        "hi-IN": "दो-क्षेत्रीय परिनियोजन टोपोलॉजी का आरेख"
+      },
+      "body": {
+        "en-US": [
+          "Every team we work with expects the database to be the hard part of a second region. In practice it almost never is. Replication is a solved problem with well-understood trade-offs, and most teams pick a reasonable one on the first attempt.",
+          "What breaks instead is everything that quietly assumed a single region: the deployment pipeline that hardcodes one cluster, the feature flag service with one origin, the observability stack whose dashboards aggregate across regions and hide the outage in one of them.",
+          "The most expensive failure is usually configuration. A second region doubles the number of places a value can be wrong, and configuration drift produces failures that look like application bugs. Treat configuration as a build artefact, not as state."
+        ],
+        "de-DE": [
+          "Jedes Team, mit dem wir arbeiten, erwartet, dass die Datenbank der schwierige Teil einer zweiten Region ist. In der Praxis ist sie es fast nie. Replikation ist ein gelöstes Problem mit gut verstandenen Kompromissen, und die meisten Teams treffen beim ersten Versuch eine vernünftige Wahl.",
+          "Was stattdessen bricht, ist alles, was stillschweigend von einer einzigen Region ausgegangen ist: die Bereitstellungspipeline, die einen Cluster fest verdrahtet, der Feature-Flag-Dienst mit nur einem Ursprung, der Observability-Stack, dessen Dashboards über Regionen hinweg aggregieren und den Ausfall in einer davon verbergen.",
+          "Der teuerste Fehler ist meist die Konfiguration. Eine zweite Region verdoppelt die Zahl der Stellen, an denen ein Wert falsch sein kann, und Konfigurationsabweichungen erzeugen Fehler, die wie Anwendungsfehler aussehen. Behandeln Sie Konfiguration als Build-Artefakt, nicht als Zustand."
+        ],
+        "hi-IN": [
+          "जिस भी टीम के साथ हम काम करते हैं, वह मानती है कि दूसरे क्षेत्र में सबसे कठिन हिस्सा डेटाबेस होगा। व्यवहार में ऐसा लगभग कभी नहीं होता। प्रतिकृति एक सुलझी हुई समस्या है जिसके समझौते भली-भाँति समझे जा चुके हैं, और अधिकांश टीमें पहली ही बार में उचित विकल्प चुन लेती हैं।",
+          "इसके बजाय वह सब टूटता है जिसने चुपचाप एक ही क्षेत्र मान लिया था: वह परिनियोजन पाइपलाइन जिसमें एक ही क्लस्टर तय है, एकल मूल वाली फ़ीचर फ़्लैग सेवा, और वह ऑब्ज़र्वेबिलिटी स्टैक जिसके डैशबोर्ड सभी क्षेत्रों को एक साथ जोड़कर किसी एक क्षेत्र की विफलता छिपा देते हैं।",
+          "सबसे महँगी विफलता आमतौर पर कॉन्फ़िगरेशन होती है। दूसरा क्षेत्र उन जगहों की संख्या दोगुनी कर देता है जहाँ कोई मान ग़लत हो सकता है, और कॉन्फ़िगरेशन विचलन ऐसी विफलताएँ पैदा करता है जो एप्लिकेशन की गड़बड़ियों जैसी दिखती हैं। कॉन्फ़िगरेशन को स्थिति नहीं, बल्कि बिल्ड आर्टिफ़ैक्ट मानें।"
+        ]
+      }
+    },
+    {
+      "slug": "observability-budget",
+      "author": "Martin Ostermann",
+      "heroImage": "/images/article-observability.svg",
+      "tags": ["observability", "cost"],
+      "published": {
+        "en-US": "3 February 2026",
+        "de-DE": "3. Februar 2026",
+        "hi-IN": "3 फ़रवरी 2026"
+      },
+      "readingTime": {
+        "en-US": "5 min read",
+        "de-DE": "5 Min. Lesezeit",
+        "hi-IN": "5 मिनट का पठन"
+      },
+      "title": {
+        "en-US": "Your observability bill is a design document",
+        "de-DE": "Ihre Observability-Rechnung ist ein Entwurfsdokument",
+        "hi-IN": "आपका ऑब्ज़र्वेबिलिटी बिल एक डिज़ाइन दस्तावेज़ है"
+      },
+      "excerpt": {
+        "en-US": "If you cannot explain which service generates most of your telemetry spend, you do not yet understand your architecture.",
+        "de-DE": "Wenn Sie nicht erklären können, welcher Dienst den Großteil Ihrer Telemetriekosten verursacht, haben Sie Ihre Architektur noch nicht verstanden.",
+        "hi-IN": "यदि आप यह नहीं बता सकते कि आपके टेलीमेट्री खर्च का अधिकांश हिस्सा कौन-सी सेवा पैदा करती है, तो आपने अपनी आर्किटेक्चर अभी समझी नहीं है।"
+      },
+      "heroAlt": {
+        "en-US": "Chart showing telemetry volume by service",
+        "de-DE": "Diagramm des Telemetrievolumens nach Dienst",
+        "hi-IN": "सेवा के अनुसार टेलीमेट्री मात्रा दर्शाता चार्ट"
+      },
+      "body": {
+        "en-US": [
+          "Telemetry cost is one of the few metrics that is impossible to fake. It reports, in currency, exactly how chatty each component is and how little you have thought about cardinality.",
+          "We ask new clients to produce a breakdown of telemetry spend by service before we look at any code. The teams that can produce it in an afternoon almost always have a coherent architecture. The teams that cannot usually discover that one service accounts for sixty per cent of the bill, and that nobody has looked at its dashboards in a year.",
+          "The fix is rarely sampling. It is deleting the metrics nobody reads, capping label cardinality at the emit site, and moving debug-level detail to logs that expire in seven days."
+        ],
+        "de-DE": [
+          "Telemetriekosten sind eine der wenigen Kennzahlen, die sich nicht schönrechnen lassen. Sie zeigen in Geldbeträgen genau, wie gesprächig jede Komponente ist und wie wenig über Kardinalität nachgedacht wurde.",
+          "Wir bitten neue Kunden, eine Aufschlüsselung der Telemetriekosten nach Dienst vorzulegen, bevor wir uns überhaupt den Code ansehen. Teams, die das an einem Nachmittag schaffen, haben fast immer eine schlüssige Architektur. Teams, die es nicht schaffen, stellen meist fest, dass ein einziger Dienst sechzig Prozent der Rechnung ausmacht und seit einem Jahr niemand mehr auf dessen Dashboards geschaut hat.",
+          "Die Lösung ist selten Sampling. Sie besteht darin, ungelesene Metriken zu löschen, die Label-Kardinalität schon an der Quelle zu begrenzen und Details auf Debug-Ebene in Logs zu verschieben, die nach sieben Tagen verfallen."
+        ],
+        "hi-IN": [
+          "टेलीमेट्री लागत उन कुछ मापों में से एक है जिसे छिपाया नहीं जा सकता। यह मुद्रा में ठीक-ठीक बताती है कि हर घटक कितना बातूनी है और कार्डिनैलिटी पर कितना कम विचार किया गया है।",
+          "हम नए ग्राहकों से कहते हैं कि कोड देखने से पहले वे सेवा-वार टेलीमेट्री खर्च का विवरण तैयार करें। जो टीमें इसे एक दोपहर में तैयार कर लेती हैं, उनकी आर्किटेक्चर लगभग हमेशा सुसंगत होती है। जो नहीं कर पातीं, वे प्रायः पाती हैं कि एक ही सेवा बिल का साठ प्रतिशत खर्च करती है और साल भर से किसी ने उसके डैशबोर्ड नहीं देखे।",
+          "समाधान शायद ही कभी सैंपलिंग होता है। समाधान है उन मापों को हटाना जिन्हें कोई नहीं पढ़ता, स्रोत पर ही लेबल कार्डिनैलिटी सीमित करना, और डिबग-स्तर के विवरण को ऐसे लॉग में भेजना जो सात दिनों में समाप्त हो जाएँ।"
+        ]
+      }
+    },
+    {
+      "slug": "migration-without-freeze",
+      "author": "Élodie Fontaine",
+      "heroImage": "/images/article-migration.svg",
+      "tags": ["modernisation", "migration"],
+      "published": {
+        "en-US": "21 January 2026",
+        "de-DE": "21. Januar 2026",
+        "hi-IN": "21 जनवरी 2026"
+      },
+      "readingTime": {
+        "en-US": "9 min read",
+        "de-DE": "9 Min. Lesezeit",
+        "hi-IN": "9 मिनट का पठन"
+      },
+      "title": {
+        "en-US": "Migrations that do not need a feature freeze",
+        "de-DE": "Migrationen, die keinen Feature-Stopp brauchen",
+        "hi-IN": "ऐसे प्रवास जिनके लिए फ़ीचर फ़्रीज़ की ज़रूरत नहीं"
+      },
+      "excerpt": {
+        "en-US": "A freeze is an admission that you cannot run two systems at once. Usually you can, and the alternative costs less.",
+        "de-DE": "Ein Feature-Stopp ist das Eingeständnis, nicht zwei Systeme gleichzeitig betreiben zu können. Meist können Sie es doch, und die Alternative kostet weniger.",
+        "hi-IN": "फ़्रीज़ इस बात की स्वीकारोक्ति है कि आप एक साथ दो प्रणालियाँ नहीं चला सकते। आमतौर पर आप चला सकते हैं, और विकल्प सस्ता पड़ता है।"
+      },
+      "heroAlt": {
+        "en-US": "Illustration of traffic shifting gradually between two systems",
+        "de-DE": "Illustration eines schrittweisen Verkehrswechsels zwischen zwei Systemen",
+        "hi-IN": "दो प्रणालियों के बीच क्रमिक ट्रैफ़िक स्थानांतरण का चित्रण"
+      },
+      "body": {
+        "en-US": [
+          "A feature freeze converts a technical problem into an organisational one. Product stops shipping, the migration absorbs the blame for every missed commitment, and the team under the most pressure is the one that most needs to be careful.",
+          "The alternative is to route traffic rather than cut over. Put a facade in front of the old system, move one endpoint at a time, and keep both implementations live until the new one has served real traffic for long enough to be boring.",
+          "This is slower on paper and faster in practice, because every step is independently reversible. The rollback for a bad migration step is a routing change, not a restore from backup."
+        ],
+        "de-DE": [
+          "Ein Feature-Stopp verwandelt ein technisches Problem in ein organisatorisches. Das Produkt liefert nichts mehr aus, die Migration bekommt die Schuld für jede verfehlte Zusage, und ausgerechnet das Team unter dem größten Druck müsste am sorgfältigsten arbeiten.",
+          "Die Alternative besteht darin, den Verkehr umzuleiten statt umzuschalten. Setzen Sie eine Fassade vor das Altsystem, verschieben Sie einen Endpunkt nach dem anderen und halten Sie beide Implementierungen aktiv, bis die neue lange genug echten Verkehr bedient hat, um langweilig zu sein.",
+          "Auf dem Papier ist das langsamer, in der Praxis schneller, weil jeder Schritt unabhängig umkehrbar ist. Das Zurückrollen eines fehlerhaften Migrationsschritts ist eine Routing-Änderung und keine Wiederherstellung aus dem Backup."
+        ],
+        "hi-IN": [
+          "फ़ीचर फ़्रीज़ एक तकनीकी समस्या को संगठनात्मक समस्या में बदल देता है। उत्पाद की डिलीवरी रुक जाती है, हर छूटे वादे का दोष प्रवास पर आ जाता है, और जिस टीम पर सबसे अधिक दबाव है उसे ही सबसे अधिक सावधानी बरतनी होती है।",
+          "विकल्प यह है कि पूरी तरह स्विच करने के बजाय ट्रैफ़िक को क्रमशः मोड़ा जाए। पुरानी प्रणाली के आगे एक फ़साड लगाइए, एक बार में एक एंडपॉइंट स्थानांतरित कीजिए, और दोनों कार्यान्वयन तब तक सक्रिय रखिए जब तक नया इतने समय तक वास्तविक ट्रैफ़िक न संभाल ले कि वह उबाऊ लगने लगे।",
+          "काग़ज़ पर यह धीमा है और व्यवहार में तेज़, क्योंकि हर चरण स्वतंत्र रूप से पलटा जा सकता है। किसी ग़लत प्रवास चरण को वापस लेना एक रूटिंग परिवर्तन है, बैकअप से पुनर्स्थापना नहीं।"
+        ]
+      }
+    }
+  ]
+}

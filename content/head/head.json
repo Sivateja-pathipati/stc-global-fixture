@@ -1,0 +1,156 @@
+{
+  "home": {
+    "en-US": {
+      "title": "RGT Global — Engineering for global scale",
+      "description": "RGT Global helps engineering organisations design, build and operate platforms that hold up across languages, currencies and regulatory regimes."
+    },
+    "de-DE": {
+      "title": "RGT Global — Technik für globale Skalierung",
+      "description": "RGT Global unterstützt Entwicklungsorganisationen dabei, Plattformen zu bauen und zu betreiben, die über Sprachen, Währungen und Regulierungsräume hinweg tragfähig bleiben."
+    },
+    "hi-IN": {
+      "title": "RGT Global — वैश्विक स्तर के लिए इंजीनियरिंग",
+      "description": "RGT Global इंजीनियरिंग संगठनों को ऐसे प्लेटफ़ॉर्म बनाने और चलाने में मदद करता है जो भाषाओं, मुद्राओं और नियामक व्यवस्थाओं में टिके रहें।"
+    }
+  },
+  "about": {
+    "en-US": {
+      "title": "About RGT Global",
+      "description": "Founded in 2009, RGT Global is a distributed engineering partner with delivery centres in Hyderabad, Berlin and Toronto."
+    },
+    "de-DE": {
+      "title": "Über RGT Global",
+      "description": "RGT Global wurde 2009 gegründet und ist ein verteilter Entwicklungspartner mit Lieferzentren in Hyderabad, Berlin und Toronto."
+    },
+    "hi-IN": {
+      "title": "RGT Global के बारे में",
+      "description": "2009 में स्थापित, RGT Global हैदराबाद, बर्लिन और टोरंटो में वितरण केंद्रों वाला एक वितरित इंजीनियरिंग साझेदार है।"
+    }
+  },
+  "services": {
+    "en-US": {
+      "title": "Services — Platform, data and modernisation",
+      "description": "Platform engineering, data and analytics, and incremental modernisation, delivered by standing teams with a named technical lead."
+    },
+    "de-DE": {
+      "title": "Leistungen — Plattform, Daten und Modernisierung",
+      "description": "Plattform-Engineering, Daten und Analytik sowie schrittweise Modernisierung, erbracht von festen Teams mit benannter technischer Leitung."
+    },
+    "hi-IN": {
+      "title": "सेवाएँ — प्लेटफ़ॉर्म, डेटा और आधुनिकीकरण",
+      "description": "प्लेटफ़ॉर्म इंजीनियरिंग, डेटा और विश्लेषण, तथा चरणबद्ध आधुनिकीकरण — नामित तकनीकी प्रमुख वाली स्थायी टीमों द्वारा।"
+    }
+  },
+  "pricing": {
+    "en-US": {
+      "title": "CloudBridge pricing",
+      "description": "Transparent per-seat pricing for CloudBridge. Starter, Team and Enterprise plans with published uptime commitments."
+    },
+    "de-DE": {
+      "title": "CloudBridge Preise",
+      "description": "Transparente Preise pro Arbeitsplatz für CloudBridge. Tarife Starter, Team und Enterprise mit veröffentlichten Verfügbarkeitszusagen."
+    },
+    "hi-IN": {
+      "title": "CloudBridge मूल्य",
+      "description": "CloudBridge के लिए पारदर्शी प्रति-सीट मूल्य। प्रकाशित उपलब्धता प्रतिबद्धताओं के साथ स्टार्टर, Team और एंटरप्राइज़ योजनाएँ।"
+    }
+  },
+  "events": {
+    "en-US": {
+      "title": "Events and workshops",
+      "description": "Free workshops and talks run by RGT Global engineers in Berlin, Hyderabad and Toronto."
+    },
+    "de-DE": {
+      "title": "Veranstaltungen und Workshops",
+      "description": "Kostenlose Workshops und Vorträge von RGT-Global-Ingenieuren in Berlin, Hyderabad und Toronto."
+    },
+    "hi-IN": {
+      "title": "कार्यक्रम और कार्यशालाएँ",
+      "description": "बर्लिन, हैदराबाद और टोरंटो में RGT Global के इंजीनियरों द्वारा संचालित निःशुल्क कार्यशालाएँ और व्याख्यान।"
+    }
+  },
+  "contact": {
+    "en-US": {
+      "title": "Contact RGT Global",
+      "description": "Talk to an engineer about your platform. We reply within two working days."
+    },
+    "de-DE": {
+      "title": "RGT Global kontaktieren",
+      "description": "Sprechen Sie mit einer Ingenieurin oder einem Ingenieur über Ihre Plattform. Wir antworten innerhalb von zwei Werktagen."
+    },
+    "hi-IN": {
+      "title": "RGT Global से संपर्क करें",
+      "description": "अपने प्लेटफ़ॉर्म के बारे में किसी इंजीनियर से बात करें। हम दो कार्यदिवसों के भीतर उत्तर देते हैं।"
+    }
+  },
+  "blog": {
+    "en-US": {
+      "title": "Insights — Notes from our engineering practice",
+      "description": "Articles written by the RGT Global engineers doing the work, on platform engineering, observability and modernisation."
+    },
+    "de-DE": {
+      "title": "Einblicke — Notizen aus unserer Entwicklungspraxis",
+      "description": "Artikel der RGT-Global-Ingenieure, die die Arbeit machen, zu Plattform-Engineering, Observability und Modernisierung."
+    },
+    "hi-IN": {
+      "title": "अंतर्दृष्टि — हमारी इंजीनियरिंग प्रैक्टिस से टिप्पणियाँ",
+      "description": "प्लेटफ़ॉर्म इंजीनियरिंग, ऑब्ज़र्वेबिलिटी और आधुनिकीकरण पर, यह काम करने वाले RGT Global इंजीनियरों द्वारा लिखे लेख।"
+    }
+  },
+  "login": {
+    "en-US": {
+      "title": "Sign in — RGT Global client portal",
+      "description": "Client portal access for existing RGT Global engagements."
+    },
+    "de-DE": {
+      "title": "Anmelden — RGT Global Kundenportal",
+      "description": "Zugang zum Kundenportal für bestehende Projekte mit RGT Global."
+    },
+    "hi-IN": {
+      "title": "साइन इन — RGT Global ग्राहक पोर्टल",
+      "description": "RGT Global की मौजूदा परियोजनाओं के लिए ग्राहक पोर्टल पहुँच।"
+    }
+  },
+  "account": {
+    "en-US": {
+      "title": "Your account — RGT Global",
+      "description": "Your CloudBridge plan, seat usage and latest invoice."
+    },
+    "de-DE": {
+      "title": "Ihr Konto — RGT Global",
+      "description": "Ihr CloudBridge-Tarif, die genutzten Arbeitsplätze und die letzte Rechnung."
+    },
+    "hi-IN": {
+      "title": "आपका खाता — RGT Global",
+      "description": "आपकी CloudBridge योजना, सीट उपयोग और नवीनतम चालान।"
+    }
+  },
+  "notFound": {
+    "en-US": {
+      "title": "Page not found — RGT Global",
+      "description": "The page you are looking for does not exist or may have been moved."
+    },
+    "de-DE": {
+      "title": "Seite nicht gefunden — RGT Global",
+      "description": "Die gesuchte Seite existiert nicht oder wurde verschoben."
+    },
+    "hi-IN": {
+      "title": "पृष्ठ नहीं मिला — RGT Global",
+      "description": "आप जिस पृष्ठ को खोज रहे हैं वह मौजूद नहीं है या हटाया जा चुका है।"
+    }
+  },
+  "serverError": {
+    "en-US": {
+      "title": "Something went wrong — RGT Global",
+      "description": "An unexpected error occurred on our side. The details have been logged."
+    },
+    "de-DE": {
+      "title": "Etwas ist schiefgelaufen — RGT Global",
+      "description": "Auf unserer Seite ist ein unerwarteter Fehler aufgetreten. Die Einzelheiten wurden protokolliert."
+    },
+    "hi-IN": {
+      "title": "कुछ गड़बड़ हो गई — RGT Global",
+      "description": "हमारी ओर से एक अप्रत्याशित त्रुटि हुई। विवरण दर्ज कर लिया गया है।"
+    }
+  }
+}

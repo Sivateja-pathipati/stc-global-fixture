@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+@config '../tailwind.config.cjs';
+
+@layer base {
+  /* App-scoped design tokens, prefixed --rgt-*. Components reference these rather than
+     repeating hex literals, so a state-dependent colour is a token lookup and never an
+     inline value scattered across pages. */
+  :root {
+    /* ── Surfaces ── */
+    --rgt-bg-page: #fbfaf8;
+    --rgt-surface: #ffffff;
+    --rgt-surface-alt: #f4f2ee;
+    --rgt-surface-invert: #16181d;
+
+    /* ── Borders ── */
+    --rgt-border: #e4e1db;
+    --rgt-border-strong: #cfcbc2;
+
+    /* ── Text ── */
+    --rgt-text-strong: #14161a;
+    --rgt-text: #3d4048;
+    --rgt-text-muted: #767b85;
+    --rgt-text-invert: #f7f6f4;
+
+    /* ── Accent ── */
+    --rgt-accent: #b8422c;
+    --rgt-accent-hover: #9c3624;
+    --rgt-accent-soft: #fbeeea;
+
+    /* ── Status ── */
+    --rgt-success: #1f7a4d;
+    --rgt-success-soft: #e8f4ee;
+    --rgt-danger: #b3261e;
+    --rgt-danger-soft: #fbeae9;
+  }
+
+  html {
+    background-color: var(--rgt-bg-page);
+    color: var(--rgt-text);
+    font-family:
+      'Inter',
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Devanagari needs its own face; without this Hindi falls back unpredictably per platform
+     and any screenshot comparison across machines becomes noise. */
+  :lang(hi) {
+    font-family: 'Noto Sans Devanagari', 'Nirmala UI', system-ui, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--rgt-text-strong);
+    text-wrap: balance;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--rgt-accent);
+    outline-offset: 2px;
+  }
+}

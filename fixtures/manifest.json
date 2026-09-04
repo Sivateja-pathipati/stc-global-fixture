@@ -1,0 +1,3227 @@
+{
+  "version": "1.1.0",
+  "entries": [
+    {
+      "id": "DE-001",
+      "polarity": "defect",
+      "kind": "translation.rawKey",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "common",
+        "key": "nav.services",
+        "replacement": "nav.services.label"
+      },
+      "expected": "Leistungen",
+      "actual": "nav.services.label",
+      "detect": {
+        "testId": "nav-services",
+        "selector": "[data-rgt-id='nav-services']"
+      },
+      "rationale": "The raw resource key reaches the user because the lookup failed. Zero-ambiguity defect.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-002",
+      "polarity": "defect",
+      "kind": "translation.placeholder",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "home",
+        "key": "cta.body",
+        "replacement": "Sagen Sie uns, wo Ihre Plattform Probleme macht, und wir schicken {0}."
+      },
+      "expected": "Sagen Sie uns, wo Ihre Plattform Probleme macht, und wir schicken eine Ingenieurin oder einen Ingenieur, keine Vertriebskraft.",
+      "actual": "Sagen Sie uns, wo Ihre Plattform Probleme macht, und wir schicken {0}.",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "An unresolved positional placeholder rendered to the user.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-003",
+      "polarity": "defect",
+      "kind": "translation.marker",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "services",
+        "key": "data.bullet3",
+        "replacement": "[missing translation]"
+      },
+      "expected": "Data Governance und Herkunftsnachweis",
+      "actual": "[missing translation]",
+      "detect": {
+        "testId": "service-data",
+        "selector": "[data-rgt-id='service-data']"
+      },
+      "rationale": "An explicit tooling marker left in the shipped resource file.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-004",
+      "polarity": "defect",
+      "kind": "translation.nullValue",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "notes.annualDiscount",
+        "replacement": "Bei jährlicher Zahlung sparen Sie undefined %."
+      },
+      "expected": "Bei jährlicher Zahlung sparen Sie 15 %.",
+      "actual": "Bei jährlicher Zahlung sparen Sie undefined %.",
+      "detect": {
+        "testId": "pricing-note-annual",
+        "selector": "[data-rgt-id='pricing-note-annual']"
+      },
+      "rationale": "A JavaScript undefined reached the sentence, not an authored placeholder. Split out of translation.marker so a scoring run can tell NullOrUndefinedRendered and TranslationMarkerLeak apart.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-005",
+      "polarity": "defect",
+      "kind": "translation.placeholder",
+      "locale": "de-DE",
+      "routeId": "blog",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "list.readingTimeLabel",
+        "replacement": "Lesedauer %s"
+      },
+      "expected": "Lesedauer",
+      "actual": "Lesedauer %s",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "A printf-style token left over from a different templating system.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-006",
+      "polarity": "defect",
+      "kind": "translation.concatenated",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "hero.lead",
+        "replacement": "Sagen Sie uns, was Sie bauen . Wir antworten innerhalb von zwei Werktagen ."
+      },
+      "expected": "Sagen Sie uns, was Sie bauen. Wir antworten innerhalb von zwei Werktagen.",
+      "actual": "Sagen Sie uns, was Sie bauen . Wir antworten innerhalb von zwei Werktagen .",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Orphaned punctuation from a string join that assumed a different word order.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-007",
+      "polarity": "defect",
+      "kind": "translation.untranslated",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "story.p2",
+        "replacement": "Today we employ 1,180 engineers across delivery centres in Hyderabad, Berlin and Toronto. Roughly two-thirds of our work is multi-year platform engagements; the remainder is short-run modernisation and assessment work."
+      },
+      "expected": "Heute beschäftigen wir 1.180 Ingenieurinnen und Ingenieure in Lieferzentren in Hyderabad, Berlin und Toronto. Etwa zwei Drittel unserer Arbeit sind mehrjährige Plattformprojekte; der Rest sind kurzfristige Modernisierungs- und Bewertungsaufträge.",
+      "actual": "Today we employ 1,180 engineers across delivery centres in Hyderabad, Berlin and Toronto. Roughly two-thirds of our work is multi-year platform engagements; the remainder is short-run modernisation and assessment work.",
+      "detect": {
+        "testId": "about-story-p2",
+        "selector": "[data-rgt-id='about-story-p2']"
+      },
+      "rationale": "A whole paragraph left in the source language.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-008",
+      "polarity": "defect",
+      "kind": "translation.missing",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nDelete",
+        "namespace": "common",
+        "key": "nav.pricing"
+      },
+      "expected": "Preise",
+      "actual": "Pricing",
+      "detect": {
+        "testId": "nav-pricing",
+        "selector": "[data-rgt-id='nav-pricing']"
+      },
+      "rationale": "Key absent from the German bundle, so i18next falls back to English. Appears in the header on EVERY page — a detector should report this as ONE finding with many occurrences, not one finding per page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-009",
+      "polarity": "defect",
+      "kind": "translation.wrongLanguage",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "services",
+        "key": "modernisation.body",
+        "replacement": "Migration progressive depuis les systèmes hérités, sans interrompre l'activité."
+      },
+      "expected": "Schrittweise Migration weg von Altsystemen, während der Betrieb durchgehend weiterläuft.",
+      "actual": "Migration progressive depuis les systèmes hérités, sans interrompre l'activité.",
+      "detect": {
+        "testId": "service-modernisation",
+        "selector": "[data-rgt-id='service-modernisation']"
+      },
+      "rationale": "Third-language text: French on a German page, neither source nor target.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-010",
+      "polarity": "defect",
+      "kind": "translation.untranslated",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "home",
+        "key": "pillars.dataBody",
+        "replacement": "Data Warehouses, Pipelines und Governance that survive an audit and still answer questions quickly."
+      },
+      "expected": "Data Warehouses, Pipelines und Governance, die einer Prüfung standhalten und trotzdem schnell Antworten liefern.",
+      "actual": "Data Warehouses, Pipelines und Governance that survive an audit and still answer questions quickly.",
+      "detect": {
+        "testId": "home-pillar-data",
+        "selector": "[data-rgt-id='home-pillar-data']"
+      },
+      "rationale": "Mixed language inside a single component — half translated, half not.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-011",
+      "polarity": "defect",
+      "kind": "translation.mojibake",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "pricing",
+        "key": "table.seatsHeading",
+        "codec": "utf8-as-cp1252"
+      },
+      "expected": "Enthaltene Arbeitsplätze",
+      "actual": "Enthaltene ArbeitsplÃ¤tze",
+      "detect": {
+        "testId": "pricing-table",
+        "selector": "[data-rgt-id='pricing-table'] thead"
+      },
+      "rationale": "Real mojibake: UTF-8 bytes decoded as Latin-1, produced by an actual byte round-trip rather than typed out.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-012",
+      "polarity": "defect",
+      "kind": "translation.diacriticsStripped",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "common",
+        "key": "nav.about",
+        "codec": "nfd"
+      },
+      "expected": "Über uns",
+      "actual": "Über uns",
+      "detect": {
+        "testId": "nav-about",
+        "selector": "[data-rgt-id='nav-about']"
+      },
+      "rationale": "Canonically decomposed. Visually identical to the correct string but byte-different — a recall probe for detectors that compare naively.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-013",
+      "polarity": "defect",
+      "kind": "translation.diacriticsStripped",
+      "locale": "de-DE",
+      "routeId": "events",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "events",
+        "key": "hero.lead",
+        "codec": "strip-diacritics"
+      },
+      "expected": "Workshops und Vorträge unserer Ingenieurinnen und Ingenieure. Die Teilnahme ist kostenlos, die Plätze sind begrenzt.",
+      "actual": "Workshops und Vortrage unserer Ingenieurinnen und Ingenieure. Die Teilnahme ist kostenlos, die Platze sind begrenzt.",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Umlauts stripped, most likely by an ASCII-folding step somewhere in the pipeline.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-014",
+      "polarity": "defect",
+      "kind": "translation.controlChar",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "common",
+        "key": "actions.submit",
+        "codec": "inject-control-char"
+      },
+      "expected": "Absenden",
+      "actual": "Absenden‎",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "A U+200E bidi control character. Invisible in a screenshot, present in the DOM — catches detectors that only compare rendered pixels.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-015",
+      "polarity": "defect",
+      "kind": "format.currency",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.1.price.de-DE",
+        "replacement": "$1,249.00"
+      },
+      "expected": "1.249,00 €",
+      "actual": "$1,249.00",
+      "detect": {
+        "testId": "plan-price-team",
+        "selector": "[data-rgt-id='plan-price-team']"
+      },
+      "rationale": "Wrong currency AND wrong symbol position for de-DE: CLDR puts the euro symbol after the amount.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-016",
+      "polarity": "defect",
+      "kind": "format.number",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.1.uptime.de-DE",
+        "replacement": "99.95%"
+      },
+      "expected": "99,95 %",
+      "actual": "99.95%",
+      "detect": {
+        "testId": "plan-uptime-team",
+        "selector": "[data-rgt-id='plan-uptime-team']"
+      },
+      "rationale": "German uses a comma as the decimal separator and a space before the percent sign.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-017",
+      "polarity": "defect",
+      "kind": "format.date",
+      "locale": "de-DE",
+      "routeId": "events",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "events.0.when.de-DE",
+        "replacement": "03/17/2026, 2:00 PM CET"
+      },
+      "expected": "17. März 2026, 14:00 Uhr MEZ",
+      "actual": "03/17/2026, 2:00 PM CET",
+      "detect": {
+        "testId": "event-when-berlin-platform",
+        "selector": "[data-rgt-id='event-when-berlin-platform']"
+      },
+      "rationale": "US month-first date, 12-hour clock and an untranslated timezone abbreviation on a German page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-018",
+      "polarity": "defect",
+      "kind": "format.time",
+      "locale": "de-DE",
+      "routeId": "events",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "events.2.when.de-DE",
+        "replacement": "2. April 2026, 9:30 AM EDT"
+      },
+      "expected": "2. April 2026, 09:30 Uhr EDT",
+      "actual": "2. April 2026, 9:30 AM EDT",
+      "detect": {
+        "testId": "event-when-toronto-modernisation",
+        "selector": "[data-rgt-id='event-when-toronto-modernisation']"
+      },
+      "rationale": "12-hour clock on a locale that uses a 24-hour clock.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-019",
+      "polarity": "defect",
+      "kind": "format.phone",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "offices.0.phone.de-DE",
+        "replacement": "(030) 901-820"
+      },
+      "expected": "+49 30 901820",
+      "actual": "(030) 901-820",
+      "detect": {
+        "testId": "office-phone-berlin",
+        "selector": "[data-rgt-id='office-phone-berlin']"
+      },
+      "rationale": "US bracket-and-hyphen phone formatting applied to a German number, and the country code dropped.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-020",
+      "polarity": "defect",
+      "kind": "format.address",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "offices.0.addressLines.de-DE.1",
+        "replacement": "Berlin, BE 10115"
+      },
+      "expected": "10115 Berlin",
+      "actual": "Berlin, BE 10115",
+      "detect": {
+        "testId": "contact-office-berlin",
+        "selector": "[data-rgt-id='contact-office-berlin'] address"
+      },
+      "rationale": "US city-state-ZIP order with an invented state code, on a German address.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-021",
+      "polarity": "defect",
+      "kind": "head.lang",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "htmlLang",
+        "value": "en"
+      },
+      "expected": "de-DE",
+      "actual": "en",
+      "detect": {
+        "headSelector": "html[lang]"
+      },
+      "rationale": "The document declares English while serving German. Breaks screen readers, hyphenation and search indexing.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-022",
+      "polarity": "defect",
+      "kind": "head.title",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "title",
+        "value": "Services — Platform, data and modernisation"
+      },
+      "expected": "Leistungen — Plattform, Daten und Modernisierung",
+      "actual": "Services — Platform, data and modernisation",
+      "detect": {
+        "headSelector": "title"
+      },
+      "rationale": "Untranslated page title. Invisible on the page itself, visible in the tab, in search results and in shares.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-023",
+      "polarity": "defect",
+      "kind": "head.canonical",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "canonical",
+        "value": "https://rgt-global-seeded.vercel.app/en-US/pricing"
+      },
+      "expected": "https://rgt-global-seeded.vercel.app/de-DE/pricing",
+      "actual": "https://rgt-global-seeded.vercel.app/en-US/pricing",
+      "detect": {
+        "headSelector": "link[rel='canonical']"
+      },
+      "rationale": "Cross-locale canonical. A classic bug that silently deindexes an entire locale.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-024",
+      "polarity": "defect",
+      "kind": "head.hreflang",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "hreflangBreak",
+        "omitLocales": ["hi-IN"]
+      },
+      "expected": "hreflang set includes hi-IN",
+      "actual": "hreflang set omits hi-IN",
+      "detect": {
+        "headSelector": "link[rel='alternate'][hreflang='hi-IN']"
+      },
+      "rationale": "One-directional break: hi-IN/services still points here, but not the reverse. A reciprocity crawler catches this; a per-page checker cannot.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-025",
+      "polarity": "defect",
+      "kind": "head.og",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "minor",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "ogLocale",
+        "value": "en_US"
+      },
+      "expected": "de_DE",
+      "actual": "en_US",
+      "detect": {
+        "headSelector": "meta[property='og:locale']"
+      },
+      "rationale": "Stale Open Graph locale, so shares of the German page are labelled as English.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-026",
+      "polarity": "defect",
+      "kind": "header.contentLanguage",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "transport",
+      "target": {
+        "via": "responseHeader",
+        "pathGlob": "/de-DE/pricing",
+        "header": "Content-Language",
+        "value": "en-US"
+      },
+      "expected": "de-DE",
+      "actual": "en-US",
+      "detect": {
+        "httpHeader": "Content-Language"
+      },
+      "rationale": "The transport layer contradicts the document. Only visible to a detector that reads response headers.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-027",
+      "polarity": "defect",
+      "kind": "dom.clipped",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "major",
+      "category": "ux",
+      "target": {
+        "via": "componentFlag",
+        "flag": "deNavItemClipped"
+      },
+      "expected": "nav labels render at their natural width",
+      "actual": "nav labels clipped at 6.5rem with overflow hidden",
+      "detect": {
+        "testId": "primary-nav",
+        "selector": "[data-rgt-id='primary-nav'] a"
+      },
+      "rationale": "Fixed width sized for English. Only geometry finds this — the text is present and correct in the DOM.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-028",
+      "polarity": "defect",
+      "kind": "dom.clipped",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "major",
+      "category": "ux",
+      "target": {
+        "via": "componentFlag",
+        "flag": "deServicesCtaClipped"
+      },
+      "expected": "service CTA buttons size to their label",
+      "actual": "service CTA buttons capped at 11rem and truncated",
+      "detect": {
+        "testId": "service-cta-platform",
+        "selector": "[data-rgt-id='service-cta-platform']"
+      },
+      "rationale": "German CTA labels are ~30% longer than English and are cut off.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-029",
+      "polarity": "defect",
+      "kind": "dom.overflow",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "ux",
+      "target": {
+        "via": "componentFlag",
+        "flag": "dePricingTableOverflow"
+      },
+      "expected": "pricing table scrolls inside its own container",
+      "actual": "pricing table forces document-level horizontal scroll",
+      "detect": {
+        "testId": "pricing-table-wrapper",
+        "selector": "[data-rgt-id='pricing-table-wrapper']"
+      },
+      "rationale": "Longer German column headings push the table past the viewport and the whole page scrolls sideways.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-030",
+      "polarity": "defect",
+      "kind": "dom.wrapped",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "minor",
+      "category": "ux",
+      "target": {
+        "via": "componentFlag",
+        "flag": "deCtaWrapsAtMobile"
+      },
+      "viewport": 375,
+      "expected": "hero CTA stays on one line at 375px",
+      "actual": "hero CTA wraps to three lines at 375px",
+      "detect": {
+        "testId": "home-hero-primary",
+        "selector": "[data-rgt-id='home-hero-primary']"
+      },
+      "rationale": "Appears only at the narrowest breakpoint — expansion interacts with the responsive layout.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-031",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "enContactCtaHardcoded"
+      },
+      "expected": "Nachricht senden",
+      "actual": "Get in touch today",
+      "detect": {
+        "testId": "contact-submit",
+        "selector": "[data-rgt-id='contact-submit']"
+      },
+      "rationale": "An English literal written into the component, bypassing i18next entirely, so no translation can ever reach it.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-032",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "hiBadgeHardcoded"
+      },
+      "expected": "Am beliebtesten",
+      "actual": "Most popular",
+      "detect": {
+        "testId": "plan-row-team",
+        "selector": "[data-rgt-id='plan-row-team'] span"
+      },
+      "rationale": "Badge text hardcoded in English inside the plan table.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-033",
+      "polarity": "defect",
+      "kind": "route.localeIgnored",
+      "locale": "de-DE",
+      "routeId": "login",
+      "severity": "critical",
+      "category": "ux",
+      "target": {
+        "via": "routeBehaviour",
+        "behaviour": "serveDefaultLocale",
+        "routeIds": ["login"]
+      },
+      "expected": "Anmelden",
+      "actual": "Sign in",
+      "detect": {
+        "testId": "login-title",
+        "urlAssertion": "/de-DE/login stays in the URL while the body renders en-US"
+      },
+      "rationale": "This route silently serves the default locale. Observable twice over: the body language contradicts both the URL and <html lang>.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-034",
+      "polarity": "defect",
+      "kind": "route.localeLostOnAuth",
+      "locale": "de-DE",
+      "routeId": "login",
+      "severity": "critical",
+      "category": "ux",
+      "target": {
+        "via": "routeBehaviour",
+        "behaviour": "dropLocaleOnAuth"
+      },
+      "expected": "/de-DE/account",
+      "actual": "/en-US/account",
+      "detect": {
+        "testId": "login-submit",
+        "urlAssertion": "pathname after submitting the sign-in form"
+      },
+      "rationale": "The post-authentication redirect hardcodes the default locale, ejecting the user from their language. Deliberately does not clear the cookie or change <html lang>, so it stays a single clean signal.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-035",
+      "polarity": "defect",
+      "kind": "dom.textInImage",
+      "locale": "de-DE",
+      "routeId": "blog.article",
+      "routeParams": {
+        "slug": "scaling-globally"
+      },
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "assetSwap",
+        "publicPath": "/images/article-platform.svg",
+        "replacementPath": "/images/article-baked-en.svg"
+      },
+      "expected": "hero diagram carries no embedded text",
+      "actual": "hero diagram has English labels baked into the artwork",
+      "detect": {
+        "testId": "article-hero",
+        "selector": "[data-rgt-id='article-hero']"
+      },
+      "rationale": "Only OCR finds this. The alt text is correctly translated, so every DOM-based check passes.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-036",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "enHomeHeroHardcoded"
+      },
+      "expected": "Software ausliefern, die in jedem Markt funktioniert",
+      "actual": "Ship software that works everywhere",
+      "detect": {
+        "testId": "home-hero-title",
+        "selector": "[data-rgt-id='home-hero-title']"
+      },
+      "rationale": "The same flag as HI-025. A component flag is global, so every locale where it changes the rendered output gets its own entry — otherwise the seeded build carries a visible defect the ground truth does not know about.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-037",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "minor",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "deFooterNoteHardcoded"
+      },
+      "expected": "Tätig in 14 Ländern.",
+      "actual": "Tätig in 14 Ländern weltweit.",
+      "detect": {
+        "testId": "footer-note",
+        "selector": "[data-rgt-id='footer-note']"
+      },
+      "rationale": "An i18n-readiness defect rather than a language one: the string is hardcoded and bypasses i18next, but it happens to be German, so on the German page only the copy is wrong. A language detector should NOT fire here — a resource-coverage check should.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-038",
+      "polarity": "defect",
+      "kind": "route.notFoundUnlocalized",
+      "locale": "de-DE",
+      "routeId": "notFound",
+      "severity": "major",
+      "category": "ux",
+      "target": {
+        "via": "routeBehaviour",
+        "behaviour": "unlocalizedNotFound"
+      },
+      "expected": "Seite nicht gefunden",
+      "actual": "Page not found",
+      "detect": {
+        "testId": "not-found-title",
+        "selector": "[data-rgt-id='not-found-title']"
+      },
+      "rationale": "The same global flag as HI-028. Catalogued per affected locale so the seeded build carries no difference the ground truth does not know about.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-039",
+      "polarity": "defect",
+      "kind": "translation.icuSyntax",
+      "locale": "de-DE",
+      "routeId": "blog",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "list.resultCount",
+        "replacement": "{count, plural, one {# Artikel} other {# Artikel}}"
+      },
+      "expected": "3 Artikel",
+      "actual": "{count, plural, one {# Artikel} other {# Artikel}}",
+      "detect": {
+        "testId": "blog-result-count",
+        "selector": "[data-rgt-id='blog-result-count']"
+      },
+      "rationale": "ICU message syntax authored into a resource file that a non-ICU runtime consumes. i18next renders it verbatim, so the braces reach the user. Reproduced rather than simulated: the app genuinely has no ICU plugin.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "DE-040",
+      "polarity": "defect",
+      "kind": "translation.byteOrderMark",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "about",
+        "key": "story.p1",
+        "codec": "inject-bom"
+      },
+      "expected": "RGT Global entstand, als vier Plattform-Ingenieure einen großen Systemintegrator verließen, überzeugt davon, dass die meisten Probleme mit Unternehmenssoftware organisatorischer und nicht technischer Natur sind. Diese Überzeugung prägt bis heute unsere Arbeitsweise: Wir arbeiten in Ihren Teams mit, statt Ergebnisse über die Mauer zu werfen.",
+      "actual": "﻿RGT Global entstand, als vier Plattform-Ingenieure einen großen Systemintegrator verließen, überzeugt davon, dass die meisten Probleme mit Unternehmenssoftware organisatorischer und nicht technischer Natur sind. Diese Überzeugung prägt bis heute unsere Arbeitsweise: Wir arbeiten in Ihren Teams mit, statt Ergebnisse über die Mauer zu werfen.",
+      "detect": {
+        "testId": "about-story-p1",
+        "selector": "[data-rgt-id='about-story-p1']"
+      },
+      "rationale": "U+FEFF leading a text node, as a UTF-8-with-BOM resource file produces. Invisible on screen and in most diffs, but the string is unequal to its own literal on the first character.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "DE-901",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global",
+      "actual": "RGT Global",
+      "detect": {
+        "selector": "header a span"
+      },
+      "rationale": "The company name. Identical in every locale by design — flagging it as untranslated is a false positive.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-902",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "CloudBridge",
+      "actual": "CloudBridge",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Product name. Never translated.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-903",
+      "polarity": "trap",
+      "kind": "trap.loanword",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Login",
+      "actual": "Login",
+      "detect": {
+        "testId": "footer-login",
+        "selector": "[data-rgt-id='footer-login']"
+      },
+      "rationale": "An established German loanword. 'Login' is normal German usage and translating it would read as worse German, not better.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-904",
+      "polarity": "trap",
+      "kind": "trap.loanword",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Email",
+      "actual": "Email",
+      "detect": {
+        "testId": "footer-email",
+        "selector": "[data-rgt-id='footer-email']"
+      },
+      "rationale": "Also standard in German. Identical to the English string and correct.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-905",
+      "polarity": "trap",
+      "kind": "trap.cognate",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Team",
+      "actual": "Team",
+      "detect": {
+        "selector": "[data-rgt-id='plan-row-team']"
+      },
+      "rationale": "The plan name is also a German word spelled identically. An equality check against the English string flags it; it is correct.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-906",
+      "polarity": "trap",
+      "kind": "trap.versionString",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Plattform-Release 1.000",
+      "actual": "Plattform-Release 1.000",
+      "detect": {
+        "testId": "platform-version",
+        "selector": "[data-rgt-id='platform-version']"
+      },
+      "rationale": "'1.000' is a release number, not one thousand. A number-format checker that reads it as a quantity and demands a comma is producing a false positive.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-907",
+      "polarity": "trap",
+      "kind": "trap.productCode",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "12/05/2024",
+      "actual": "12/05/2024",
+      "detect": {
+        "testId": "pricing-product-code",
+        "selector": "[data-rgt-id='pricing-product-code']"
+      },
+      "rationale": "A product code shaped exactly like a date. Whether a string is even a date is a semantic question, and this is the dominant source of false positives in format checks.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-908",
+      "polarity": "trap",
+      "kind": "trap.taggedForeignQuote",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "actual": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "detect": {
+        "testId": "testimonial-quote",
+        "selector": "[data-rgt-id='testimonial-quote'][lang='en']"
+      },
+      "rationale": "A genuine English original, correctly marked lang=\"en\" on the element. The lang attribute is the signal that says this is intentional.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-909",
+      "polarity": "trap",
+      "kind": "trap.internationalPhone",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "+91 40 2345 6789",
+      "actual": "+91 40 2345 6789",
+      "detect": {
+        "testId": "office-phone-hyderabad",
+        "selector": "[data-rgt-id='office-phone-hyderabad']"
+      },
+      "rationale": "A correctly formatted Indian number on the German page. It is a foreign office, so a German phone pattern must not be applied to it.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-910",
+      "polarity": "trap",
+      "kind": "trap.legalEntity",
+      "locale": "de-DE",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global Technologies Pvt. Ltd.",
+      "actual": "RGT Global Technologies Pvt. Ltd.",
+      "detect": {
+        "testId": "legal-entity",
+        "selector": "[data-rgt-id='legal-entity']"
+      },
+      "rationale": "A registered legal entity name. Translating it would be legally wrong, not helpful.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "DE-911",
+      "polarity": "trap",
+      "kind": "trap.dottedIdentifier",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Pipelines werden in deploy.config.yaml im Wurzelverzeichnis deklariert.",
+      "actual": "Pipelines werden in deploy.config.yaml im Wurzelverzeichnis deklariert.",
+      "detect": {
+        "testId": "service-note-config",
+        "selector": "[data-rgt-id='service-note-config']"
+      },
+      "rationale": "A configuration filename, not a resource key. Both are dotted lowercase identifiers, so a RawResourceKey rule matching a dotted-word pattern fires on it. Flagging this is a false positive.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "DE-912",
+      "polarity": "trap",
+      "kind": "trap.bracedLiteral",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Geben Sie eine Region explizit an, zum Beispiel { \"region\": \"eu-central-1\" }.",
+      "actual": "Geben Sie eine Region explizit an, zum Beispiel { \"region\": \"eu-central-1\" }.",
+      "detect": {
+        "testId": "service-note-region",
+        "selector": "[data-rgt-id='service-note-region']"
+      },
+      "rationale": "A JSON snippet quoted as documentation. The braces are content, not an unresolved token, so neither UnresolvedPlaceholder nor IcuSyntaxError may fire.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "DE-913",
+      "polarity": "trap",
+      "kind": "trap.nullInProse",
+      "locale": "de-DE",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Ein null-Wert für die Region bedeutet, dass die Standardregion verwendet wird.",
+      "actual": "Ein null-Wert für die Region bedeutet, dass die Standardregion verwendet wird.",
+      "detect": {
+        "testId": "service-note-null",
+        "selector": "[data-rgt-id='service-note-null']"
+      },
+      "rationale": "The word null used as terminology in a sentence about configuration. NullOrUndefinedRendered must distinguish this from a null value that escaped a template.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "EN-001",
+      "polarity": "defect",
+      "kind": "translation.rawKey",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "common",
+        "key": "nav.events",
+        "replacement": "nav.events.label"
+      },
+      "expected": "Events",
+      "actual": "nav.events.label",
+      "detect": {
+        "testId": "nav-events",
+        "selector": "[data-rgt-id='nav-events']"
+      },
+      "rationale": "A raw resource key on the source-language page. Source locales are not exempt from plumbing failures.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-002",
+      "polarity": "defect",
+      "kind": "translation.placeholder",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "home",
+        "key": "hero.lead",
+        "replacement": "RGT Global helps ${count} engineering organisations design, build and operate platforms that hold up across languages, currencies and regulatory regimes."
+      },
+      "expected": "RGT Global helps engineering organisations design, build and operate platforms that hold up across languages, currencies and regulatory regimes.",
+      "actual": "RGT Global helps ${count} engineering organisations design, build and operate platforms that hold up across languages, currencies and regulatory regimes.",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "A template-literal placeholder that no interpolation ever filled.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-003",
+      "polarity": "defect",
+      "kind": "translation.marker",
+      "locale": "en-US",
+      "routeId": "blog",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "empty.body",
+        "replacement": "TODO: write the empty state copy"
+      },
+      "expected": "No articles match this topic yet. Try another topic or view all articles.",
+      "actual": "TODO: write the empty state copy",
+      "detect": {
+        "testId": "blog-empty",
+        "selector": "[data-rgt-id='blog-empty']"
+      },
+      "rationale": "A TODO marker shipped to production, on the empty state — a surface almost nobody reviews. Reach it with ?tag=none.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-004",
+      "polarity": "defect",
+      "kind": "format.number",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.0.price.en-US",
+        "replacement": "$NaN"
+      },
+      "expected": "$349",
+      "actual": "$NaN",
+      "detect": {
+        "testId": "plan-price-starter",
+        "selector": "[data-rgt-id='plan-price-starter']"
+      },
+      "rationale": "A NaN reaching the user in a price field.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-005",
+      "polarity": "defect",
+      "kind": "translation.concatenated",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "values.oneBody",
+        "replacement": "Continuity beats headcount . Our median engagement runs 26 months with the same core team ."
+      },
+      "expected": "Continuity beats headcount. Our median engagement runs 26 months with the same core team.",
+      "actual": "Continuity beats headcount . Our median engagement runs 26 months with the same core team .",
+      "detect": {
+        "testId": "about-value-one",
+        "selector": "[data-rgt-id='about-value-one']"
+      },
+      "rationale": "Orphaned punctuation from a sentence assembled by concatenation.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-006",
+      "polarity": "defect",
+      "kind": "translation.mojibake",
+      "locale": "en-US",
+      "routeId": "blog.article",
+      "routeParams": {
+        "slug": "migration-without-freeze"
+      },
+      "severity": "critical",
+      "category": "markup",
+      "target": {
+        "via": "dataValue",
+        "pointer": "posts.2.author",
+        "replacement": "Ãlodie Fontaine"
+      },
+      "expected": "Élodie Fontaine",
+      "actual": "Ãlodie Fontaine",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "An accented author name mangled by a wrong-encoding round-trip. Source-language pages are just as vulnerable to this as translated ones.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-007",
+      "polarity": "defect",
+      "kind": "translation.controlChar",
+      "locale": "en-US",
+      "routeId": "blog",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "common",
+        "key": "actions.viewAll",
+        "codec": "inject-control-char"
+      },
+      "expected": "View all",
+      "actual": "View‎ all",
+      "detect": {
+        "selector": "body"
+      },
+      "rationale": "An invisible bidi control character inside a button label.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-008",
+      "polarity": "defect",
+      "kind": "head.lang",
+      "locale": "en-US",
+      "routeId": "contact",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "htmlLang",
+        "value": "de"
+      },
+      "expected": "en-US",
+      "actual": "de",
+      "detect": {
+        "headSelector": "html[lang]"
+      },
+      "rationale": "The English page declares German. The mirror image of DE-021, and just as damaging.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-009",
+      "polarity": "defect",
+      "kind": "head.title",
+      "locale": "en-US",
+      "routeId": "blog",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "title",
+        "value": "Einblicke — Notizen aus unserer Entwicklungspraxis"
+      },
+      "expected": "Insights — Notes from our engineering practice",
+      "actual": "Einblicke — Notizen aus unserer Entwicklungspraxis",
+      "detect": {
+        "headSelector": "title"
+      },
+      "rationale": "A German title on the English page — a copy-paste from the wrong bundle.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-010",
+      "polarity": "defect",
+      "kind": "head.canonical",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "canonical",
+        "value": "https://rgt-global-seeded.vercel.app/hi-IN/about"
+      },
+      "expected": "https://rgt-global-seeded.vercel.app/en-US/about",
+      "actual": "https://rgt-global-seeded.vercel.app/hi-IN/about",
+      "detect": {
+        "headSelector": "link[rel='canonical']"
+      },
+      "rationale": "Cross-locale canonical pointing at the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-011",
+      "polarity": "defect",
+      "kind": "head.hreflang",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "hreflangBreak",
+        "omitLocales": ["de-DE"]
+      },
+      "expected": "hreflang set includes de-DE",
+      "actual": "hreflang set omits de-DE",
+      "detect": {
+        "headSelector": "link[rel='alternate'][hreflang='de-DE']"
+      },
+      "rationale": "Another one-directional reciprocity break, on a different route and locale pair from DE-024.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-012",
+      "polarity": "defect",
+      "kind": "head.charset",
+      "locale": "en-US",
+      "routeId": "events",
+      "severity": "critical",
+      "category": "markup",
+      "target": {
+        "via": "headField",
+        "field": "charset",
+        "value": "ISO-8859-1"
+      },
+      "expected": "utf-8",
+      "actual": "ISO-8859-1",
+      "detect": {
+        "headSelector": "meta[charset]"
+      },
+      "rationale": "Declared charset contradicts the actual UTF-8 bytes. Paired deliberately with EN-013 so the root cause is discoverable from either end.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-013",
+      "polarity": "defect",
+      "kind": "header.contentType",
+      "locale": "en-US",
+      "routeId": "events",
+      "severity": "critical",
+      "category": "transport",
+      "target": {
+        "via": "responseHeader",
+        "pathGlob": "/en-US/events",
+        "header": "Content-Type",
+        "value": "text/html; charset=ISO-8859-1"
+      },
+      "expected": "text/html; charset=utf-8",
+      "actual": "text/html; charset=ISO-8859-1",
+      "detect": {
+        "httpHeader": "Content-Type"
+      },
+      "rationale": "The response header agrees with the wrong meta charset, so the page genuinely mis-decodes rather than merely lying about itself.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-014",
+      "polarity": "defect",
+      "kind": "header.contentLanguage",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "major",
+      "category": "transport",
+      "target": {
+        "via": "responseHeader",
+        "pathGlob": "/en-US/about",
+        "header": "Content-Language",
+        "value": "de-DE"
+      },
+      "expected": "en-US",
+      "actual": "de-DE",
+      "detect": {
+        "httpHeader": "Content-Language"
+      },
+      "rationale": "Transport-level language contradicts the served content.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-015",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "deFooterNoteHardcoded"
+      },
+      "expected": "Operating across 14 countries.",
+      "actual": "Tätig in 14 Ländern weltweit.",
+      "detect": {
+        "testId": "footer-note",
+        "selector": "[data-rgt-id='footer-note']"
+      },
+      "rationale": "A German literal hardcoded into the footer, so it stays German on the English site. The reverse direction of the usual hardcoded-string bug.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-016",
+      "polarity": "defect",
+      "kind": "format.number",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "minor",
+      "category": "format",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "home",
+        "key": "stats.engineersValue",
+        "replacement": "1180"
+      },
+      "expected": "1,180",
+      "actual": "1180",
+      "detect": {
+        "testId": "home-stat-engineers",
+        "selector": "[data-rgt-id='home-stat-engineers']"
+      },
+      "rationale": "Thousands grouping dropped on a four-digit figure.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-017",
+      "polarity": "defect",
+      "kind": "format.currency",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.1.price.en-US",
+        "replacement": "1.349,00 €"
+      },
+      "expected": "$1,349",
+      "actual": "1.349,00 €",
+      "detect": {
+        "testId": "plan-price-team",
+        "selector": "[data-rgt-id='plan-price-team']"
+      },
+      "rationale": "German currency conventions on the US page — wrong currency, wrong separators, wrong symbol position.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-018",
+      "polarity": "defect",
+      "kind": "format.date",
+      "locale": "en-US",
+      "routeId": "blog.article",
+      "routeParams": {
+        "slug": "scaling-globally"
+      },
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "posts.0.published.en-US",
+        "replacement": "12.02.2026"
+      },
+      "expected": "12 February 2026",
+      "actual": "12.02.2026",
+      "detect": {
+        "testId": "article-published",
+        "selector": "[data-rgt-id='article-published']"
+      },
+      "rationale": "German dotted numeric date on the English page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-019",
+      "polarity": "defect",
+      "kind": "format.date",
+      "locale": "en-US",
+      "routeId": "events",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "events.1.when.en-US",
+        "replacement": "24/03/2026, 10:00 IST"
+      },
+      "expected": "24 March 2026, 10:00 IST",
+      "actual": "24/03/2026, 10:00 IST",
+      "detect": {
+        "testId": "event-when-hyderabad-data",
+        "selector": "[data-rgt-id='event-when-hyderabad-data']"
+      },
+      "rationale": "Day-first numeric date on a locale that reads dates month-first — genuinely ambiguous to a US reader.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-020",
+      "polarity": "defect",
+      "kind": "dom.ariaUntranslated",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "common",
+        "key": "nav.primaryLabel",
+        "replacement": "Hauptnavigation"
+      },
+      "expected": "Primary navigation",
+      "actual": "Hauptnavigation",
+      "detect": {
+        "testId": "primary-nav",
+        "selector": "[data-rgt-id='primary-nav'][aria-label]"
+      },
+      "rationale": "The accessible name is in the wrong language. Invisible to a text-node sweep — it lives in an attribute, and only a screen-reader user ever hears it.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-021",
+      "polarity": "defect",
+      "kind": "translation.wrongLanguage",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "values.twoBody",
+        "replacement": "Las decisiones se registran junto con su razonamiento, de modo que el siguiente ingeniero hereda el argumento y no solo el resultado."
+      },
+      "expected": "Decisions are recorded with their reasoning, so the next engineer inherits the argument and not just the outcome.",
+      "actual": "Las decisiones se registran junto con su razonamiento, de modo que el siguiente ingeniero hereda el argumento y no solo el resultado.",
+      "detect": {
+        "testId": "about-value-two",
+        "selector": "[data-rgt-id='about-value-two']"
+      },
+      "rationale": "Spanish text on the English page — a third language, neither source nor any target.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-022",
+      "polarity": "defect",
+      "kind": "translation.truncated",
+      "locale": "en-US",
+      "routeId": "services",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "services",
+        "key": "platform.body",
+        "replacement": "Internal developer platforms, CI/CD, observability and the…"
+      },
+      "expected": "Internal developer platforms, CI/CD, observability and the operational practice around them.",
+      "actual": "Internal developer platforms, CI/CD, observability and the…",
+      "detect": {
+        "testId": "service-platform",
+        "selector": "[data-rgt-id='service-platform']"
+      },
+      "rationale": "Copy truncated at the source, not by CSS — the sentence is genuinely incomplete in the resource file.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-023",
+      "polarity": "defect",
+      "kind": "head.description",
+      "locale": "en-US",
+      "routeId": "login",
+      "severity": "minor",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "description",
+        "value": ""
+      },
+      "expected": "Client portal access for existing RGT Global engagements.",
+      "actual": "",
+      "detect": {
+        "headSelector": "meta[name='description']"
+      },
+      "rationale": "Empty meta description. Present but blank, which many checkers miss because the tag exists.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-024",
+      "polarity": "defect",
+      "kind": "head.og",
+      "locale": "en-US",
+      "routeId": "events",
+      "severity": "minor",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "ogTitle",
+        "value": "कार्यक्रम और कार्यशालाएँ"
+      },
+      "expected": "Events and workshops",
+      "actual": "कार्यक्रम और कार्यशालाएँ",
+      "detect": {
+        "headSelector": "meta[property='og:title']"
+      },
+      "rationale": "The Hindi title leaked into the English page's Open Graph tags. Only visible when the page is shared.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-025",
+      "polarity": "defect",
+      "kind": "translation.nullValue",
+      "locale": "en-US",
+      "routeId": "events",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "events",
+        "key": "calendar.timezoneNote",
+        "replacement": "All times are shown in null."
+      },
+      "expected": "All times are shown in the local time of the host city.",
+      "actual": "All times are shown in null.",
+      "detect": {
+        "testId": "events-calendar-notes",
+        "selector": "[data-rgt-id='events-calendar-notes']"
+      },
+      "rationale": "A JavaScript null reached the sentence, not an authored placeholder. Split out of translation.marker so a scoring run can tell NullOrUndefinedRendered and TranslationMarkerLeak apart.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-026",
+      "polarity": "defect",
+      "kind": "translation.rawKey",
+      "locale": "en-US",
+      "routeId": "serverError",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "errors",
+        "key": "serverError.title",
+        "replacement": "errors.serverError.title"
+      },
+      "expected": "Something went wrong",
+      "actual": "errors.serverError.title",
+      "detect": {
+        "testId": "server-error-title",
+        "selector": "[data-rgt-id='server-error-title']"
+      },
+      "rationale": "A raw key on the 500 page — a route nothing links to, so a crawler only reaches it by requesting the path directly.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-027",
+      "polarity": "defect",
+      "kind": "route.precedenceViolation",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "major",
+      "category": "ux",
+      "target": {
+        "via": "routeBehaviour",
+        "behaviour": "ignoreQueryLang"
+      },
+      "expected": "/?lang=de-DE resolves to /de-DE",
+      "actual": "/?lang=de-DE resolves to /en-US",
+      "detect": {
+        "urlAssertion": "pathname after loading /?lang=de-DE in a fresh session"
+      },
+      "rationale": "Rule 2 of the precedence spec is silently ignored, so an explicit language request is discarded. Only detectable against a written spec — which is why docs/locale-precedence.md exists.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-028",
+      "polarity": "defect",
+      "kind": "translation.concatenated",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "cta.body",
+        "replacement": "Above 500 seats we price per organisation.  Tell us your shape and we will quote ."
+      },
+      "expected": "Above 500 seats we price per organisation. Tell us your shape and we will quote.",
+      "actual": "Above 500 seats we price per organisation.  Tell us your shape and we will quote .",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Doubled space and a detached full stop from a bad join.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-029",
+      "polarity": "defect",
+      "kind": "dom.altTextUntranslated",
+      "locale": "en-US",
+      "routeId": "blog.article",
+      "routeParams": {
+        "slug": "observability-budget"
+      },
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "dataValue",
+        "pointer": "posts.1.heroAlt.en-US",
+        "replacement": "Diagramm des Telemetrievolumens nach Dienst"
+      },
+      "expected": "Chart showing telemetry volume by service",
+      "actual": "Diagramm des Telemetrievolumens nach Dienst",
+      "detect": {
+        "testId": "article-hero",
+        "selector": "[data-rgt-id='article-hero'][alt]"
+      },
+      "rationale": "German alt text on the English article. Attribute-only, so a text-node sweep never sees it.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-030",
+      "polarity": "defect",
+      "kind": "dom.placeholderUntranslated",
+      "locale": "en-US",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "form.messagePlaceholder",
+        "replacement": "Eine kurze Beschreibung Ihrer Plattform und des Problems"
+      },
+      "expected": "A short description of your platform and the problem",
+      "actual": "Eine kurze Beschreibung Ihrer Plattform und des Problems",
+      "detect": {
+        "testId": "contact-message",
+        "selector": "[data-rgt-id='contact-message'][placeholder]"
+      },
+      "rationale": "German placeholder on the English form. Chosen deliberately because placeholder text is invisible to text-node extraction.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-031",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "enHomeHeroHardcoded"
+      },
+      "expected": "Ship software that works in every market you enter",
+      "actual": "Ship software that works everywhere",
+      "detect": {
+        "testId": "home-hero-title",
+        "selector": "[data-rgt-id='home-hero-title']"
+      },
+      "rationale": "On the source locale this is invisible to a language check — both strings are English — but the H1 no longer comes from the resource bundle at all. Catalogued so the seeded build has no uncatalogued difference, and as a probe for resource-coverage checks rather than language ones.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-032",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "en-US",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "enContactCtaHardcoded"
+      },
+      "expected": "Send message",
+      "actual": "Get in touch today",
+      "detect": {
+        "testId": "contact-submit",
+        "selector": "[data-rgt-id='contact-submit']"
+      },
+      "rationale": "Same flag as DE-031, catalogued for the source locale where the symptom is wrong copy rather than wrong language.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-033",
+      "polarity": "defect",
+      "kind": "translation.icuSyntax",
+      "locale": "en-US",
+      "routeId": "blog",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "list.resultCount",
+        "replacement": "{count, plural, one {# article} other {# articles}}"
+      },
+      "expected": "3 articles",
+      "actual": "{count, plural, one {# article} other {# articles}}",
+      "detect": {
+        "testId": "blog-result-count",
+        "selector": "[data-rgt-id='blog-result-count']"
+      },
+      "rationale": "ICU message syntax authored into a resource file that a non-ICU runtime consumes. i18next renders it verbatim, so the braces reach the user. Reproduced rather than simulated: the app genuinely has no ICU plugin.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "EN-034",
+      "polarity": "defect",
+      "kind": "translation.byteOrderMark",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "about",
+        "key": "story.p1",
+        "codec": "inject-bom"
+      },
+      "expected": "RGT Global began when four platform engineers left a large systems integrator, convinced that most enterprise software problems were organisational rather than technical. That conviction still shapes how we work: we embed with your teams rather than delivering over a wall.",
+      "actual": "﻿RGT Global began when four platform engineers left a large systems integrator, convinced that most enterprise software problems were organisational rather than technical. That conviction still shapes how we work: we embed with your teams rather than delivering over a wall.",
+      "detect": {
+        "testId": "about-story-p1",
+        "selector": "[data-rgt-id='about-story-p1']"
+      },
+      "rationale": "U+FEFF leading a text node, as a UTF-8-with-BOM resource file produces. Invisible on screen and in most diffs, but the string is unequal to its own literal on the first character.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "EN-901",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global",
+      "actual": "RGT Global",
+      "detect": {
+        "selector": "header a span"
+      },
+      "rationale": "Company name.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-902",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "CloudBridge",
+      "actual": "CloudBridge",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Product name.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-903",
+      "polarity": "trap",
+      "kind": "trap.versionString",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Platform release 1.000",
+      "actual": "Platform release 1.000",
+      "detect": {
+        "testId": "platform-version",
+        "selector": "[data-rgt-id='platform-version']"
+      },
+      "rationale": "A release number, not a quantity. Must not be rewritten to '1,000'.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-904",
+      "polarity": "trap",
+      "kind": "trap.productCode",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "12/05/2024",
+      "actual": "12/05/2024",
+      "detect": {
+        "testId": "pricing-product-code",
+        "selector": "[data-rgt-id='pricing-product-code']"
+      },
+      "rationale": "A product code shaped like a date.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-905",
+      "polarity": "trap",
+      "kind": "trap.legalEntity",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global Technologies Pvt. Ltd.",
+      "actual": "RGT Global Technologies Pvt. Ltd.",
+      "detect": {
+        "testId": "legal-entity",
+        "selector": "[data-rgt-id='legal-entity']"
+      },
+      "rationale": "Registered entity name — 'Pvt. Ltd.' is part of the legal name, not an untranslated abbreviation.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-906",
+      "polarity": "trap",
+      "kind": "trap.internationalPhone",
+      "locale": "en-US",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "+49 30 901820",
+      "actual": "+49 30 901820",
+      "detect": {
+        "testId": "office-phone-berlin",
+        "selector": "[data-rgt-id='office-phone-berlin']"
+      },
+      "rationale": "A correct German number in international format, shown on the US page because it is a real foreign office. A US phone pattern must not be applied to it.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-907",
+      "polarity": "trap",
+      "kind": "trap.cognate",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Team",
+      "actual": "Team",
+      "detect": {
+        "selector": "[data-rgt-id='plan-row-team']"
+      },
+      "rationale": "Plan name, identical across all three locales by design.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-908",
+      "polarity": "trap",
+      "kind": "trap.loanword",
+      "locale": "en-US",
+      "routeId": "services",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Kubernetes",
+      "actual": "Kubernetes",
+      "detect": {
+        "testId": "service-platform",
+        "selector": "[data-rgt-id='service-platform']"
+      },
+      "rationale": "A technical product name, correctly identical in every locale.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-909",
+      "polarity": "trap",
+      "kind": "trap.loanword",
+      "locale": "en-US",
+      "routeId": "services",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "CI/CD",
+      "actual": "CI/CD",
+      "detect": {
+        "selector": "[data-rgt-id='service-platform'] > p"
+      },
+      "rationale": "An industry abbreviation left as-is in every locale. Also shaped oddly enough to confuse a naive tokenizer.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-910",
+      "polarity": "trap",
+      "kind": "trap.taggedForeignQuote",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "actual": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "detect": {
+        "testId": "testimonial-quote",
+        "selector": "[data-rgt-id='testimonial-quote'][lang='en']"
+      },
+      "rationale": "Explicitly tagged lang=\"en\" and genuinely English. Correct on the English page and correct everywhere else too.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "EN-911",
+      "polarity": "trap",
+      "kind": "trap.dottedIdentifier",
+      "locale": "en-US",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Pipelines are declared in deploy.config.yaml at the repository root.",
+      "actual": "Pipelines are declared in deploy.config.yaml at the repository root.",
+      "detect": {
+        "testId": "service-note-config",
+        "selector": "[data-rgt-id='service-note-config']"
+      },
+      "rationale": "A configuration filename, not a resource key. Both are dotted lowercase identifiers, so a RawResourceKey rule matching a dotted-word pattern fires on it. Flagging this is a false positive.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "EN-912",
+      "polarity": "trap",
+      "kind": "trap.bracedLiteral",
+      "locale": "en-US",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Pin a region explicitly, for example { \"region\": \"eu-central-1\" }.",
+      "actual": "Pin a region explicitly, for example { \"region\": \"eu-central-1\" }.",
+      "detect": {
+        "testId": "service-note-region",
+        "selector": "[data-rgt-id='service-note-region']"
+      },
+      "rationale": "A JSON snippet quoted as documentation. The braces are content, not an unresolved token, so neither UnresolvedPlaceholder nor IcuSyntaxError may fire.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "EN-913",
+      "polarity": "trap",
+      "kind": "trap.nullInProse",
+      "locale": "en-US",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "A null region means the platform default is used.",
+      "actual": "A null region means the platform default is used.",
+      "detect": {
+        "testId": "service-note-null",
+        "selector": "[data-rgt-id='service-note-null']"
+      },
+      "rationale": "The word null used as terminology in a sentence about configuration. NullOrUndefinedRendered must distinguish this from a null value that escaped a template.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "HI-001",
+      "polarity": "defect",
+      "kind": "translation.rawKey",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "common",
+        "key": "nav.contact",
+        "replacement": "nav.contact.label"
+      },
+      "expected": "संपर्क",
+      "actual": "nav.contact.label",
+      "detect": {
+        "testId": "nav-contact",
+        "selector": "[data-rgt-id='nav-contact']"
+      },
+      "rationale": "Raw resource key rendered in the navigation.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-002",
+      "polarity": "defect",
+      "kind": "translation.placeholder",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "home",
+        "key": "cta.body",
+        "replacement": "हमें बताइए कि आपके प्लेटफ़ॉर्म में कहाँ दिक्कत है, और हम %s भेजेंगे।"
+      },
+      "expected": "हमें बताइए कि आपके प्लेटफ़ॉर्म में कहाँ दिक्कत है, और हम एक इंजीनियर भेजेंगे, विक्रेता नहीं।",
+      "actual": "हमें बताइए कि आपके प्लेटफ़ॉर्म में कहाँ दिक्कत है, और हम %s भेजेंगे।",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "An unresolved printf token inside Hindi copy.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-003",
+      "polarity": "defect",
+      "kind": "translation.marker",
+      "locale": "hi-IN",
+      "routeId": "blog",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "empty.title",
+        "replacement": "[missing translation]"
+      },
+      "expected": "कोई लेख नहीं मिला",
+      "actual": "[missing translation]",
+      "detect": {
+        "testId": "blog-empty",
+        "selector": "[data-rgt-id='blog-empty']"
+      },
+      "rationale": "A tooling marker on the empty state. Reach it with ?tag=none.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-004",
+      "polarity": "defect",
+      "kind": "translation.nullValue",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "notes.seatOverage",
+        "replacement": "अतिरिक्त सीटों का बिल undefined दर पर लगता है।"
+      },
+      "expected": "अतिरिक्त सीटों का बिल उसी दर पर लगता है।",
+      "actual": "अतिरिक्त सीटों का बिल undefined दर पर लगता है।",
+      "detect": {
+        "testId": "pricing-note-overage",
+        "selector": "[data-rgt-id='pricing-note-overage']"
+      },
+      "rationale": "A JavaScript undefined reached the sentence, not an authored placeholder. Split out of translation.marker so a scoring run can tell NullOrUndefinedRendered and TranslationMarkerLeak apart.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-005",
+      "polarity": "defect",
+      "kind": "translation.untranslated",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "story.p1",
+        "replacement": "RGT Global began when four platform engineers left a large systems integrator, convinced that most enterprise software problems were organisational rather than technical."
+      },
+      "expected": "RGT Global की शुरुआत तब हुई जब चार प्लेटफ़ॉर्म इंजीनियरों ने एक बड़ी सिस्टम इंटीग्रेटर कंपनी छोड़ी, इस विश्वास के साथ कि उद्यम सॉफ़्टवेयर की अधिकांश समस्याएँ तकनीकी नहीं बल्कि संगठनात्मक होती हैं। यही विश्वास आज भी हमारे काम करने के तरीक़े को आकार देता है: हम दीवार के उस पार से काम सौंपने के बजाय आपकी टीमों के साथ मिलकर काम करते हैं।",
+      "actual": "RGT Global began when four platform engineers left a large systems integrator, convinced that most enterprise software problems were organisational rather than technical.",
+      "detect": {
+        "testId": "about-story-p1",
+        "selector": "[data-rgt-id='about-story-p1']"
+      },
+      "rationale": "An entire paragraph left in English on the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-006",
+      "polarity": "defect",
+      "kind": "translation.missing",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nDelete",
+        "namespace": "common",
+        "key": "nav.about"
+      },
+      "expected": "हमारे बारे में",
+      "actual": "About",
+      "detect": {
+        "testId": "nav-about",
+        "selector": "[data-rgt-id='nav-about']"
+      },
+      "rationale": "Key absent from the Hindi bundle, so the English fallback shows. Appears in the header on every page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-007",
+      "polarity": "defect",
+      "kind": "translation.wrongLanguage",
+      "locale": "hi-IN",
+      "routeId": "services",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "services",
+        "key": "data.body",
+        "replacement": "Entrepôts de données, pipelines de streaming et la gouvernance qui les rend fiables."
+      },
+      "expected": "डेटा वेयरहाउस, स्ट्रीमिंग पाइपलाइन और वह गवर्नेंस जो उन्हें भरोसेमंद बनाए रखती है।",
+      "actual": "Entrepôts de données, pipelines de streaming et la gouvernance qui les rend fiables.",
+      "detect": {
+        "testId": "service-data",
+        "selector": "[data-rgt-id='service-data']"
+      },
+      "rationale": "French text on the Hindi page — third-language leakage.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-008",
+      "polarity": "defect",
+      "kind": "translation.untranslated",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "home",
+        "key": "pillars.platformBody",
+        "replacement": "हम वे आंतरिक प्लेटफ़ॉर्म बनाते हैं जिन पर आपकी उत्पाद टीमें तैनाती करती हैं, so releases stop being events."
+      },
+      "expected": "हम वे आंतरिक प्लेटफ़ॉर्म बनाते हैं जिन पर आपकी उत्पाद टीमें तैनाती करती हैं, ताकि रिलीज़ एक घटना न रह जाए।",
+      "actual": "हम वे आंतरिक प्लेटफ़ॉर्म बनाते हैं जिन पर आपकी उत्पाद टीमें तैनाती करती हैं, so releases stop being events.",
+      "detect": {
+        "testId": "home-pillar-platform",
+        "selector": "[data-rgt-id='home-pillar-platform']"
+      },
+      "rationale": "Half-translated sentence — a partial translation, which reads worse than none.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-009",
+      "polarity": "defect",
+      "kind": "translation.mojibake",
+      "locale": "hi-IN",
+      "routeId": "events",
+      "severity": "critical",
+      "category": "markup",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "events",
+        "key": "hero.title",
+        "replacement": "आप हमसे कहाँ मिल सकते ह�ं"
+      },
+      "expected": "आप हमसे कहाँ मिल सकते हैं",
+      "actual": "आप हमसे कहाँ मिल सकते ह�ं",
+      "detect": {
+        "selector": "main h1"
+      },
+      "rationale": "A U+FFFD replacement character where a Devanagari vowel sign should be — the file was decoded with the wrong encoding somewhere upstream.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-010",
+      "polarity": "defect",
+      "kind": "translation.untranslated",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "values.oneTitle",
+        "replacement": "छोटी teams, लंबी परियोजनाएँ"
+      },
+      "expected": "छोटी टीमें, लंबी परियोजनाएँ",
+      "actual": "छोटी teams, लंबी परियोजनाएँ",
+      "detect": {
+        "testId": "about-value-one",
+        "selector": "[data-rgt-id='about-value-one']"
+      },
+      "rationale": "A Latin word spliced into the middle of Devanagari text — script mixing inside a single phrase.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-011",
+      "polarity": "defect",
+      "kind": "translation.controlChar",
+      "locale": "hi-IN",
+      "routeId": "blog",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "common",
+        "key": "actions.viewAll",
+        "codec": "inject-control-char"
+      },
+      "expected": "सभी देखें",
+      "actual": "सभी‎ देखें",
+      "detect": {
+        "selector": "body"
+      },
+      "rationale": "An invisible U+200E inside a Hindi label.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-012",
+      "polarity": "defect",
+      "kind": "translation.truncated",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "hero.lead",
+        "replacement": "2009 में स्थापित, RGT Global चार लोगों की परामर्श कंपनी से बढ़कर…"
+      },
+      "expected": "2009 में स्थापित, RGT Global चार लोगों की परामर्श कंपनी से बढ़कर तीन महाद्वीपों पर वितरण केंद्रों वाला एक इंजीनियरिंग साझेदार बन गया है।",
+      "actual": "2009 में स्थापित, RGT Global चार लोगों की परामर्श कंपनी से बढ़कर…",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Copy truncated in the resource file itself, not by CSS.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-013",
+      "polarity": "defect",
+      "kind": "format.number",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.1.price.hi-IN",
+        "replacement": "₹103900"
+      },
+      "expected": "₹1,03,900",
+      "actual": "₹103900",
+      "detect": {
+        "testId": "plan-price-team",
+        "selector": "[data-rgt-id='plan-price-team']"
+      },
+      "rationale": "Indian digit grouping (lakh) dropped entirely. hi-IN groups as 1,03,900 — not 103,900 and certainly not 103900.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-014",
+      "polarity": "defect",
+      "kind": "format.currency",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.0.price.hi-IN",
+        "replacement": "$28,900"
+      },
+      "expected": "₹28,900",
+      "actual": "$28,900",
+      "detect": {
+        "testId": "plan-price-starter",
+        "selector": "[data-rgt-id='plan-price-starter']"
+      },
+      "rationale": "Dollar symbol on the Indian price — wrong currency for the region entirely.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-015",
+      "polarity": "defect",
+      "kind": "format.date",
+      "locale": "hi-IN",
+      "routeId": "blog.article",
+      "routeParams": {
+        "slug": "observability-budget"
+      },
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "posts.1.published.hi-IN",
+        "replacement": "February 3, 2026"
+      },
+      "expected": "3 फ़रवरी 2026",
+      "actual": "February 3, 2026",
+      "detect": {
+        "testId": "article-published",
+        "selector": "[data-rgt-id='article-published']"
+      },
+      "rationale": "English month name and US date order on the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-016",
+      "polarity": "defect",
+      "kind": "format.time",
+      "locale": "hi-IN",
+      "routeId": "events",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "events.1.when.hi-IN",
+        "replacement": "24 मार्च 2026, 10:00 AM IST"
+      },
+      "expected": "24 मार्च 2026, सुबह 10:00 बजे IST",
+      "actual": "24 मार्च 2026, 10:00 AM IST",
+      "detect": {
+        "testId": "event-when-hyderabad-data",
+        "selector": "[data-rgt-id='event-when-hyderabad-data']"
+      },
+      "rationale": "Untranslated AM/PM marker replacing the Hindi time-of-day wording.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-017",
+      "polarity": "defect",
+      "kind": "format.phone",
+      "locale": "hi-IN",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "offices.1.phone.hi-IN",
+        "replacement": "040-23456789"
+      },
+      "expected": "+91 40 2345 6789",
+      "actual": "040-23456789",
+      "detect": {
+        "testId": "office-phone-hyderabad",
+        "selector": "[data-rgt-id='office-phone-hyderabad']"
+      },
+      "rationale": "Country code dropped, leaving a number that is unreachable from outside India.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-018",
+      "polarity": "defect",
+      "kind": "head.lang",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "htmlLang",
+        "value": "en"
+      },
+      "expected": "hi-IN",
+      "actual": "en",
+      "detect": {
+        "headSelector": "html[lang]"
+      },
+      "rationale": "The Hindi page declares English, so the browser picks the wrong font stack for Devanagari and screen readers use the wrong voice.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-019",
+      "polarity": "defect",
+      "kind": "head.title",
+      "locale": "hi-IN",
+      "routeId": "events",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "title",
+        "value": "Events and workshops"
+      },
+      "expected": "कार्यक्रम और कार्यशालाएँ",
+      "actual": "Events and workshops",
+      "detect": {
+        "headSelector": "title"
+      },
+      "rationale": "Untranslated title on the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-020",
+      "polarity": "defect",
+      "kind": "head.description",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "description",
+        "value": ""
+      },
+      "expected": "2009 में स्थापित, RGT Global हैदराबाद, बर्लिन और टोरंटो में वितरण केंद्रों वाला एक वितरित इंजीनियरिंग साझेदार है।",
+      "actual": "",
+      "detect": {
+        "headSelector": "meta[name='description']"
+      },
+      "rationale": "Empty meta description — the tag is present, which is how it slips past presence-only checks.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-021",
+      "polarity": "defect",
+      "kind": "head.hreflang",
+      "locale": "hi-IN",
+      "routeId": "blog",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "hreflangBreak",
+        "omitLocales": ["en-US"]
+      },
+      "expected": "hreflang set includes en-US",
+      "actual": "hreflang set omits en-US",
+      "detect": {
+        "headSelector": "link[rel='alternate'][hreflang='en-US']"
+      },
+      "rationale": "Reciprocity break against the source locale.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-022",
+      "polarity": "defect",
+      "kind": "head.canonical",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "canonical",
+        "value": "https://rgt-global-seeded.vercel.app/en-US"
+      },
+      "expected": "https://rgt-global-seeded.vercel.app/hi-IN",
+      "actual": "https://rgt-global-seeded.vercel.app/en-US",
+      "detect": {
+        "headSelector": "link[rel='canonical']"
+      },
+      "rationale": "The Hindi home page canonicalises to the English one, which deindexes the whole locale from its root.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-023",
+      "polarity": "defect",
+      "kind": "header.contentLanguage",
+      "locale": "hi-IN",
+      "routeId": "blog",
+      "severity": "major",
+      "category": "transport",
+      "target": {
+        "via": "responseHeader",
+        "pathGlob": "/hi-IN/blog",
+        "header": "Content-Language",
+        "value": "en-US"
+      },
+      "expected": "hi-IN",
+      "actual": "en-US",
+      "detect": {
+        "httpHeader": "Content-Language"
+      },
+      "rationale": "Transport header contradicts the served language.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-024",
+      "polarity": "defect",
+      "kind": "dom.clipped",
+      "locale": "hi-IN",
+      "routeId": "events",
+      "severity": "major",
+      "category": "ux",
+      "target": {
+        "via": "componentFlag",
+        "flag": "hiCardTruncated"
+      },
+      "expected": "event card titles wrap to their natural height",
+      "actual": "event card titles clipped at a fixed 2.6rem height",
+      "detect": {
+        "testId": "event-title-berlin-platform",
+        "selector": "[data-rgt-id='event-title-berlin-platform']"
+      },
+      "rationale": "Devanagari has a taller line box than Latin, so a height that fits English cuts Hindi off mid-line. Geometry-only — the text is intact in the DOM.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-025",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "enHomeHeroHardcoded"
+      },
+      "expected": "ऐसा सॉफ़्टवेयर बनाएँ जो हर बाज़ार में काम करे",
+      "actual": "Ship software that works everywhere",
+      "detect": {
+        "testId": "home-hero-title",
+        "selector": "[data-rgt-id='home-hero-title']"
+      },
+      "rationale": "The main H1 is an English literal in the component, so no translation can reach the most prominent string on the site.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-026",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "deFooterNoteHardcoded"
+      },
+      "expected": "14 देशों में सक्रिय।",
+      "actual": "Tätig in 14 Ländern weltweit.",
+      "detect": {
+        "testId": "footer-note",
+        "selector": "[data-rgt-id='footer-note']"
+      },
+      "rationale": "German prose hardcoded in the footer shows on the Hindi page too — the same flag as EN-015, catalogued for each locale where it is visibly wrong.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-027",
+      "polarity": "defect",
+      "kind": "dom.textInImage",
+      "locale": "hi-IN",
+      "routeId": "blog.article",
+      "routeParams": {
+        "slug": "scaling-globally"
+      },
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "assetSwap",
+        "publicPath": "/images/article-platform.svg",
+        "replacementPath": "/images/article-baked-en.svg"
+      },
+      "expected": "hero diagram carries no embedded text",
+      "actual": "hero diagram has English labels baked into the artwork",
+      "detect": {
+        "testId": "article-hero",
+        "selector": "[data-rgt-id='article-hero']"
+      },
+      "rationale": "Same swapped asset as DE-035, recorded for Hindi because the English labels are equally wrong here and a detector should report it per locale.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-028",
+      "polarity": "defect",
+      "kind": "route.notFoundUnlocalized",
+      "locale": "hi-IN",
+      "routeId": "notFound",
+      "severity": "major",
+      "category": "ux",
+      "target": {
+        "via": "routeBehaviour",
+        "behaviour": "unlocalizedNotFound"
+      },
+      "expected": "पृष्ठ नहीं मिला",
+      "actual": "Page not found",
+      "detect": {
+        "testId": "not-found-title",
+        "selector": "[data-rgt-id='not-found-title']"
+      },
+      "rationale": "The 404 page ignores the locale and always renders English. Error pages are among the least-reviewed surfaces in any localization sweep.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-029",
+      "polarity": "defect",
+      "kind": "dom.altTextUntranslated",
+      "locale": "hi-IN",
+      "routeId": "blog.article",
+      "routeParams": {
+        "slug": "migration-without-freeze"
+      },
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "dataValue",
+        "pointer": "posts.2.heroAlt.hi-IN",
+        "replacement": "Illustration of traffic shifting gradually between two systems"
+      },
+      "expected": "दो प्रणालियों के बीच क्रमिक ट्रैफ़िक स्थानांतरण का चित्रण",
+      "actual": "Illustration of traffic shifting gradually between two systems",
+      "detect": {
+        "testId": "article-hero",
+        "selector": "[data-rgt-id='article-hero'][alt]"
+      },
+      "rationale": "English alt text on the Hindi article — attribute-only, invisible to a text sweep.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-030",
+      "polarity": "defect",
+      "kind": "dom.placeholderUntranslated",
+      "locale": "hi-IN",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "form.namePlaceholder",
+        "replacement": "Your full name"
+      },
+      "expected": "आपका पूरा नाम",
+      "actual": "Your full name",
+      "detect": {
+        "testId": "contact-name",
+        "selector": "[data-rgt-id='contact-name'][placeholder]"
+      },
+      "rationale": "English placeholder on the Hindi form.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-031",
+      "polarity": "defect",
+      "kind": "translation.untranslated",
+      "locale": "hi-IN",
+      "routeId": "contact",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "validation.emailInvalid",
+        "replacement": "Please enter a valid email address."
+      },
+      "expected": "कृपया एक वैध ईमेल पता दर्ज करें।",
+      "actual": "Please enter a valid email address.",
+      "detect": {
+        "testId": "contact-email",
+        "selector": "[data-rgt-id='contact-email'] ~ p[role='alert']"
+      },
+      "rationale": "An untranslated validation message. Only reachable by submitting the form with a bad email, which is why crawlers miss this whole category.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-032",
+      "polarity": "defect",
+      "kind": "translation.concatenated",
+      "locale": "hi-IN",
+      "routeId": "contact",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "offices.heading",
+        "replacement": "हमारे कार्यालय ."
+      },
+      "expected": "हमारे कार्यालय",
+      "actual": "हमारे कार्यालय .",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "A Latin full stop appended to a Hindi heading. Hindi uses the danda (।) and headings take no terminal punctuation at all.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-033",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "hi-IN",
+      "routeId": "contact",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "enContactCtaHardcoded"
+      },
+      "expected": "संदेश भेजें",
+      "actual": "Get in touch today",
+      "detect": {
+        "testId": "contact-submit",
+        "selector": "[data-rgt-id='contact-submit']"
+      },
+      "rationale": "The submit button of the primary conversion form stays English on the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-034",
+      "polarity": "defect",
+      "kind": "translation.hardcoded",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "componentFlag",
+        "flag": "hiBadgeHardcoded"
+      },
+      "expected": "सर्वाधिक लोकप्रिय",
+      "actual": "Most popular",
+      "detect": {
+        "testId": "plan-row-team",
+        "selector": "[data-rgt-id='plan-row-team'] span"
+      },
+      "rationale": "English badge text hardcoded into the plan table, on the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-035",
+      "polarity": "defect",
+      "kind": "translation.icuSyntax",
+      "locale": "hi-IN",
+      "routeId": "blog",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "list.resultCount",
+        "replacement": "{count, plural, one {# लेख} other {# लेख}}"
+      },
+      "expected": "3 लेख",
+      "actual": "{count, plural, one {# लेख} other {# लेख}}",
+      "detect": {
+        "testId": "blog-result-count",
+        "selector": "[data-rgt-id='blog-result-count']"
+      },
+      "rationale": "ICU message syntax authored into a resource file that a non-ICU runtime consumes. i18next renders it verbatim, so the braces reach the user. Reproduced rather than simulated: the app genuinely has no ICU plugin.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "HI-036",
+      "polarity": "defect",
+      "kind": "translation.byteOrderMark",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "about",
+        "key": "story.p2",
+        "codec": "inject-bom"
+      },
+      "expected": "आज हैदराबाद, बर्लिन और टोरंटो के वितरण केंद्रों में हमारे 1,180 इंजीनियर कार्यरत हैं। हमारे लगभग दो-तिहाई काम बहुवर्षीय प्लेटफ़ॉर्म परियोजनाएँ हैं; शेष अल्पावधि आधुनिकीकरण और मूल्यांकन कार्य है।",
+      "actual": "﻿आज हैदराबाद, बर्लिन और टोरंटो के वितरण केंद्रों में हमारे 1,180 इंजीनियर कार्यरत हैं। हमारे लगभग दो-तिहाई काम बहुवर्षीय प्लेटफ़ॉर्म परियोजनाएँ हैं; शेष अल्पावधि आधुनिकीकरण और मूल्यांकन कार्य है।",
+      "detect": {
+        "testId": "about-story-p2",
+        "selector": "[data-rgt-id='about-story-p2']"
+      },
+      "rationale": "U+FEFF leading a text node, as a UTF-8-with-BOM resource file produces. Invisible on screen and in most diffs, but the string is unequal to its own literal on the first character.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "HI-037",
+      "polarity": "defect",
+      "kind": "head.byteOrderMark",
+      "locale": "hi-IN",
+      "routeId": "services",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "shellByteOrderMark"
+      },
+      "expected": "<!doctype html>",
+      "actual": "﻿<!doctype html>",
+      "detect": {
+        "headSelector": "html"
+      },
+      "rationale": "The shell is served as UTF-8-with-BOM. The BOM sits before the doctype, so a parser may treat it as content and some clients render a stray glyph. This is the flavour a detector reading the declared charset should catch.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "HI-901",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global",
+      "actual": "RGT Global",
+      "detect": {
+        "selector": "header a span"
+      },
+      "rationale": "Company name, deliberately in Latin script on the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-902",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "CloudBridge",
+      "actual": "CloudBridge",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Product name in Latin script. A script-violation check that flags Latin characters on a Devanagari page will fire here, and be wrong.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-903",
+      "polarity": "trap",
+      "kind": "trap.latinNumerals",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "240",
+      "actual": "240",
+      "detect": {
+        "testId": "home-stat-clients",
+        "selector": "[data-rgt-id='home-stat-clients']"
+      },
+      "rationale": "Latin digits are the overwhelming convention in Hindi web content. Demanding Devanagari numerals (२४०) would be wrong for this market.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-904",
+      "polarity": "trap",
+      "kind": "trap.versionString",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "प्लेटफ़ॉर्म रिलीज़ 1.000",
+      "actual": "प्लेटफ़ॉर्म रिलीज़ 1.000",
+      "detect": {
+        "testId": "platform-version",
+        "selector": "[data-rgt-id='platform-version']"
+      },
+      "rationale": "A release number. Applying Indian digit grouping to it would produce nonsense.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-905",
+      "polarity": "trap",
+      "kind": "trap.productCode",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "12/05/2024",
+      "actual": "12/05/2024",
+      "detect": {
+        "testId": "pricing-product-code",
+        "selector": "[data-rgt-id='pricing-product-code']"
+      },
+      "rationale": "A product code, not a date.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-906",
+      "polarity": "trap",
+      "kind": "trap.legalEntity",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global Technologies Pvt. Ltd.",
+      "actual": "RGT Global Technologies Pvt. Ltd.",
+      "detect": {
+        "testId": "legal-entity",
+        "selector": "[data-rgt-id='legal-entity']"
+      },
+      "rationale": "The registered Indian entity name. Written in Latin script by law, on the Hindi page.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-907",
+      "polarity": "trap",
+      "kind": "trap.taggedForeignQuote",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "actual": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "detect": {
+        "testId": "testimonial-quote",
+        "selector": "[data-rgt-id='testimonial-quote'][lang='en']"
+      },
+      "rationale": "An English original quoted verbatim and tagged lang=\"en\". The adjacent note tells the reader why it is in English.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-908",
+      "polarity": "trap",
+      "kind": "trap.loanword",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Email",
+      "actual": "Email",
+      "detect": {
+        "testId": "footer-email",
+        "selector": "[data-rgt-id='footer-email']"
+      },
+      "rationale": "Standard usage in Indian English-influenced Hindi UI copy.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-909",
+      "polarity": "trap",
+      "kind": "trap.cognate",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Team",
+      "actual": "Team",
+      "detect": {
+        "selector": "[data-rgt-id='plan-row-team']"
+      },
+      "rationale": "Plan name, identical across all three locales by design.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-910",
+      "polarity": "trap",
+      "kind": "trap.internationalPhone",
+      "locale": "hi-IN",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "+1 416 555 0142",
+      "actual": "+1 416 555 0142",
+      "detect": {
+        "testId": "office-phone-toronto",
+        "selector": "[data-rgt-id='office-phone-toronto']"
+      },
+      "rationale": "A correct Canadian number for a real foreign office. An Indian phone pattern must not be applied to it.",
+      "addedIn": "1.0.0"
+    },
+    {
+      "id": "HI-911",
+      "polarity": "trap",
+      "kind": "trap.dottedIdentifier",
+      "locale": "hi-IN",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "पाइपलाइन रिपॉज़िटरी की जड़ में deploy.config.yaml में घोषित की जाती हैं।",
+      "actual": "पाइपलाइन रिपॉज़िटरी की जड़ में deploy.config.yaml में घोषित की जाती हैं।",
+      "detect": {
+        "testId": "service-note-config",
+        "selector": "[data-rgt-id='service-note-config']"
+      },
+      "rationale": "A configuration filename, not a resource key. Both are dotted lowercase identifiers, so a RawResourceKey rule matching a dotted-word pattern fires on it. Flagging this is a false positive.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "HI-912",
+      "polarity": "trap",
+      "kind": "trap.bracedLiteral",
+      "locale": "hi-IN",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "क्षेत्र स्पष्ट रूप से निर्दिष्ट करें, उदाहरण के लिए { \"region\": \"eu-central-1\" }।",
+      "actual": "क्षेत्र स्पष्ट रूप से निर्दिष्ट करें, उदाहरण के लिए { \"region\": \"eu-central-1\" }।",
+      "detect": {
+        "testId": "service-note-region",
+        "selector": "[data-rgt-id='service-note-region']"
+      },
+      "rationale": "A JSON snippet quoted as documentation. The braces are content, not an unresolved token, so neither UnresolvedPlaceholder nor IcuSyntaxError may fire.",
+      "addedIn": "1.1.0"
+    },
+    {
+      "id": "HI-913",
+      "polarity": "trap",
+      "kind": "trap.nullInProse",
+      "locale": "hi-IN",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "क्षेत्र का null मान होने पर प्लेटफ़ॉर्म का डिफ़ॉल्ट उपयोग होता है।",
+      "actual": "क्षेत्र का null मान होने पर प्लेटफ़ॉर्म का डिफ़ॉल्ट उपयोग होता है।",
+      "detect": {
+        "testId": "service-note-null",
+        "selector": "[data-rgt-id='service-note-null']"
+      },
+      "rationale": "The word null used as terminology in a sentence about configuration. NullOrUndefinedRendered must distinguish this from a null value that escaped a template.",
+      "addedIn": "1.1.0"
+    }
+  ]
+}

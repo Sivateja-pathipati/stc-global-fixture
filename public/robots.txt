@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# The fixture must be crawlable — a detector that respects robots.txt has to be able to reach
+# every page, including the error and members-only routes.

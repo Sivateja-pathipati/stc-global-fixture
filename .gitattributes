@@ -1,0 +1,18 @@
+# Load-bearing on Windows: Prettier is configured with endOfLine "lf", so without this
+# every checkout on Windows would fail `prettier --check`.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.avif binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary
+
+package-lock.json -diff linguist-generated

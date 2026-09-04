@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-clean
+dist-seeded
+.verify
+.vercel
+package-lock.json
+src/constants/generated
+docs/defect-catalogue.md
+vercel.json
+*.min.*
