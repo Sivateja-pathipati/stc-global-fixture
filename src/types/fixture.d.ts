@@ -29,6 +29,14 @@ export type DefectKind =
   | 'translation.controlChar'
   /** U+FEFF inside a text node — invisible, and it breaks string equality on the first char. */
   | 'translation.byteOrderMark'
+  /**
+   * NFD round-trip: `Uber` as `U` plus a combining diaeresis. Visually identical to the correct
+   * string, byte-different. Split from `translation.diacriticsStripped` because the two need
+   * different rules - this one is a byte-level property a normalization check finds, the other
+   * needs a dictionary.
+   */
+  | 'translation.unicodeNormalization'
+  /** Umlauts genuinely gone: `Vortraege` rendered `Vortrage`. Needs a dictionary; Level 5. */
   | 'translation.diacriticsStripped'
   // ── formatting ─────────────────────────────────────────────────────────────────────────
   | 'format.number'

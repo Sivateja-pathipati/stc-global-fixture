@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "entries": [
     {
       "id": "DE-001",
@@ -253,7 +253,7 @@
     {
       "id": "DE-012",
       "polarity": "defect",
-      "kind": "translation.diacriticsStripped",
+      "kind": "translation.unicodeNormalization",
       "locale": "de-DE",
       "routeId": "home",
       "severity": "minor",

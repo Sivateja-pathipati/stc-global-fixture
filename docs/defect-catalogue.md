@@ -1,6 +1,6 @@
 # Defect catalogue
 
-Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edit by hand.
+Generated from `fixtures/manifest.json` v1.2.0 by `npm run gen:docs`. Do not edit by hand.
 
 **111 defects · 39 traps**
 
@@ -21,7 +21,7 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `DE-009` | translation.wrongLanguage | services | critical | Schrittweise Migration weg von Altsystemen, während der Betrieb durchgehend weiterläuft. | Migration progressive depuis les systèmes hérités, sans interrompre l'activité. |
 | `DE-010` | translation.untranslated | home | major | Data Warehouses, Pipelines und Governance, die einer Prüfung standhalten und trotzdem schn… | Data Warehouses, Pipelines und Governance that survive an audit and still answer questions… |
 | `DE-011` | translation.mojibake | pricing | critical | Enthaltene Arbeitsplätze | Enthaltene ArbeitsplÃ¤tze |
-| `DE-012` | translation.diacriticsStripped | home | minor | Über uns | Über uns |
+| `DE-012` | translation.unicodeNormalization | home | minor | Über uns | Über uns |
 | `DE-013` | translation.diacriticsStripped | events | major | Workshops und Vorträge unserer Ingenieurinnen und Ingenieure. Die Teilnahme ist kostenlos,… | Workshops und Vortrage unserer Ingenieurinnen und Ingenieure. Die Teilnahme ist kostenlos,… |
 | `DE-014` | translation.controlChar | contact | minor | Absenden | Absenden‎ |
 | `DE-015` | format.currency | pricing | critical | 1.249,00 € | $1,249.00 |

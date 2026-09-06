@@ -13,9 +13,21 @@ const MIN_TRAPS_PER_LOCALE = 10;
 const MIN_KINDS_PER_LOCALE = 8;
 
 interface IssueTypeRow {
+  /** Non-null ONLY when the rule exists in the detector today. Level 1 is all there is so far. */
   readonly issueType: string | null;
+  /**
+   * The rule the Level 2/3 plans say will catch this kind. Deliberately a separate field: putting
+   * a not-yet-implemented name in `issueType` would inflate `measurable` and score the fixture
+   * against a rule that does not exist. Promoting this to `issueType` is the diff that records a
+   * rule landing.
+   */
+  readonly plannedIssueType?: string | null;
   readonly level: number | null;
+  /** Traps: rules that exist today and must stay silent on this kind. */
   readonly guards?: readonly string[];
+  /** Traps: rules that do not exist yet and must stay silent once they do. */
+  readonly plannedGuards?: readonly string[];
+  readonly note?: string;
 }
 
 interface IssueTypeMap {
@@ -112,7 +124,11 @@ function main(): void {
   }
 
   console.log(
-    `  level 1: ${coverage.measurable}/${coverage.total} defect entries bound to an IssueType`,
+    `  bound to a live IssueType:  ${coverage.measurable}/${coverage.total} defect entries`,
+  );
+  console.log(`  planned, rule not built:    ${coverage.planned}/${coverage.total} defect entries`);
+  console.log(
+    `  unbound (no rule planned):  ${coverage.total - coverage.measurable - coverage.planned}/${coverage.total} defect entries`,
   );
 }
 
@@ -124,9 +140,10 @@ function main(): void {
 function checkIssueTypeMap(
   problems: string[],
   entries: ReturnType<typeof loadManifest>['entries'],
-): { measurable: number; total: number } {
+): { measurable: number; planned: number; total: number } {
   const map = readJson<IssueTypeMap>(PATHS.issueTypeMap);
   let measurable = 0;
+  let planned = 0;
   let total = 0;
 
   for (const entry of entries) {
@@ -139,13 +156,24 @@ function checkIssueTypeMap(
       if (row.issueType !== null) {
         problems.push(`${entry.id}: trap kind '${entry.kind}' must not name an issueType`);
       }
+      if ((row.plannedIssueType ?? null) !== null) {
+        problems.push(`${entry.id}: trap kind '${entry.kind}' must not name a plannedIssueType`);
+      }
       continue;
+    }
+    // A defect kind must not claim both: once the rule lands, plannedIssueType is REPLACED by
+    // issueType rather than sitting alongside it, so the two can never drift apart.
+    if (row.issueType !== null && (row.plannedIssueType ?? null) !== null) {
+      problems.push(
+        `${entry.id}: kind '${entry.kind}' names both issueType and plannedIssueType — promote one, drop the other`,
+      );
     }
     total += 1;
     if (row.issueType !== null) measurable += 1;
+    else if ((row.plannedIssueType ?? null) !== null) planned += 1;
   }
 
-  return { measurable, total };
+  return { measurable, planned, total };
 }
 
 main();
