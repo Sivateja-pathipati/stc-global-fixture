@@ -40,6 +40,12 @@ const DESCRIPTIVE_KINDS = new Set([
   'route.precedenceViolation',
   'route.localeLostOnAuth',
   'route.notFoundUnlocalized',
+  // The next three are ABSENCES. Grepping for their `actual` would pass for the wrong reason:
+  // 'ltr' appears in every LTR locale's shell, and the phone number is in the build whether or
+  // not it is wrapped in <bdi>. What is wrong is what is missing, which a text search cannot see.
+  'head.langMissing',
+  'dom.missingTextDirection',
+  'dom.bidiIsolationMissing',
 ]);
 
 /** True when `entry.actual` is a literal that must physically appear in the seeded output. */

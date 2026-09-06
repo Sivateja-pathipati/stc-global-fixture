@@ -1,5 +1,9 @@
 {
   "home": {
+    "ar-SA": {
+      "title": "RGT Global — هندسة للنطاق العالمي",
+      "description": "تساعد RGT Global المؤسسات الهندسية على تصميم وبناء وتشغيل منصات تصمد عبر اللغات والعملات والأنظمة التنظيمية."
+    },
     "en-US": {
       "title": "RGT Global — Engineering for global scale",
       "description": "RGT Global helps engineering organisations design, build and operate platforms that hold up across languages, currencies and regulatory regimes."
@@ -14,6 +18,10 @@
     }
   },
   "about": {
+    "ar-SA": {
+      "title": "عن RGT Global",
+      "description": "تأسست عام 2009، وRGT Global شريك هندسي موزَّع لديه مراكز تسليم في حيدر آباد وبرلين وتورونتو."
+    },
     "en-US": {
       "title": "About RGT Global",
       "description": "Founded in 2009, RGT Global is a distributed engineering partner with delivery centres in Hyderabad, Berlin and Toronto."
@@ -28,6 +36,10 @@
     }
   },
   "services": {
+    "ar-SA": {
+      "title": "الخدمات — المنصات والبيانات والتحديث",
+      "description": "هندسة المنصات، والبيانات والتحليلات، والتحديث التدريجي، تنفّذها فرق ثابتة بقائد تقني معروف بالاسم."
+    },
     "en-US": {
       "title": "Services — Platform, data and modernisation",
       "description": "Platform engineering, data and analytics, and incremental modernisation, delivered by standing teams with a named technical lead."
@@ -42,6 +54,10 @@
     }
   },
   "pricing": {
+    "ar-SA": {
+      "title": "أسعار CloudBridge",
+      "description": "تسعير شفاف لكل مقعد في CloudBridge. خطط Starter وTeam وEnterprise مع التزامات جاهزية منشورة."
+    },
     "en-US": {
       "title": "CloudBridge pricing",
       "description": "Transparent per-seat pricing for CloudBridge. Starter, Team and Enterprise plans with published uptime commitments."
@@ -56,6 +72,10 @@
     }
   },
   "events": {
+    "ar-SA": {
+      "title": "الفعاليات وورش العمل",
+      "description": "ورش عمل ومحاضرات مجانية يقدّمها مهندسو RGT Global في برلين وحيدر آباد وتورونتو."
+    },
     "en-US": {
       "title": "Events and workshops",
       "description": "Free workshops and talks run by RGT Global engineers in Berlin, Hyderabad and Toronto."
@@ -70,6 +90,10 @@
     }
   },
   "contact": {
+    "ar-SA": {
+      "title": "تواصل مع RGT Global",
+      "description": "تحدّث إلى مهندس بشأن منصتك. نرد خلال يومي عمل."
+    },
     "en-US": {
       "title": "Contact RGT Global",
       "description": "Talk to an engineer about your platform. We reply within two working days."
@@ -84,6 +108,10 @@
     }
   },
   "blog": {
+    "ar-SA": {
+      "title": "رؤى — ملاحظات من ممارستنا الهندسية",
+      "description": "مقالات يكتبها مهندسو RGT Global الذين ينفّذون العمل، عن هندسة المنصات وإمكانية الملاحظة والتحديث."
+    },
     "en-US": {
       "title": "Insights — Notes from our engineering practice",
       "description": "Articles written by the RGT Global engineers doing the work, on platform engineering, observability and modernisation."
@@ -98,6 +126,10 @@
     }
   },
   "login": {
+    "ar-SA": {
+      "title": "تسجيل الدخول — بوابة عملاء RGT Global",
+      "description": "دخول بوابة العملاء لارتباطات RGT Global القائمة."
+    },
     "en-US": {
       "title": "Sign in — RGT Global client portal",
       "description": "Client portal access for existing RGT Global engagements."
@@ -112,6 +144,10 @@
     }
   },
   "account": {
+    "ar-SA": {
+      "title": "حسابك — RGT Global",
+      "description": "خطة CloudBridge الخاصة بك، واستخدام المقاعد، وأحدث فاتورة."
+    },
     "en-US": {
       "title": "Your account — RGT Global",
       "description": "Your CloudBridge plan, seat usage and latest invoice."
@@ -126,6 +162,10 @@
     }
   },
   "notFound": {
+    "ar-SA": {
+      "title": "الصفحة غير موجودة — RGT Global",
+      "description": "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها."
+    },
     "en-US": {
       "title": "Page not found — RGT Global",
       "description": "The page you are looking for does not exist or may have been moved."
@@ -140,6 +180,10 @@
     }
   },
   "serverError": {
+    "ar-SA": {
+      "title": "حدث خطأ ما — RGT Global",
+      "description": "حدث خطأ غير متوقع لدينا. تم تسجيل التفاصيل."
+    },
     "en-US": {
       "title": "Something went wrong — RGT Global",
       "description": "An unexpected error occurred on our side. The details have been logged."

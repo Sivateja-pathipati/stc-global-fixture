@@ -8,10 +8,12 @@ and neither can be computed without knowing the right answer in advance. So the 
 clean, and defects are applied from a machine-readable manifest — which means the manifest and
 the site can never disagree, and a clean control build falls out of the same pipeline for free.
 
-- **150 catalogued entries** — 111 defects and 39 traps across `en-US`, `de-DE` and `hi-IN`
+- **225 catalogued entries** — 149 defects and 76 traps across `ar-SA`, `de-DE`, `en-US` and `hi-IN`
 - **Two builds** — seeded, and a clean control where a detector should find approximately nothing
-- **10 pages** plus error routes, 43 prerendered shells
-- **All 9 site-observable Level 1 issue types** present in all three locales
+- **10 pages** plus error routes, 57 prerendered shells
+- **All 9 site-observable Level 1 issue types** present in all four locales
+- **`ar-SA` is right-to-left**, which is what makes direction, bidi isolation and script
+  coverage measurable at all
 
 Ten pages: `/`, `/about`, `/services`, `/pricing`, `/events`, `/contact`, `/blog`,
 `/blog/:slug`, `/login`, `/account` (behind a fake sign-in), plus `/404` and `/500`.
@@ -54,18 +56,21 @@ real deployment.)
 
 ## Traps are half the point
 
-39 of the 150 entries are **traps**: things a detector must _not_ flag. Without them you measure
+76 of the 225 entries are **traps**: things a detector must _not_ flag. Without them you measure
 recall only, and a detector that flags everything scores perfectly.
 
-Nine guard the Level 1 plumbing rules specifically — a dotted filename that is not a resource
+Twelve guard rules that exist today — a dotted filename that is not a resource
 key, a JSON snippet whose braces are content, the word `null` used as terminology.
 
-The other 30 include brand and product names (`RGT Global`, `CloudBridge`), German loanwords and
-cognates that are identical to English and correct (`Login`, `Email`, `Team`), the version
-string `1.000` which is a release number rather than a thousands-separated quantity, the product
-code `12/05/2024` which is shaped exactly like a date and is not one, an English testimonial
-correctly marked `lang="en"`, correct international phone numbers for genuine foreign offices,
-and Latin numerals in Hindi where that is the convention.
+The other 64 guard rules that do not exist yet, and each names them in `plannedGuards`: brand and
+product names (`RGT Global`, `CloudBridge`), German loanwords and cognates that are identical to
+English and correct (`Login`, `Email`, `Team`), the version string `1.000` which is a release
+number rather than a thousands-separated quantity, the product code `12/05/2024` which is shaped
+exactly like a date and is not one, an English testimonial correctly marked `lang="en"`, correct
+international phone numbers for genuine foreign offices, Latin numerals in Hindi and Arabic where
+that is the convention, an IPv4 address that is not a grouped number, `03/04/2026` which is
+genuinely undecidable and must be **skipped** rather than guessed, miles for a Colorado trail on a
+metric locale, and `Vorname(n)` which is idiomatic rather than a leaked plural form.
 
 Full listing: [`docs/defect-catalogue.md`](docs/defect-catalogue.md) — generated from the
 manifest, never hand-edited. How to read and extend the ground truth, and which rule each defect
@@ -173,12 +178,24 @@ src/              the app — taxonomy mirrors rgt-testai-FE/apps/localization-t
 docs/             locale precedence · determinism · deployment · defect catalogue
 ```
 
-## Adding a fourth locale
+## Adding a locale
 
-One entry in `SUPPORTED_LOCALES`, one entry in `LOCALE_DIR`, one file in `content/locales/`, and
-one block per route in `content/head/head.json`. Router, prerenderer, hreflang sets and
-`vercel.json` all widen off the tuple.
+`ar-SA` was the fourth, and it went in the way this section always promised: one entry in
+`SUPPORTED_LOCALES`, one in `LOCALE_DIR`, one file in `content/locales/`, one block per route in
+`content/head/head.json`, and an `ar-SA` value on every localized record in
+`content/data/site-data.json`. Router, prerenderer, hreflang sets and `vercel.json` all widen off
+the tuple.
 
-RTL is prepared for but not enabled: all spacing uses Tailwind **logical** utilities and
+Two things the tuple does **not** widen, and both bite immediately:
+
+- **The locale file must be complete.** A missing key is not blank — i18next's `fallbackLng`
+  surfaces the English string, which is exactly how `translation.missing` defects are seeded. A
+  partial locale therefore manufactures defects the manifest does not record, and they are
+  indistinguishable from real ones.
+- **`verify:manifest` enforces a per-locale floor**: at least 25 defects, 10 traps and 8 distinct
+  kinds. The check loops `SUPPORTED_LOCALES`, not locales that happen to have entries, so a new
+  locale fails the gate the moment it is added and needs a corpus of its own.
+
+RTL is **enabled**, by `ar-SA`. All spacing uses Tailwind **logical** utilities and
 `npm run verify:rtl` fails the build if anything reaches for `ml-`, `pr-`, `text-left` and
-friends.
+friends — which is what made adding a right-to-left locale a content job rather than a CSS one.

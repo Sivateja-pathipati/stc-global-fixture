@@ -17,6 +17,17 @@ export interface AccountSnapshot {
  * across Node versions in ways that would silently break those assertions.
  */
 export const ACCOUNT_SNAPSHOT: Readonly<Record<LocaleId, AccountSnapshot>> = {
+  // Latin digits and a space-grouped, comma-decimal amount: this is what the detector's own
+  // LocaleFormatRules seed says ar-SA looks like, and the fixture's `expected` values have to
+  // agree with the thing being measured or every correct page reads as a defect.
+  'ar-SA': {
+    plan: 'Team',
+    seats: '86 من 120',
+    renewal: '1 أبريل 2026',
+    invoiceNumber: 'INV-2026-0311',
+    invoiceAmount: '1 349,00 ر.س',
+    invoiceDate: '1 مارس 2026',
+  },
   'en-US': {
     plan: 'Team',
     seats: '86 of 120',

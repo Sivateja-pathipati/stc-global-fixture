@@ -6,8 +6,9 @@
 > _"Add traps at the same time as the rule they guard — a trap added after the rule already passes
 > is a trap written to fit."_
 >
-> **Status: steps 2–4 done (manifest v1.2.0). `ar-SA` is decided in — it lands in this pass (§5).**
-> Remaining: steps 1, 5, 6, 7, 8.
+> **Status: implemented, manifest v1.3.0.** Steps 2–8 are done: 150 entries → **225**, three
+> locales → **four**, and `ar-SA` makes direction, bidi and script measurable for the first time.
+> Step 1 (reconciling 31 / 29 / 39) still needs a live crawl. See **What landed** at the end.
 
 ## The headline
 
@@ -471,3 +472,76 @@ scoring against nothing and holding recall at 100% because the denominator never
 | F4  | Where do plurals live — `/pricing` seats or `/events` attendees?                                                                                                                               | §6                                 |
 | F5  | `CanonicalError` and head-copy language need adding to the Level 3 plan (§4)                                                                                                                   | 10 fixture defects staying unbound |
 | F6  | Does the NFD half of `diacriticsStripped` belong to Level 1 `TextIntegrity`? Recommendation: yes                                                                                               | §4                                 |
+
+---
+
+## What landed
+
+Manifest **v1.3.0**. All gates green: `typecheck`, `lint`, `format:check`, `verify:manifest`,
+`verify:seeded`, `verify:clean`, `verify:rtl`, `verify:determinism` (67 files byte-identical).
+
+|                               | Before             | After                      |
+| ----------------------------- | ------------------ | -------------------------- |
+| Entries                       | 150                | **225**                    |
+| Defects · traps               | 111 · 39           | **149 · 76**               |
+| Locales                       | 3                  | **4** — `ar-SA` added      |
+| Prerendered shells            | 43                 | **57**                     |
+| Kinds                         | 55                 | **77**                     |
+| Defects by level              | 1:31 2:42 3:31 4:7 | **1:42 2:34 3:63 4:9 5:1** |
+| Traps guarding a live rule    | 9                  | **12**                     |
+| Traps guarding a planned rule | 0 (30 unguarded)   | **64**                     |
+| Rules with ≥1 trap            | 5 of 25            | **25 of 25**               |
+| **False positives expected**  | **0**              | **0**                      |
+
+`ar-SA`: 224-key locale file, 11 head blocks, `ar-SA` on all 60 localized `site-data` records,
+27 defects across 27 kinds and 18 traps. `LocaleId`, `SUPPORTED_LOCALES`, `LOCALE_DIR`,
+`LOCALE_HTML_LANG`, `LOCALE_LABEL` and `ACCOUNT_SNAPSHOT` all widened.
+
+### Decisions taken during execution
+
+**`seed.ts` kept its own copy of the locale list.** `const LOCALES = ['de-DE','en-US','hi-IN']`
+sat beside `SUPPORTED_LOCALES` as a second hand-maintained source of truth — a fourth locale added
+to the tuple but not to the script would have seeded three locales and said nothing. It now reads
+the tuple.
+
+**Two new injection mechanisms, both minimal.** `htmlDir` became an overridable `HeadFieldName`
+(one line in `computeHead`) so an RTL locale can be served without `dir="rtl"`; and
+`arPhoneNotIsolated` is a component flag that strips the `<bdi>` around a phone number in Arabic
+prose. The baseline markup gained the `<bdi>` it should always have had.
+
+**Three kinds are absences, and `verify:seeded` was lying about two of them.** It greps for a
+defect's `actual` in the build. `dom.missingTextDirection` (`ltr`) and `dom.bidiIsolationMissing`
+(the phone number) both _passed_ on their first run — because that text is in the build whether or
+not the defect is seeded. They now sit in `DESCRIPTIVE_KINDS` alongside `head.langMissing`, with
+their `expected`/`actual` rewritten as descriptions. **A gate that passes for the wrong reason is
+worse than one that fails.**
+
+**Formatted literals follow the detector's seed, not a reading of CLDR.** `ar-SA` prices, dates and
+times match `LocaleFormatRulesSeed` — comma decimal, space grouping, `ر.س` after the amount,
+`dd/MM/yyyy`, `h:mm a`, Latin digits. The fixture's `expected` values have to agree with the thing
+being measured, or every correct page reads as a defect.
+
+### Deliberately not done
+
+**`SlugPatternError` defects.** Recorded in `fixtures/README.md` under _Deliberately not
+expressible here_: the fixture serves `/{locale}/{path}` with slugs identical across locales, so a
+slug defect would need per-locale slugs. A contrived one would measure the fixture, not the
+detector.
+
+**`trap.noAlternates`, `trap.headerOnlyCharset`, `trap.regionNeutralLang`.** Each needs a route
+whose _baseline_ omits something the head model always emits — a structural change to the head
+pipeline, not a manifest row. `trap.taggedForeignQuote` already exercises a region-neutral element
+`lang`, so that near-miss is covered.
+
+**Arabic plural agreement is a catalogued known-miss.** `AR-019` seeds `25 مقاعد` where Arabic
+wants the accusative singular. Under the recommended one/other plural strategy (Level 2 **O1**)
+the rule will not catch it. It is in the manifest so the gap is _measured_ rather than invisible.
+
+### Still open
+
+| #   | Item                                                                                                                                                                                                                                                                                                                              |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| F1  | §0 — 31 / 29 / 39 still unreconciled. Needs a live crawl, and the captures in the database predate both the segmentation rewrite and the `AlternateLinks` fix                                                                                                                                                                     |
+| F3  | Level 2 **O1** (plural strategy) decides whether `AR-019` and `DE-042` are hits or known misses                                                                                                                                                                                                                                   |
+| F6  | Does the NFD half of the split kind belong to Level 1 `TextIntegrity`? `UnsupportedCharacterRule` stops short of U+0300–U+036F                                                                                                                                                                                                    |
+| F7  | **The Arabic baseline is unreviewed.** Every `expected` value asserts what correct output looks like; if one is subtly wrong, a _correct_ detector finding scores as a false positive and the fixture measures the translator instead. Treat `ar-SA` precision as provisional until a native reader has been through the 224 keys |

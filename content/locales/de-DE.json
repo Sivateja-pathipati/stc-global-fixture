@@ -1,5 +1,16 @@
 {
   "about": {
+    "facts": {
+      "ambiguousDate": "Supportverträge verlängern sich am 03/04/2026.",
+      "campusDistance": "Unser Campus in Hyderabad liegt 12 km vom Flughafen entfernt.",
+      "foreignTrail": "Die jährliche Teamwanderung folgt einem 5-Meilen-Trail in Colorado.",
+      "gatewayAddress": "Das Standard-Gateway lauscht auf 192.168.1.1.",
+      "hallTemperature": "Die Rechenzentren laufen bei 21 °C.",
+      "heading": "Zahlen auf einen Blick",
+      "isoDate": "Auditeinträge tragen in jedem Gebietsschema den Stempel 2026-03-04.",
+      "scriptNote": "Unser Engineering-Handbuch erscheint in der Landessprache jedes Lieferzentrums.",
+      "technicalNote": "OAuth und HTTPS werden standardmäßig unterstützt."
+    },
     "hero": {
       "eyebrow": "Über uns",
       "lead": "RGT Global wurde 2009 gegründet und ist von einer Beratung mit vier Personen zu einem verteilten Entwicklungspartner mit Lieferzentren auf drei Kontinenten gewachsen.",
@@ -160,6 +171,13 @@
       "lead": "Sagen Sie uns, was Sie bauen. Wir antworten innerhalb von zwei Werktagen.",
       "title": "Sprechen Sie mit einer Ingenieurin oder einem Ingenieur"
     },
+    "notes": {
+      "heading": "Bevor Sie schreiben",
+      "nameFieldHint": "Bitte Vorname(n) und Nachname angeben.",
+      "quotedInformal": "Unsere Karriereseite duzt bewusst: „Komm ins Team, wir zeigen dir alles.“",
+      "responsePromise": "Wir melden uns bei Ihnen innerhalb von zwei Werktagen.",
+      "scheduleQuote": "Der US-Webcast wird in der Einladung mit 3:45 PM EST angegeben."
+    },
     "offices": {
       "heading": "Unsere Standorte",
       "hoursLabel": "Öffnungszeiten",
@@ -270,6 +288,15 @@
       "productCode": "Geben Sie bei einer Bestellung diesen Produktcode an: 12/05/2024.",
       "seatOverage": "Zusätzliche Arbeitsplätze werden zum gleichen Satz abgerechnet.",
       "vat": "Alle Preise verstehen sich zuzüglich der gesetzlichen Umsatzsteuer."
+    },
+    "seats": {
+      "foreignCurrencyNote": "Kunden, die über unsere US-Gesellschaft abgerechnet werden, zahlen $1,349 pro Monat.",
+      "heading": "Sitzplätze",
+      "manySeats": "25 Sitzplätze inbegriffen",
+      "oneSeat": "1 Sitzplatz inbegriffen",
+      "perSeatHeader": "1 Sitzplatz",
+      "projectLabel": "Projekte",
+      "usRemittance": "Zahlungen an unsere US-Gesellschaft: 1200 Market St, San Francisco, CA 94102."
     },
     "table": {
       "cadence": "pro Monat",

@@ -47,6 +47,27 @@ export default function PricingPage() {
         </Container>
       </section>
 
+      <section className="py-8">
+        <Container>
+          <SectionHeading title={t('seats.heading')} />
+          <Card testId="pricing-seats">
+            <ul className="space-y-2 text-sm text-[var(--rgt-text-muted)]">
+              <li data-rgt-id="pricing-seats-one">{t('seats.oneSeat')}</li>
+              <li data-rgt-id="pricing-seats-many">{t('seats.manySeats')}</li>
+              <li data-rgt-id="pricing-seats-project-label">{t('seats.projectLabel')}</li>
+              {/* Trap: '1 seat' is the pricing UNIT, not a count that disagrees with its noun. */}
+              <li data-rgt-id="pricing-seats-per-seat">{t('seats.perSeatHeader')}</li>
+              {/* Trap: a deliberate second currency for a real US billing entity. Reporting the
+                  presence of a foreign currency - rather than a wrong symbol position for the
+                  locale's OWN currency - is a false positive. */}
+              <li data-rgt-id="pricing-seats-usd">{t('seats.foreignCurrencyNote')}</li>
+              {/* Trap: a genuine US postal address in a global remittance note. */}
+              <li data-rgt-id="pricing-seats-remittance">{t('seats.usRemittance')}</li>
+            </ul>
+          </Card>
+        </Container>
+      </section>
+
       <section className="pb-16">
         <Container>
           <Card className="bg-[var(--rgt-surface-alt)]">

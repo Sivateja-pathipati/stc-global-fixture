@@ -10,10 +10,13 @@ import { applyCodec } from './lib/codecs';
 import { loadManifest } from './lib/manifest';
 import { PATHS, parseMode } from './lib/paths';
 import { resolve } from 'node:path';
+import { SUPPORTED_LOCALES } from '../src/constants/locales';
 import type { ComponentFlagId, FixtureEntry, FixtureMode } from '../src/types/fixture';
 import type { LocaleId } from '../src/types/locale';
 
-const LOCALES: readonly LocaleId[] = ['de-DE', 'en-US', 'hi-IN'];
+// Read from the tuple rather than restated. This was a second hand-maintained copy of the locale
+// list, and a fourth locale added here but not there would have seeded three locales silently.
+const LOCALES: readonly LocaleId[] = SUPPORTED_LOCALES;
 
 /** Must list every ComponentFlagId. seed.ts emits a const for each on every build. */
 const ALL_COMPONENT_FLAGS: readonly ComponentFlagId[] = [
@@ -27,6 +30,7 @@ const ALL_COMPONENT_FLAGS: readonly ComponentFlagId[] = [
   'deFooterNoteHardcoded',
   'hiBadgeHardcoded',
   'deTextInImage',
+  'arPhoneNotIsolated',
 ];
 
 type Messages = Record<string, unknown>;
