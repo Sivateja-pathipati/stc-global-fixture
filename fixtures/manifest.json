@@ -1,6 +1,960 @@
 {
-  "version": "1.1.0",
+  "version": "1.3.0",
   "entries": [
+    {
+      "id": "AR-001",
+      "polarity": "defect",
+      "kind": "translation.rawKey",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "common",
+        "key": "nav.services",
+        "replacement": "nav.services.label"
+      },
+      "expected": "الخدمات",
+      "actual": "nav.services.label",
+      "detect": {
+        "testId": "nav-services",
+        "selector": "[data-rgt-id='nav-services']"
+      },
+      "rationale": "The raw resource key reaches the user because the lookup failed. Zero-ambiguity defect, and script-independent - which is the point of repeating it in a fourth locale.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-002",
+      "polarity": "defect",
+      "kind": "translation.placeholder",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "home",
+        "key": "cta.body",
+        "replacement": "أخبرنا أين تتألم منصتك وسنرسل {{role}}، لا مندوب مبيعات."
+      },
+      "expected": "أخبرنا أين تتألم منصتك وسنرسل مهندساً، لا مندوب مبيعات.",
+      "actual": "أخبرنا أين تتألم منصتك وسنرسل {{role}}، لا مندوب مبيعات.",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "An i18next interpolation that never resolved, rendered verbatim in Arabic prose.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-003",
+      "polarity": "defect",
+      "kind": "translation.marker",
+      "locale": "ar-SA",
+      "routeId": "blog",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "empty.title",
+        "replacement": "[missing translation]"
+      },
+      "expected": "لم يتم العثور على مقالات",
+      "actual": "[missing translation]",
+      "detect": {
+        "testId": "blog-empty",
+        "selector": "[data-rgt-id='blog-empty']"
+      },
+      "rationale": "A tooling marker reaching the page. Deliberately left in Latin script: a marker leak looks the same in every locale, and a rule that only scans for Arabic-script anomalies misses it.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-004",
+      "polarity": "defect",
+      "kind": "translation.nullValue",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "notes.seatOverage",
+        "replacement": "تُحتسب المقاعد الإضافية بسعر undefined."
+      },
+      "expected": "تُحتسب المقاعد الإضافية بالسعر نفسه.",
+      "actual": "تُحتسب المقاعد الإضافية بسعر undefined.",
+      "detect": {
+        "testId": "pricing-note-overage",
+        "selector": "[data-rgt-id='pricing-note-overage']"
+      },
+      "rationale": "A JavaScript value that escaped a template. Distinct from a marker: nobody authored it.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-005",
+      "polarity": "defect",
+      "kind": "translation.concatenated",
+      "locale": "ar-SA",
+      "routeId": "contact",
+      "severity": "minor",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "offices.heading",
+        "replacement": "مكاتبنا ."
+      },
+      "expected": "مكاتبنا",
+      "actual": "مكاتبنا .",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "An orphaned separator left by string concatenation. In RTL the stranded full stop lands at the visual left, which is exactly where a reviewer is least likely to look for it.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-006",
+      "polarity": "defect",
+      "kind": "translation.icuSyntax",
+      "locale": "ar-SA",
+      "routeId": "blog",
+      "severity": "critical",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "blog",
+        "key": "list.resultCount",
+        "replacement": "{count, plural, one {# مقالة} other {# مقالات}}"
+      },
+      "expected": "3 مقالات",
+      "actual": "{count, plural, one {# مقالة} other {# مقالات}}",
+      "detect": {
+        "testId": "blog-result-count",
+        "selector": "[data-rgt-id='blog-result-count']"
+      },
+      "rationale": "Raw ICU rendered literally because the runtime has no ICU formatter.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-007",
+      "polarity": "defect",
+      "kind": "translation.mojibake",
+      "locale": "ar-SA",
+      "routeId": "events",
+      "severity": "critical",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "events",
+        "key": "hero.title",
+        "codec": "utf8-as-cp1252"
+      },
+      "expected": "أين تجدنا",
+      "actual": "Ø£ÙÙ ØªØ¬Ø¯ÙØ§",
+      "detect": {
+        "selector": "main h1"
+      },
+      "rationale": "A real utf8-to-latin1 round trip. Arabic mojibake is far noisier than Latin mojibake because every character is multi-byte, which makes it a stronger recall probe.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-008",
+      "polarity": "defect",
+      "kind": "translation.controlChar",
+      "locale": "ar-SA",
+      "routeId": "blog",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "common",
+        "key": "actions.viewAll",
+        "codec": "inject-control-char"
+      },
+      "expected": "عرض الكل",
+      "actual": "عرض‎ الكل",
+      "detect": {
+        "selector": "body"
+      },
+      "rationale": "U+200E LEFT-TO-RIGHT MARK inside Arabic text. Invisible in a screenshot and genuinely harmful here: in RTL it reorders what follows it.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-009",
+      "polarity": "defect",
+      "kind": "translation.byteOrderMark",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "markup",
+      "target": {
+        "via": "i18nTransform",
+        "namespace": "about",
+        "key": "story.p2",
+        "codec": "inject-bom"
+      },
+      "expected": "نوظّف اليوم 1,180 مهندساً في مراكز تسليم في حيدر آباد وبرلين وتورونتو. نحو ثلثي أعمالنا ارتباطات منصات متعددة السنوات، والباقي أعمال تحديث وتقييم قصيرة المدى.",
+      "actual": "﻿نوظّف اليوم 1,180 مهندساً في مراكز تسليم في حيدر آباد وبرلين وتورونتو. نحو ثلثي أعمالنا ارتباطات منصات متعددة السنوات، والباقي أعمال تحديث وتقييم قصيرة المدى.",
+      "detect": {
+        "testId": "about-story-p2",
+        "selector": "[data-rgt-id='about-story-p2']"
+      },
+      "rationale": "U+FEFF at the head of a string, from a UTF-8-with-BOM resource file.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-010",
+      "polarity": "defect",
+      "kind": "head.byteOrderMark",
+      "locale": "ar-SA",
+      "routeId": "services",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "shellByteOrderMark"
+      },
+      "expected": "<!doctype html>",
+      "actual": "﻿<!doctype html>",
+      "detect": {
+        "headSelector": "html"
+      },
+      "rationale": "The shell file itself saved as UTF-8-with-BOM, before the doctype.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-011",
+      "polarity": "defect",
+      "kind": "format.number",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.0.uptime.ar-SA",
+        "replacement": "99.5%"
+      },
+      "expected": "99,5 %",
+      "actual": "99.5%",
+      "detect": {
+        "testId": "plan-uptime-starter",
+        "selector": "[data-rgt-id='plan-uptime-starter']"
+      },
+      "rationale": "A full stop as the decimal separator and no space before the percent sign. The detector seed gives ar-SA a comma decimal and a space group separator, and the fixture agrees with the thing being measured rather than with any one reading of CLDR.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-012",
+      "polarity": "defect",
+      "kind": "format.currency",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "plans.1.price.ar-SA",
+        "replacement": "ر.س 5 059,00"
+      },
+      "expected": "5 059,00 ر.س",
+      "actual": "ر.س 5 059,00",
+      "detect": {
+        "testId": "plan-price-team",
+        "selector": "[data-rgt-id='plan-price-team']"
+      },
+      "rationale": "The riyal symbol placed before the amount. ar-SA writes it after, and this is the locale own currency - the one case where symbol position is an assertion rather than a guess.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-013",
+      "polarity": "defect",
+      "kind": "format.date",
+      "locale": "ar-SA",
+      "routeId": "events",
+      "severity": "critical",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "events.0.when.ar-SA",
+        "replacement": "03/17/2026، 2:00 م بتوقيت وسط أوروبا"
+      },
+      "expected": "17/03/2026، 2:00 م بتوقيت وسط أوروبا",
+      "actual": "03/17/2026، 2:00 م بتوقيت وسط أوروبا",
+      "detect": {
+        "testId": "event-when-berlin-platform",
+        "selector": "[data-rgt-id='event-when-berlin-platform']"
+      },
+      "rationale": "Month-first on a day-first locale. Detectable BECAUSE 17 cannot be a month - the disambiguation the rule is allowed to rely on.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-014",
+      "polarity": "defect",
+      "kind": "format.time",
+      "locale": "ar-SA",
+      "routeId": "events",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "dataValue",
+        "pointer": "events.2.when.ar-SA",
+        "replacement": "02/04/2026، 09:30 بتوقيت شرق أمريكا الصيفي"
+      },
+      "expected": "02/04/2026، 9:30 ص بالتوقيت الشرقي الصيفي",
+      "actual": "02/04/2026، 09:30 بتوقيت شرق أمريكا الصيفي",
+      "detect": {
+        "testId": "event-when-toronto-modernisation",
+        "selector": "[data-rgt-id='event-when-toronto-modernisation']"
+      },
+      "rationale": "A 24-hour clock on a locale whose seeded pattern is h:mm a.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-015",
+      "polarity": "defect",
+      "kind": "format.unitSystem",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "facts.hallTemperature",
+        "replacement": "تعمل قاعات البيانات عند 70 °ف."
+      },
+      "expected": "تعمل قاعات البيانات عند 21 °م.",
+      "actual": "تعمل قاعات البيانات عند 70 °ف.",
+      "detect": {
+        "testId": "about-fact-temperature",
+        "selector": "[data-rgt-id='about-fact-temperature']"
+      },
+      "rationale": "Fahrenheit on a metric locale.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-016",
+      "polarity": "defect",
+      "kind": "script.mismatch",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "facts.scriptNote",
+        "replacement": "Yunsharu daliluna al-handasi bi-lughat kulli markaz taslim al-mahalliyya."
+      },
+      "expected": "يُنشر دليلنا الهندسي بلغة كل مركز تسليم المحلية.",
+      "actual": "Yunsharu daliluna al-handasi bi-lughat kulli markaz taslim al-mahalliyya.",
+      "detect": {
+        "testId": "about-fact-script-note",
+        "selector": "[data-rgt-id='about-fact-script-note']"
+      },
+      "rationale": "Transliterated Arabic: right language, wrong script. A language detector may well answer \"ar\" for this, which is exactly why script coverage is a separate check from language.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-017",
+      "polarity": "defect",
+      "kind": "dom.missingTextDirection",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "markup",
+      "target": {
+        "via": "headField",
+        "field": "htmlDir",
+        "value": "ltr"
+      },
+      "expected": "dir=\"rtl\"",
+      "actual": "dir=\"ltr\" — the RTL locale served left-to-right",
+      "detect": {
+        "headSelector": "html[dir]"
+      },
+      "rationale": "An RTL locale served without dir=\"rtl\". Every line of the page renders in the wrong direction, and no amount of text-level checking can see it - the single clearest argument for why an RTL locale had to exist in this fixture.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-018",
+      "polarity": "defect",
+      "kind": "dom.bidiIsolationMissing",
+      "locale": "ar-SA",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "componentFlag",
+        "flag": "arPhoneNotIsolated"
+      },
+      "expected": "<bdi>+49 30 901820</bdi>",
+      "actual": "+49 30 901820 — the <bdi> isolation removed",
+      "detect": {
+        "testId": "office-phone-berlin",
+        "selector": "[data-rgt-id='office-phone-berlin']"
+      },
+      "rationale": "A Latin-script phone number inside RTL prose with the <bdi> isolation removed. The leading + reorders to the wrong end. The TEXT is byte-identical either way, so this is only visible to a check that reads markup or geometry.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-019",
+      "polarity": "defect",
+      "kind": "plural.agreement",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "seats.manySeats",
+        "replacement": "25 مقاعد مشمولة"
+      },
+      "expected": "25 مقعداً مشمولاً",
+      "actual": "25 مقاعد مشمولة",
+      "detect": {
+        "testId": "pricing-seats-many",
+        "selector": "[data-rgt-id='pricing-seats-many']"
+      },
+      "rationale": "Arabic uses the accusative singular for 11-99, so \"120 مقاعد\" is wrong where \"مقعداً\" is right. NOTE: under the recommended one/other plural strategy this is a KNOWN MISS - it is catalogued so the gap is measured rather than invisible.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-020",
+      "polarity": "defect",
+      "kind": "head.lang",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "htmlLang",
+        "value": "en"
+      },
+      "expected": "ar-SA",
+      "actual": "en",
+      "detect": {
+        "headSelector": "html[lang]"
+      },
+      "rationale": "The document declares English while serving Arabic. Worse here than in a Latin locale: lang also drives font selection and shaping for Arabic script.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-021",
+      "polarity": "defect",
+      "kind": "head.title",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "title",
+        "value": "CloudBridge pricing"
+      },
+      "expected": "أسعار CloudBridge",
+      "actual": "CloudBridge pricing",
+      "detect": {
+        "headSelector": "title"
+      },
+      "rationale": "Untranslated page title - invisible on the page, visible in the tab, in search results and in every share.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-022",
+      "polarity": "defect",
+      "kind": "head.canonical",
+      "locale": "ar-SA",
+      "routeId": "services",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "canonical",
+        "value": "https://rgt-global-seeded.vercel.app/en-US/services"
+      },
+      "expected": "https://rgt-global-seeded.vercel.app/ar-SA/services",
+      "actual": "https://rgt-global-seeded.vercel.app/en-US/services",
+      "detect": {
+        "headSelector": "link[rel='canonical']"
+      },
+      "rationale": "Cross-locale canonical, which silently deindexes the whole Arabic locale.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-023",
+      "polarity": "defect",
+      "kind": "head.hreflang",
+      "locale": "ar-SA",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "seo",
+      "target": {
+        "via": "hreflangBreak",
+        "omitLocales": ["de-DE"]
+      },
+      "expected": "hreflang set includes de-DE",
+      "actual": "hreflang set omits de-DE",
+      "detect": {
+        "headSelector": "link[rel='alternate'][hreflang='de-DE']"
+      },
+      "rationale": "A non-reciprocal alternate set: de-DE points here, this page does not point back.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-024",
+      "polarity": "defect",
+      "kind": "header.contentLanguage",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "major",
+      "category": "transport",
+      "target": {
+        "via": "responseHeader",
+        "pathGlob": "/ar-SA",
+        "header": "Content-Language",
+        "value": "en-US"
+      },
+      "expected": "ar-SA",
+      "actual": "en-US",
+      "detect": {
+        "httpHeader": "Content-Language"
+      },
+      "rationale": "The transport header contradicts both the URL and the markup. Needs the response read, not the document - which is why it is a separate kind from head.lang.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-025",
+      "polarity": "defect",
+      "kind": "translation.untranslated",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "story.p1",
+        "replacement": "RGT Global began when four platform engineers left a large systems integrator, convinced that most enterprise software problems were organisational rather than technical."
+      },
+      "expected": "بدأت RGT Global حين ترك أربعة مهندسي منصات شركة تكامل أنظمة كبيرة، وهم مقتنعون بأن معظم مشكلات برمجيات المؤسسات تنظيمية لا تقنية. ما زالت تلك القناعة تشكّل طريقة عملنا: نندمج مع فرقكم بدلاً من التسليم من وراء جدار.",
+      "actual": "RGT Global began when four platform engineers left a large systems integrator, convinced that most enterprise software problems were organisational rather than technical.",
+      "detect": {
+        "testId": "about-story-p1",
+        "selector": "[data-rgt-id='about-story-p1']"
+      },
+      "rationale": "A whole paragraph left in the source language.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-026",
+      "polarity": "defect",
+      "kind": "translation.wrongLanguage",
+      "locale": "ar-SA",
+      "routeId": "services",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "services",
+        "key": "hero.lead",
+        "replacement": "La plupart des clients commencent par une évaluation puis évoluent vers un engagement permanent."
+      },
+      "expected": "يبدأ معظم العملاء بتقييم ثم ينمون إلى ارتباط ثابت.",
+      "actual": "La plupart des clients commencent par une évaluation puis évoluent vers un engagement permanent.",
+      "detect": {
+        "selector": "main"
+      },
+      "rationale": "Third-language text: French on an Arabic page, neither the source language nor the target.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-027",
+      "polarity": "defect",
+      "kind": "dom.placeholderUntranslated",
+      "locale": "ar-SA",
+      "routeId": "contact",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "form.namePlaceholder",
+        "replacement": "Your full name"
+      },
+      "expected": "اسمك الكامل",
+      "actual": "Your full name",
+      "detect": {
+        "testId": "contact-name",
+        "selector": "[data-rgt-id='contact-name'][placeholder]"
+      },
+      "rationale": "Attribute text a user reads that is not a text node. Invisible to every rule that walks only the rendered text - the reason CapturedAttribute exists.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-901",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global",
+      "actual": "RGT Global",
+      "detect": {
+        "testId": "brand-mark",
+        "selector": "[data-rgt-id='brand-mark']"
+      },
+      "rationale": "A brand name is Latin in every locale by design. On an Arabic page it is also the most obvious thing for a script check to flag.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-902",
+      "polarity": "trap",
+      "kind": "trap.brandName",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "تُحتسب فوترة CloudBridge لكل مقعد شهرياً. تُسعَّر ارتباطات الاستشارات على حدة.",
+      "actual": "تُحتسب فوترة CloudBridge لكل مقعد شهرياً. تُسعَّر ارتباطات الاستشارات على حدة.",
+      "detect": {
+        "testId": "pricing-seats",
+        "selector": "[data-rgt-id='pricing-seats']"
+      },
+      "rationale": "The product name stays CloudBridge inside Arabic prose. A script check that measures the share of out-of-script letters in a node sees a Latin run here and is wrong about it.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-903",
+      "polarity": "trap",
+      "kind": "trap.legalEntity",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global Technologies Pvt. Ltd.",
+      "actual": "RGT Global Technologies Pvt. Ltd.",
+      "detect": {
+        "testId": "legal-entity",
+        "selector": "[data-rgt-id='legal-entity']"
+      },
+      "rationale": "A registered company name is a legal string. Translating it would be the defect.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-904",
+      "polarity": "trap",
+      "kind": "trap.versionString",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "إصدار المنصة 1.000",
+      "actual": "إصدار المنصة 1.000",
+      "detect": {
+        "testId": "platform-version",
+        "selector": "[data-rgt-id='platform-version']"
+      },
+      "rationale": "\"1.000\" is a release number, not one thousand. A number check that demands the ar-SA comma decimal here is a false positive.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-905",
+      "polarity": "trap",
+      "kind": "trap.productCode",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "اذكر رمز المنتج هذا عند إصدار أمر شراء: 12/05/2024.",
+      "actual": "اذكر رمز المنتج هذا عند إصدار أمر شراء: 12/05/2024.",
+      "detect": {
+        "testId": "pricing-product-code",
+        "selector": "[data-rgt-id='pricing-product-code']"
+      },
+      "rationale": "\"12/05/2024\" is a product code shaped exactly like a date, and both components are below 13 so nothing disambiguates it even if it were one.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-906",
+      "polarity": "trap",
+      "kind": "trap.internationalPhone",
+      "locale": "ar-SA",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "+49 30 901820",
+      "actual": "+49 30 901820",
+      "detect": {
+        "testId": "office-phone-berlin",
+        "selector": "[data-rgt-id='office-phone-berlin']"
+      },
+      "rationale": "A correct international number for a genuine German office, shown on the Arabic site. Reformatting it to a Saudi pattern would be the defect.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-907",
+      "polarity": "trap",
+      "kind": "trap.taggedForeignQuote",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "actual": "RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day instead of twice a quarter.",
+      "detect": {
+        "testId": "testimonial-quote",
+        "selector": "[data-rgt-id='testimonial-quote']"
+      },
+      "rationale": "A genuine English original, correctly marked lang=\"en\" on the element. The attribute is the signal that says this is intentional - and no rule has ever read it.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-908",
+      "polarity": "trap",
+      "kind": "trap.loanword",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Email",
+      "actual": "Email",
+      "detect": {
+        "testId": "footer-email",
+        "selector": "[data-rgt-id='footer-email']"
+      },
+      "rationale": "\"Email\" is the form used in Saudi technical writing. Latin script inside Arabic prose is conventional here, not a defect.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-909",
+      "polarity": "trap",
+      "kind": "trap.latinNumerals",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "14",
+      "actual": "14",
+      "detect": {
+        "testId": "home-stat-countries",
+        "selector": "[data-rgt-id='home-stat-countries']"
+      },
+      "rationale": "Latin digits are standard in Saudi web content. Demanding Arabic-Indic numerals would be a false positive - the same shape as the hi-IN trap, in a script where the temptation is stronger.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-910",
+      "polarity": "trap",
+      "kind": "trap.dottedIdentifier",
+      "locale": "ar-SA",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "تُعرَّف خطوط المعالجة في deploy.config.yaml في جذر المستودع.",
+      "actual": "تُعرَّف خطوط المعالجة في deploy.config.yaml في جذر المستودع.",
+      "detect": {
+        "testId": "service-note-config",
+        "selector": "[data-rgt-id='service-note-config']"
+      },
+      "rationale": "\"deploy.config.yaml\" is a filename, not a resource key.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-911",
+      "polarity": "trap",
+      "kind": "trap.bracedLiteral",
+      "locale": "ar-SA",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "ثبّت المنطقة صراحةً، على سبيل المثال { \"region\": \"eu-central-1\" }.",
+      "actual": "ثبّت المنطقة صراحةً، على سبيل المثال { \"region\": \"eu-central-1\" }.",
+      "detect": {
+        "testId": "service-note-region",
+        "selector": "[data-rgt-id='service-note-region']"
+      },
+      "rationale": "Braces that are content: a JSON example, not an unresolved token.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-912",
+      "polarity": "trap",
+      "kind": "trap.nullInProse",
+      "locale": "ar-SA",
+      "routeId": "services",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "قيمة null للمنطقة تعني استخدام الإعداد الافتراضي للمنصة.",
+      "actual": "قيمة null للمنطقة تعني استخدام الإعداد الافتراضي للمنصة.",
+      "detect": {
+        "testId": "service-note-null",
+        "selector": "[data-rgt-id='service-note-null']"
+      },
+      "rationale": "The word null used as terminology, inside Arabic prose.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-913",
+      "polarity": "trap",
+      "kind": "trap.technicalTermInScript",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "OAuth وHTTPS مدعومان افتراضياً.",
+      "actual": "OAuth وHTTPS مدعومان افتراضياً.",
+      "detect": {
+        "testId": "about-fact-technical-note",
+        "selector": "[data-rgt-id='about-fact-technical-note']"
+      },
+      "rationale": "OAuth and HTTPS are Latin in every script. Whitelisting technical terms is what separates a script check from a script complaint.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-914",
+      "polarity": "trap",
+      "kind": "trap.latinInRtl",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "markup",
+      "target": {
+        "via": "none"
+      },
+      "expected": "1,180",
+      "actual": "1,180",
+      "detect": {
+        "testId": "home-stat-engineers",
+        "selector": "[data-rgt-id='home-stat-engineers']"
+      },
+      "rationale": "A standalone Latin-digit number in RTL context needs no bidi isolation - it is not embedded in a directional run. The defect shape is Latin INSIDE Arabic prose, which AR-018 covers.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-915",
+      "polarity": "trap",
+      "kind": "trap.foreignMeasurement",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "تسير رحلة الفريق السنوية على مسار طوله 5 أميال في كولورادو.",
+      "actual": "تسير رحلة الفريق السنوية على مسار طوله 5 أميال في كولورادو.",
+      "detect": {
+        "testId": "about-fact-foreign-trail",
+        "selector": "[data-rgt-id='about-fact-foreign-trail']"
+      },
+      "rationale": "A Colorado trail signposted in miles, correct on a metric locale because the subject is American.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-916",
+      "polarity": "trap",
+      "kind": "trap.ambiguousDate",
+      "locale": "ar-SA",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "تُجدَّد عقود الدعم في 03/04/2026.",
+      "actual": "تُجدَّد عقود الدعم في 03/04/2026.",
+      "detect": {
+        "testId": "about-fact-ambiguous-date",
+        "selector": "[data-rgt-id='about-fact-ambiguous-date']"
+      },
+      "rationale": "03/04/2026 is undecidable, so the rule must skip rather than guess.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-917",
+      "polarity": "trap",
+      "kind": "trap.foreignCurrency",
+      "locale": "ar-SA",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "يدفع العملاء الذين تصدر لهم فواتير من كياننا الأمريكي $1,349 شهرياً.",
+      "actual": "يدفع العملاء الذين تصدر لهم فواتير من كياننا الأمريكي $1,349 شهرياً.",
+      "detect": {
+        "testId": "pricing-seats-usd",
+        "selector": "[data-rgt-id='pricing-seats-usd']"
+      },
+      "rationale": "A deliberate second currency for a real US billing entity.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "AR-918",
+      "polarity": "trap",
+      "kind": "trap.shortString",
+      "locale": "ar-SA",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "240",
+      "actual": "240",
+      "detect": {
+        "testId": "home-stat-clients",
+        "selector": "[data-rgt-id='home-stat-clients']"
+      },
+      "rationale": "Three characters. Below any workable minimum length for language identification, so the rule must return no verdict rather than a confident wrong one.",
+      "addedIn": "1.3.0"
+    },
     {
       "id": "DE-001",
       "polarity": "defect",
@@ -253,7 +1207,7 @@
     {
       "id": "DE-012",
       "polarity": "defect",
-      "kind": "translation.diacriticsStripped",
+      "kind": "translation.unicodeNormalization",
       "locale": "de-DE",
       "routeId": "home",
       "severity": "minor",
@@ -880,6 +1834,119 @@
       "addedIn": "1.1.0"
     },
     {
+      "id": "DE-041",
+      "polarity": "defect",
+      "kind": "format.unitSystem",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "facts.campusDistance",
+        "replacement": "Unser Campus in Hyderabad liegt 7,5 Meilen vom Flughafen entfernt."
+      },
+      "expected": "Unser Campus in Hyderabad liegt 12 km vom Flughafen entfernt.",
+      "actual": "Unser Campus in Hyderabad liegt 7,5 Meilen vom Flughafen entfernt.",
+      "detect": {
+        "testId": "about-fact-distance",
+        "selector": "[data-rgt-id='about-fact-distance']"
+      },
+      "rationale": "Miles on a metric locale. Germany is metric and the distance is a German-facing fact, so the unit itself is the defect - not the number.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-042",
+      "polarity": "defect",
+      "kind": "plural.agreement",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "seats.oneSeat",
+        "replacement": "1 Sitzplätze inbegriffen"
+      },
+      "expected": "1 Sitzplatz inbegriffen",
+      "actual": "1 Sitzplätze inbegriffen",
+      "detect": {
+        "testId": "pricing-seats-one",
+        "selector": "[data-rgt-id='pricing-seats-one']"
+      },
+      "rationale": "German is one/other like English, so \"1 Sitzplätze\" is decidable without a plural-rule engine.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-043",
+      "polarity": "defect",
+      "kind": "plural.placeholderLeak",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "seats.projectLabel",
+        "replacement": "Projekt(e)"
+      },
+      "expected": "Projekte",
+      "actual": "Projekt(e)",
+      "detect": {
+        "testId": "pricing-seats-project-label",
+        "selector": "[data-rgt-id='pricing-seats-project-label']"
+      },
+      "rationale": "A developer shortcut standing in for a plural form. Never correct localized output, which is why this is an assertion while plural.agreement is a candidate.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-044",
+      "polarity": "defect",
+      "kind": "style.toneInconsistency",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "minor",
+      "category": "ux",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "contact",
+        "key": "notes.responsePromise",
+        "replacement": "Wir melden uns bei dir innerhalb von zwei Werktagen."
+      },
+      "expected": "Wir melden uns bei Ihnen innerhalb von zwei Werktagen.",
+      "actual": "Wir melden uns bei dir innerhalb von zwei Werktagen.",
+      "detect": {
+        "testId": "contact-note-response",
+        "selector": "[data-rgt-id='contact-note-response']"
+      },
+      "rationale": "The rest of the German site addresses the reader as \"Sie\". One \"dir\" makes the page mix registers - a page-level finding, not a node-level one.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-045",
+      "polarity": "defect",
+      "kind": "head.charset",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "major",
+      "category": "markup",
+      "target": {
+        "via": "headField",
+        "field": "charset",
+        "value": "iso-8859-1"
+      },
+      "expected": "utf-8",
+      "actual": "iso-8859-1",
+      "detect": {
+        "headSelector": "meta[charset]"
+      },
+      "rationale": "A declared charset that cannot represent the page it labels. The bytes are UTF-8; the declaration says otherwise, which is a different defect from mojibake and needs the declaration read rather than the text.",
+      "addedIn": "1.3.0"
+    },
+    {
       "id": "DE-901",
       "polarity": "trap",
       "kind": "trap.brandName",
@@ -1135,6 +2202,186 @@
       },
       "rationale": "The word null used as terminology in a sentence about configuration. NullOrUndefinedRendered must distinguish this from a null value that escaped a template.",
       "addedIn": "1.1.0"
+    },
+    {
+      "id": "DE-914",
+      "polarity": "trap",
+      "kind": "trap.foreignMeasurement",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Die jährliche Teamwanderung folgt einem 5-Meilen-Trail in Colorado.",
+      "actual": "Die jährliche Teamwanderung folgt einem 5-Meilen-Trail in Colorado.",
+      "detect": {
+        "testId": "about-fact-foreign-trail",
+        "selector": "[data-rgt-id='about-fact-foreign-trail']"
+      },
+      "rationale": "A Colorado trail is signposted in miles. Miles are correct here BECAUSE the subject is American - a unit check that reads only the page locale reports a fact that is right.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-915",
+      "polarity": "trap",
+      "kind": "trap.isoDate",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Auditeinträge tragen in jedem Gebietsschema den Stempel 2026-03-04.",
+      "actual": "Auditeinträge tragen in jedem Gebietsschema den Stempel 2026-03-04.",
+      "detect": {
+        "testId": "about-fact-iso-date",
+        "selector": "[data-rgt-id='about-fact-iso-date']"
+      },
+      "rationale": "The same date on a locale whose own pattern is dd.MM.yyyy, where the temptation to \"fix\" it is strongest.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-916",
+      "polarity": "trap",
+      "kind": "trap.ambiguousDate",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Supportverträge verlängern sich am 03/04/2026.",
+      "actual": "Supportverträge verlängern sich am 03/04/2026.",
+      "detect": {
+        "testId": "about-fact-ambiguous-date",
+        "selector": "[data-rgt-id='about-fact-ambiguous-date']"
+      },
+      "rationale": "03/04/2026 is undecidable: neither component exceeds 12, so nothing on the page says whether it is 3 April or 4 March. The rule must SKIP it. This trap guards a decision not to answer, which is the only way to measure one.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-917",
+      "polarity": "trap",
+      "kind": "trap.dottedAddress",
+      "locale": "de-DE",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Das Standard-Gateway lauscht auf 192.168.1.1.",
+      "actual": "Das Standard-Gateway lauscht auf 192.168.1.1.",
+      "detect": {
+        "testId": "about-fact-gateway",
+        "selector": "[data-rgt-id='about-fact-gateway']"
+      },
+      "rationale": "Worse on German, where \".\" IS the grouping separator, so 192.168.1.1 reads as a plausible quantity to any rule that only looks at the characters.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-918",
+      "polarity": "trap",
+      "kind": "trap.foreignCurrency",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Kunden, die über unsere US-Gesellschaft abgerechnet werden, zahlen $1,349 pro Monat.",
+      "actual": "Kunden, die über unsere US-Gesellschaft abgerechnet werden, zahlen $1,349 pro Monat.",
+      "detect": {
+        "testId": "pricing-seats-usd",
+        "selector": "[data-rgt-id='pricing-seats-usd']"
+      },
+      "rationale": "A second currency for a real US billing entity. Reporting the PRESENCE of a foreign currency - rather than a wrong symbol position for the locale own currency - is a false positive on any genuinely multi-currency site.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-919",
+      "polarity": "trap",
+      "kind": "trap.usAddressAbroad",
+      "locale": "de-DE",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Zahlungen an unsere US-Gesellschaft: 1200 Market St, San Francisco, CA 94102.",
+      "actual": "Zahlungen an unsere US-Gesellschaft: 1200 Market St, San Francisco, CA 94102.",
+      "detect": {
+        "testId": "pricing-seats-remittance",
+        "selector": "[data-rgt-id='pricing-seats-remittance']"
+      },
+      "rationale": "A genuine US postal address in a global remittance note. \"City, ST 12345\" is exactly what an address rule matches, and it is correct here.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-920",
+      "polarity": "trap",
+      "kind": "trap.parentheticalPlural",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Bitte Vorname(n) und Nachname angeben.",
+      "actual": "Bitte Vorname(n) und Nachname angeben.",
+      "detect": {
+        "testId": "contact-note-name-hint",
+        "selector": "[data-rgt-id='contact-note-name-hint']"
+      },
+      "rationale": "\"Vorname(n)\" is idiomatic German for a form label, not a leaked plural artefact. The difference from Projekt(e) is that the parenthesis is part of the phrasing rather than a stand-in for a form the developer did not write.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-921",
+      "polarity": "trap",
+      "kind": "trap.quotedInformalRegister",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "ux",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Unsere Karriereseite duzt bewusst: „Komm ins Team, wir zeigen dir alles.“",
+      "actual": "Unsere Karriereseite duzt bewusst: „Komm ins Team, wir zeigen dir alles.“",
+      "detect": {
+        "testId": "contact-note-informal",
+        "selector": "[data-rgt-id='contact-note-informal']"
+      },
+      "rationale": "The informal register is inside quotation marks, quoted from the careers page. A tone check that counts registers without noticing the quotation reports the page as inconsistent when it is deliberately reporting on itself.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "DE-922",
+      "polarity": "trap",
+      "kind": "trap.quotedSchedule",
+      "locale": "de-DE",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Der US-Webcast wird in der Einladung mit 3:45 PM EST angegeben.",
+      "actual": "Der US-Webcast wird in der Einladung mit 3:45 PM EST angegeben.",
+      "detect": {
+        "testId": "contact-note-schedule",
+        "selector": "[data-rgt-id='contact-note-schedule']"
+      },
+      "rationale": "A US webcast time quoted as the invitation prints it. The 12-hour clock is correct because it is a quotation of an American schedule, not this page telling the time.",
+      "addedIn": "1.3.0"
     },
     {
       "id": "EN-001",
@@ -1892,6 +3139,96 @@
       "addedIn": "1.1.0"
     },
     {
+      "id": "EN-035",
+      "polarity": "defect",
+      "kind": "format.unitSystem",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "minor",
+      "category": "format",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "facts.hallTemperature",
+        "replacement": "Data halls run at 21 °C."
+      },
+      "expected": "Data halls run at 70 °F.",
+      "actual": "Data halls run at 21 °C.",
+      "detect": {
+        "testId": "about-fact-temperature",
+        "selector": "[data-rgt-id='about-fact-temperature']"
+      },
+      "rationale": "The mismatch runs both ways: Celsius on en-US, whose LocaleFormatRules row is the only imperial one in the catalogue. A rule that only ever flags imperial-on-metric misses this.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-036",
+      "polarity": "defect",
+      "kind": "plural.agreement",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "seats.oneSeat",
+        "replacement": "1 seats included"
+      },
+      "expected": "1 seat included",
+      "actual": "1 seats included",
+      "detect": {
+        "testId": "pricing-seats-one",
+        "selector": "[data-rgt-id='pricing-seats-one']"
+      },
+      "rationale": "A count of one against a plural noun - the n != 1 bug, in the locale where it is easiest to decide.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-037",
+      "polarity": "defect",
+      "kind": "plural.placeholderLeak",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "major",
+      "category": "i18n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "pricing",
+        "key": "seats.projectLabel",
+        "replacement": "Project(s)"
+      },
+      "expected": "Projects",
+      "actual": "Project(s)",
+      "detect": {
+        "testId": "pricing-seats-project-label",
+        "selector": "[data-rgt-id='pricing-seats-project-label']"
+      },
+      "rationale": "The English form of the same shortcut. Paired with the German one so the rule cannot pass by hard-coding \"(e)\".",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-038",
+      "polarity": "defect",
+      "kind": "head.langMissing",
+      "locale": "en-US",
+      "routeId": "events",
+      "severity": "critical",
+      "category": "seo",
+      "target": {
+        "via": "headField",
+        "field": "htmlLang",
+        "value": ""
+      },
+      "expected": "lang=\"en-US\"",
+      "actual": "lang=\"\" — present but empty",
+      "detect": {
+        "headSelector": "html[lang]"
+      },
+      "rationale": "The lang attribute is present but empty, which is what a broken template emits. Distinct from head.lang, where a wrong-but-valid tag is declared: here there is no declaration to disagree with, and every consumer downstream - screen readers, hyphenation, hreflang - has nothing to read.",
+      "addedIn": "1.3.0"
+    },
+    {
       "id": "EN-901",
       "polarity": "trap",
       "kind": "trap.brandName",
@@ -2146,6 +3483,126 @@
       },
       "rationale": "The word null used as terminology in a sentence about configuration. NullOrUndefinedRendered must distinguish this from a null value that escaped a template.",
       "addedIn": "1.1.0"
+    },
+    {
+      "id": "EN-914",
+      "polarity": "trap",
+      "kind": "trap.isoDate",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Audit entries are stamped 2026-03-04 in every locale.",
+      "actual": "Audit entries are stamped 2026-03-04 in every locale.",
+      "detect": {
+        "testId": "about-fact-iso-date",
+        "selector": "[data-rgt-id='about-fact-iso-date']"
+      },
+      "rationale": "ISO-8601 is locale-neutral by design. Rewriting it to a locale pattern would be the defect.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-915",
+      "polarity": "trap",
+      "kind": "trap.ambiguousDate",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Support contracts renew on 03/04/2026.",
+      "actual": "Support contracts renew on 03/04/2026.",
+      "detect": {
+        "testId": "about-fact-ambiguous-date",
+        "selector": "[data-rgt-id='about-fact-ambiguous-date']"
+      },
+      "rationale": "The same undecidable date under the opposite convention - if a rule guesses, one of these two traps catches it whichever way it guessed.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-916",
+      "polarity": "trap",
+      "kind": "trap.dottedAddress",
+      "locale": "en-US",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "The default gateway listens on 192.168.1.1.",
+      "actual": "The default gateway listens on 192.168.1.1.",
+      "detect": {
+        "testId": "about-fact-gateway",
+        "selector": "[data-rgt-id='about-fact-gateway']"
+      },
+      "rationale": "An IPv4 address is four dotted groups of digits and is not a grouped number. It satisfies every cheap test for \"a number with separators\".",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-917",
+      "polarity": "trap",
+      "kind": "trap.tableHeaderCount",
+      "locale": "en-US",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "1 seat",
+      "actual": "1 seat",
+      "detect": {
+        "testId": "pricing-seats-per-seat",
+        "selector": "[data-rgt-id='pricing-seats-per-seat']"
+      },
+      "rationale": "\"1 seat\" is the pricing UNIT, not a count that disagrees with its noun. Bare \"<n> <noun>\" is the exact shape plural.agreement hunts.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-918",
+      "polarity": "trap",
+      "kind": "trap.parentheticalPlural",
+      "locale": "en-US",
+      "routeId": "contact",
+      "severity": "none",
+      "category": "i18n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "Please give your first name(s) and surname.",
+      "actual": "Please give your first name(s) and surname.",
+      "detect": {
+        "testId": "contact-note-name-hint",
+        "selector": "[data-rgt-id='contact-note-name-hint']"
+      },
+      "rationale": "\"first name(s)\" is idiomatic English on a form for the same reason.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "EN-919",
+      "polarity": "trap",
+      "kind": "trap.shortString",
+      "locale": "en-US",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "14",
+      "actual": "14",
+      "detect": {
+        "testId": "home-stat-countries",
+        "selector": "[data-rgt-id='home-stat-countries']"
+      },
+      "rationale": "Two characters. Below any sane minimum length for language identification, so the rule must return no verdict rather than a confident wrong one - the cognate problem in its purest form.",
+      "addedIn": "1.3.0"
     },
     {
       "id": "HI-001",
@@ -2967,6 +4424,52 @@
       "addedIn": "1.1.0"
     },
     {
+      "id": "HI-038",
+      "polarity": "defect",
+      "kind": "format.unitSystem",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "major",
+      "category": "format",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "facts.campusDistance",
+        "replacement": "हमारा हैदराबाद परिसर हवाई अड्डे से 7.5 मील दूर है।"
+      },
+      "expected": "हमारा हैदराबाद परिसर हवाई अड्डे से 12 किमी दूर है।",
+      "actual": "हमारा हैदराबाद परिसर हवाई अड्डे से 7.5 मील दूर है।",
+      "detect": {
+        "testId": "about-fact-distance",
+        "selector": "[data-rgt-id='about-fact-distance']"
+      },
+      "rationale": "Miles on a metric locale, describing a distance inside India, which posts road signs in kilometres.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "HI-039",
+      "polarity": "defect",
+      "kind": "script.mismatch",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "critical",
+      "category": "l10n",
+      "target": {
+        "via": "i18nValue",
+        "namespace": "about",
+        "key": "facts.scriptNote",
+        "replacement": "Hamari engineering handbook pratyek delivery centre ki sthaniya bhasha mein prakashit hoti hai."
+      },
+      "expected": "हमारी इंजीनियरिंग हैंडबुक प्रत्येक डिलीवरी केंद्र की स्थानीय भाषा में प्रकाशित होती है।",
+      "actual": "Hamari engineering handbook pratyek delivery centre ki sthaniya bhasha mein prakashit hoti hai.",
+      "detect": {
+        "testId": "about-fact-script-note",
+        "selector": "[data-rgt-id='about-fact-script-note']"
+      },
+      "rationale": "Romanised Hindi: the LANGUAGE is right and the SCRIPT is wrong. Distinct from translation.untranslated, where the language is wrong too - and invisible to a language detector that answers \"hi\" for both.",
+      "addedIn": "1.3.0"
+    },
+    {
       "id": "HI-901",
       "polarity": "trap",
       "kind": "trap.brandName",
@@ -3222,6 +4725,86 @@
       },
       "rationale": "The word null used as terminology in a sentence about configuration. NullOrUndefinedRendered must distinguish this from a null value that escaped a template.",
       "addedIn": "1.1.0"
+    },
+    {
+      "id": "HI-914",
+      "polarity": "trap",
+      "kind": "trap.foreignMeasurement",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "वार्षिक टीम ट्रेक कोलोराडो में 5-मील के ट्रेल पर चलता है।",
+      "actual": "वार्षिक टीम ट्रेक कोलोराडो में 5-मील के ट्रेल पर चलता है।",
+      "detect": {
+        "testId": "about-fact-foreign-trail",
+        "selector": "[data-rgt-id='about-fact-foreign-trail']"
+      },
+      "rationale": "Same near-miss in a second metric locale, so the rule cannot pass by special-casing German.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "HI-915",
+      "polarity": "trap",
+      "kind": "trap.technicalTermInScript",
+      "locale": "hi-IN",
+      "routeId": "about",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "OAuth और HTTPS डिफ़ॉल्ट रूप से समर्थित हैं।",
+      "actual": "OAuth और HTTPS डिफ़ॉल्ट रूप से समर्थित हैं।",
+      "detect": {
+        "testId": "about-fact-technical-note",
+        "selector": "[data-rgt-id='about-fact-technical-note']"
+      },
+      "rationale": "OAuth and HTTPS are Latin in every script. A script check that counts out-of-range codepoints without whitelisting technical terms fires on correct Hindi.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "HI-916",
+      "polarity": "trap",
+      "kind": "trap.foreignCurrency",
+      "locale": "hi-IN",
+      "routeId": "pricing",
+      "severity": "none",
+      "category": "format",
+      "target": {
+        "via": "none"
+      },
+      "expected": "हमारी अमेरिकी इकाई द्वारा बिल किए गए ग्राहक $1,349 प्रति माह भुगतान करते हैं।",
+      "actual": "हमारी अमेरिकी इकाई द्वारा बिल किए गए ग्राहक $1,349 प्रति माह भुगतान करते हैं।",
+      "detect": {
+        "testId": "pricing-seats-usd",
+        "selector": "[data-rgt-id='pricing-seats-usd']"
+      },
+      "rationale": "The same near-miss on a locale whose own symbol is a different glyph again.",
+      "addedIn": "1.3.0"
+    },
+    {
+      "id": "HI-917",
+      "polarity": "trap",
+      "kind": "trap.shortString",
+      "locale": "hi-IN",
+      "routeId": "home",
+      "severity": "none",
+      "category": "l10n",
+      "target": {
+        "via": "none"
+      },
+      "expected": "14",
+      "actual": "14",
+      "detect": {
+        "testId": "home-stat-countries",
+        "selector": "[data-rgt-id='home-stat-countries']"
+      },
+      "rationale": "Two characters. Below any sane minimum length for language identification, so the rule must return no verdict rather than a confident wrong one - the cognate problem in its purest form.",
+      "addedIn": "1.3.0"
     }
   ]
 }

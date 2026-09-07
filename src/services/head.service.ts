@@ -3,7 +3,7 @@ import { routePath } from '@/constants/routes';
 import { HEAD_OVERRIDES, HREFLANG_OMISSIONS } from '@/constants/generated/headOverrides';
 import { getHeadContent, getPost, pick, SITE_CONFIG } from '@/services/content.service';
 import type { HeadAlternate, HeadModel } from '@/types/head';
-import type { LocaleId } from '@/types/locale';
+import type { LocaleId, TextDirection } from '@/types/locale';
 import type { RouteId, RouteParams } from '@/types/route';
 
 /**
@@ -29,7 +29,7 @@ export function computeHead(
   return {
     locale,
     htmlLang: overrides.htmlLang ?? LOCALE_HTML_LANG[locale],
-    dir: LOCALE_DIR[locale],
+    dir: (overrides.htmlDir as TextDirection | undefined) ?? LOCALE_DIR[locale],
     charset: overrides.charset ?? 'utf-8',
     title: overrides.title ?? base.title,
     description: overrides.description ?? base.description,

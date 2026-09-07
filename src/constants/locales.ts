@@ -8,12 +8,13 @@ import type { LocaleId } from '@/types/locale';
  * is one entry here plus one content directory; the router, prerenderer and vercel.json all
  * widen off this tuple.
  */
-export const SUPPORTED_LOCALES = ['de-DE', 'en-US', 'hi-IN'] as const;
+export const SUPPORTED_LOCALES = ['ar-SA', 'de-DE', 'en-US', 'hi-IN'] as const;
 
 export const DEFAULT_LOCALE: LocaleId = 'en-US';
 
 /** Reading direction. Adding an RTL locale is one entry — see docs/locale-precedence.md. */
 export const LOCALE_DIR: Readonly<Record<LocaleId, 'ltr' | 'rtl'>> = {
+  'ar-SA': 'rtl',
   'de-DE': 'ltr',
   'en-US': 'ltr',
   'hi-IN': 'ltr',
@@ -21,6 +22,7 @@ export const LOCALE_DIR: Readonly<Record<LocaleId, 'ltr' | 'rtl'>> = {
 
 /** What goes into <html lang>. Deliberately the full tag, not the primary subtag. */
 export const LOCALE_HTML_LANG: Readonly<Record<LocaleId, string>> = {
+  'ar-SA': 'ar-SA',
   'de-DE': 'de-DE',
   'en-US': 'en-US',
   'hi-IN': 'hi-IN',
@@ -28,6 +30,7 @@ export const LOCALE_HTML_LANG: Readonly<Record<LocaleId, string>> = {
 
 /** Endonyms — a language picker that names languages in English is itself a defect. */
 export const LOCALE_LABEL: Readonly<Record<LocaleId, string>> = {
+  'ar-SA': 'العربية',
   'de-DE': 'Deutsch',
   'en-US': 'English',
   'hi-IN': 'हिन्दी',

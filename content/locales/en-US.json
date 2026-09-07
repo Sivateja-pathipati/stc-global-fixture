@@ -1,5 +1,16 @@
 {
   "about": {
+    "facts": {
+      "ambiguousDate": "Support contracts renew on 03/04/2026.",
+      "campusDistance": "Our Hyderabad campus is 7.5 miles from the airport.",
+      "foreignTrail": "The annual team hike follows a 5-mile trail in Colorado.",
+      "gatewayAddress": "The default gateway listens on 192.168.1.1.",
+      "hallTemperature": "Data halls run at 70 °F.",
+      "heading": "Facts at a glance",
+      "isoDate": "Audit entries are stamped 2026-03-04 in every locale.",
+      "scriptNote": "Our engineering handbook is published in the local language of each delivery centre.",
+      "technicalNote": "OAuth and HTTPS are supported by default."
+    },
     "hero": {
       "eyebrow": "About us",
       "lead": "Founded in 2009, RGT Global has grown from a four-person consultancy into a distributed engineering partner with delivery centres on three continents.",
@@ -160,6 +171,13 @@
       "lead": "Tell us what you are building. We reply within two working days.",
       "title": "Talk to an engineer"
     },
+    "notes": {
+      "heading": "Before you write",
+      "nameFieldHint": "Please give your first name(s) and surname.",
+      "quotedInformal": "Our careers page is deliberately informal: “Join the team, we will show you around.”",
+      "responsePromise": "We will reply to you within two working days.",
+      "scheduleQuote": "The US webcast is listed in the invitation as 3:45 PM EST."
+    },
     "offices": {
       "heading": "Our offices",
       "hoursLabel": "Opening hours",
@@ -270,6 +288,15 @@
       "productCode": "Reference this product code when raising a purchase order: 12/05/2024.",
       "seatOverage": "Additional seats are billed at the same rate.",
       "vat": "Prices exclude applicable sales tax."
+    },
+    "seats": {
+      "foreignCurrencyNote": "Customers invoiced by our US entity pay $1,349 per month.",
+      "heading": "Seat counts",
+      "manySeats": "25 seats included",
+      "oneSeat": "1 seat included",
+      "perSeatHeader": "1 seat",
+      "projectLabel": "Projects",
+      "usRemittance": "Remittances to our US entity: 1200 Market St, San Francisco, CA 94102."
     },
     "table": {
       "cadence": "per month",

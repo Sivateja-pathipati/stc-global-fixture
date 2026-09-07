@@ -10,7 +10,7 @@ and each seeded violation is a one-branch swap rather than a scattered edit.
 
 ## Supported locales
 
-`de-DE`, `en-US`, `hi-IN`. Default: **`en-US`**.
+`ar-SA`, `de-DE`, `en-US`, `hi-IN`. Default: **`en-US`**.
 
 The tuple in [`src/constants/locales.ts`](../src/constants/locales.ts) is sorted and frozen.
 The router, the prerenderer, the hreflang sets and `vercel.json` all widen off it, so adding a

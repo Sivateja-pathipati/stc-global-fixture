@@ -1,4 +1,4 @@
-export type LocaleId = 'de-DE' | 'en-US' | 'hi-IN';
+export type LocaleId = 'ar-SA' | 'de-DE' | 'en-US' | 'hi-IN';
 
 export type TextDirection = 'ltr' | 'rtl';
 

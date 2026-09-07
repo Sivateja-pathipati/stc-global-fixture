@@ -11,32 +11,36 @@ Two files, and everything else in this repository is downstream of them.
 `src/constants/generated/`. Product code under `src/` is never text-patched, and the clean build
 is the same pipeline with an empty defect set — not a second code path.
 
-150 entries: **111 defects and 39 traps** across `en-US`, `de-DE` and `hi-IN`.
+225 entries: **149 defects and 76 traps** across `ar-SA`, `de-DE`, `en-US` and `hi-IN`.
 
 ---
 
 ## Why the issue-type map is keyed per kind
 
-The manifest classifies by `kind` — 55 values in its own vocabulary. The detector classifies by
+The manifest classifies by `kind` — 77 values in its own vocabulary. The detector classifies by
 `IssueType`. Something has to join them, or "what is our Level 1 recall" can only be eyeballed.
 
-The join lives in `issue-type-map.json`, one row per kind rather than a field on each of the 150
+The join lives in `issue-type-map.json`, one row per kind rather than a field on each of the 225
 entries. The relationship is taxonomic: every `translation.rawKey` is a `RawResourceKey`, and
 150 copies of that fact would drift the first time a type is renamed.
 
 ```json
 "translation.rawKey":  { "issueType": "RawResourceKey", "level": 1 },
-"format.number":       { "issueType": null,             "level": 2 },
+"format.number":       { "issueType": null, "plannedIssueType": "NumberFormatError", "level": 2 },
 "trap.bracedLiteral":  { "issueType": null, "level": null,
-                         "guards": ["UnresolvedPlaceholder", "IcuSyntaxError"] }
+                         "guards": ["UnresolvedPlaceholder", "IcuSyntaxError"] },
+"trap.ambiguousDate":  { "issueType": null, "level": null,
+                         "guards": [], "plannedGuards": ["DateFormatError"] }
 ```
 
-- **`issueType: null`** means no rule covers this kind yet. `level` says when one is expected to.
-  Only Level 1 names are bound today, because Level 1 is the only tier whose enum members are
-  fixed. A guessed name would be worse than null — it would score against a rule that does not
-  exist.
+- **`issueType`** is non-null ONLY when the rule exists in the detector today. It is what makes
+  "measurable" countable, and a guessed name there would score against a rule that does not exist.
+- **`plannedIssueType`** records the name the Level 2/3 plans say the rule _will_ be called.
+  Promoting it to `issueType` is the one-line diff that says a rule has landed, and
+  `verify:manifest` rejects a kind naming both, so the two cannot drift apart.
 - **`guards`** replaces `issueType` on trap rows: the rules that must stay _silent_. That makes
-  precision computable per rule instead of only in aggregate.
+  precision computable per rule instead of only in aggregate. **`plannedGuards`** is the same
+  thing for rules that do not exist yet.
 
 `verify:manifest` fails if any kind used by an entry has no row, so a new kind cannot be added
 without deciding which rule should catch it. Without that gate a new kind scores against
@@ -67,11 +71,11 @@ once in practice.
 
 ## Traps are half the point
 
-39 of the 150 entries are things a detector must **not** flag. Without them you measure recall
+76 of the 225 entries are things a detector must **not** flag. Without them you measure recall
 only, and a detector that flags everything scores perfectly.
 
-Nine of them exist specifically to guard the Level 1 plumbing rules, and they live together on
-`/services` under "Implementation notes":
+Twelve of them guard rules that exist today. Three live together on `/services` under
+"Implementation notes":
 
 | Trap                    | Content                                             | Guards                                    |
 | ----------------------- | --------------------------------------------------- | ----------------------------------------- |
@@ -82,11 +86,12 @@ Nine of them exist specifically to guard the Level 1 plumbing rules, and they li
 Each is a near-miss shaped exactly like the defect its rule hunts. Add traps at the same time as
 the rule they guard — a trap added after the rule already passes is a trap written to fit.
 
-The remaining 30 guard the Level 2 and Level 3 rules: brand and product names, German loanwords
-and cognates that are correct as-is, the version string `1.000` that is not a
-thousands-separated quantity, the product code `12/05/2024` that is not a date, an English
-testimonial correctly marked `lang="en"`, real international phone numbers, and Latin numerals
-in Hindi where that is the convention.
+The remaining 64 guard the Level 2 and Level 3 rules and name them in `plannedGuards`. Three are
+worth singling out because each guards a _decision not to answer_ rather than a suppression:
+`trap.ambiguousDate` (`03/04/2026` cannot be resolved either way, so the rule must skip it),
+`trap.shortString` (below any workable minimum length for language identification), and
+`trap.latinInRtl` (a standalone Latin number in RTL context needs no bidi isolation). A rule that
+guesses on any of them trips a trap, which is the only way to measure restraint.
 
 ---
 
@@ -107,9 +112,21 @@ not its status.
 
 ---
 
-## Known taxonomy debt
+## Resolved taxonomy debt
 
-`translation.diacriticsStripped` covers two different defects. `DE-012` is an NFD round-trip —
-`Über` decomposed to `U` plus a combining diaeresis, visually identical and byte-different.
-`DE-013` is genuinely stripped: `Vorträge` to `Vortrage`. Different rules will catch these, so
-the kind should split when Level 2 lands. Recorded here so it is not rediscovered as a surprise.
+`translation.diacriticsStripped` used to cover two different defects. It was split when Level 2
+was seeded: `DE-012` is now **`translation.unicodeNormalization`** — an NFD round-trip, `Über`
+decomposed to `U` plus a combining diaeresis, visually identical and byte-different — while
+`DE-013` keeps `translation.diacriticsStripped` for genuinely stripped umlauts (`Vorträge` to
+`Vortrage`).
+
+The NFD half is deliberately left **unbound**. `UnsupportedCharacterRule` stops short of
+U+0300–U+036F, so no Level 1 rule reads combining marks today; whether that rule widens or a new
+one arrives is open item F6 in the Level 2/3 fixture plan.
+
+## Deliberately not expressible here
+
+**`SlugPatternError` defects.** The rule wants a path segment carrying a language subtag that
+contradicts the page locale. This fixture serves `/{locale}/{path}` with slugs identical across
+locales, so seeding one would mean modelling per-locale slugs. Recorded rather than faked — a
+contrived slug defect would measure the fixture, not the detector.

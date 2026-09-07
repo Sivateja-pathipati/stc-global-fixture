@@ -5,6 +5,7 @@ import SectionHeading from '@/ui/SectionHeading';
 import ContactForm from './ContactForm';
 import { OFFICES, pick } from '@/services/content.service';
 import { useLocale } from '@/contexts/LocaleContext';
+import { D_AR_PHONE_NOT_ISOLATED } from '@/constants/generated/activeDefects';
 
 export default function ContactPage() {
   const { t } = useTranslation('contact');
@@ -50,7 +51,14 @@ export default function ContactPage() {
                     {/* Trap on the Berlin office: '+49 30 901820' is a correct international
                         number. Flagging it as a badly formatted phone is a false positive. */}
                     <span data-rgt-id={`office-phone-${office.id}`}>
-                      {pick(office.phone, locale)}
+                      {/* <bdi> is the correct markup: a Latin-script number inside RTL prose
+                          reorders without it, so the leading '+' lands at the wrong end. The
+                          seeded defect removes the isolation, not the number. */}
+                      {D_AR_PHONE_NOT_ISOLATED ? (
+                        pick(office.phone, locale)
+                      ) : (
+                        <bdi>{pick(office.phone, locale)}</bdi>
+                      )}
                     </span>
                   </p>
                   <p className="mt-1 text-sm">
@@ -63,6 +71,26 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
+        </Container>
+      </section>
+
+      <section className="pb-16">
+        <Container>
+          <Card testId="contact-notes">
+            <h2 className="text-lg font-semibold text-[var(--rgt-text-strong)]">
+              {t('notes.heading')}
+            </h2>
+            <ul className="mt-3 space-y-2 text-sm text-[var(--rgt-text-muted)]">
+              <li data-rgt-id="contact-note-response">{t('notes.responsePromise')}</li>
+              {/* Trap: the informal register is quoted from the careers page on purpose. A tone
+                  checker that counts registers without noticing the quotation marks fires here. */}
+              <li data-rgt-id="contact-note-informal">{t('notes.quotedInformal')}</li>
+              {/* Trap: a US webcast time quoted as it appears in the invitation. */}
+              <li data-rgt-id="contact-note-schedule">{t('notes.scheduleQuote')}</li>
+              {/* Trap: 'Vorname(n)' / 'first name(s)' is idiomatic, not a leaked plural artefact. */}
+              <li data-rgt-id="contact-note-name-hint">{t('notes.nameFieldHint')}</li>
+            </ul>
+          </Card>
         </Container>
       </section>
     </>

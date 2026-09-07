@@ -29,6 +29,14 @@ export type DefectKind =
   | 'translation.controlChar'
   /** U+FEFF inside a text node — invisible, and it breaks string equality on the first char. */
   | 'translation.byteOrderMark'
+  /**
+   * NFD round-trip: `Uber` as `U` plus a combining diaeresis. Visually identical to the correct
+   * string, byte-different. Split from `translation.diacriticsStripped` because the two need
+   * different rules - this one is a byte-level property a normalization check finds, the other
+   * needs a dictionary.
+   */
+  | 'translation.unicodeNormalization'
+  /** Umlauts genuinely gone: `Vortraege` rendered `Vortrage`. Needs a dictionary; Level 5. */
   | 'translation.diacriticsStripped'
   // ── formatting ─────────────────────────────────────────────────────────────────────────
   | 'format.number'
@@ -37,6 +45,17 @@ export type DefectKind =
   | 'format.time'
   | 'format.phone'
   | 'format.address'
+  /** Miles or Fahrenheit on a metric locale, or the reverse. */
+  | 'format.unitSystem'
+  // ── script, plurals and register ───────────────────────────────────────────────────────
+  /** Right language, wrong script - romanised Hindi, transliterated Arabic. */
+  | 'script.mismatch'
+  /** A count that disagrees with its noun: "1 items". */
+  | 'plural.agreement'
+  /** A developer shortcut standing in for a plural form: "Projekt(e)". */
+  | 'plural.placeholderLeak'
+  /** Formal and informal register mixed on one page. Page-level, not node-level. */
+  | 'style.toneInconsistency'
   // ── document head ──────────────────────────────────────────────────────────────────────
   | 'head.lang'
   | 'head.title'
@@ -45,6 +64,8 @@ export type DefectKind =
   | 'head.hreflang'
   | 'head.og'
   | 'head.charset'
+  /** `<html lang>` present but empty - nothing downstream has anything to read. */
+  | 'head.langMissing'
   /** The shell file itself saved as UTF-8-with-BOM — the "opened it in Notepad" defect. */
   | 'head.byteOrderMark'
   // ── transport ──────────────────────────────────────────────────────────────────────────
@@ -59,6 +80,10 @@ export type DefectKind =
   | 'dom.textInImage'
   | 'dom.ariaUntranslated'
   | 'dom.placeholderUntranslated'
+  /** An RTL locale served without dir="rtl". Invisible to any text-level check. */
+  | 'dom.missingTextDirection'
+  /** A Latin run inside RTL prose with its `<bdi>` isolation removed. */
+  | 'dom.bidiIsolationMissing'
   // ── routing / behaviour ────────────────────────────────────────────────────────────────
   | 'route.localeIgnored'
   | 'route.precedenceViolation'
@@ -74,6 +99,32 @@ export type DefectKind =
   | 'trap.internationalPhone'
   | 'trap.latinNumerals'
   | 'trap.legalEntity'
+  /** Miles for a US subject, correct on a metric locale. Guards `UnitSystemMismatch`. */
+  | 'trap.foreignMeasurement'
+  /** OAuth, HTTPS - Latin in every script. Guards `ScriptMismatch`. */
+  | 'trap.technicalTermInScript'
+  /** ISO-8601, locale-neutral by design. Guards `DateFormatError`. */
+  | 'trap.isoDate'
+  /** 03/04/2026 - undecidable, so the rule must SKIP rather than guess. */
+  | 'trap.ambiguousDate'
+  /** An IPv4 address: dotted digits that are not a grouped number. */
+  | 'trap.dottedAddress'
+  /** "1 seat" as a pricing unit, not a count. Guards `PluralAgreementError`. */
+  | 'trap.tableHeaderCount'
+  /** A deliberate second currency for a real foreign billing entity. */
+  | 'trap.foreignCurrency'
+  /** A genuine US postal address in a global remittance note. */
+  | 'trap.usAddressAbroad'
+  /** "Vorname(n)" - idiomatic, not a leaked plural artefact. */
+  | 'trap.parentheticalPlural'
+  /** An informal register inside quotation marks. Guards `ToneInconsistency`. */
+  | 'trap.quotedInformalRegister'
+  /** A US webcast time quoted as the invitation prints it. */
+  | 'trap.quotedSchedule'
+  /** Too short for language identification to be trusted. */
+  | 'trap.shortString'
+  /** A standalone Latin-digit number in RTL context, which needs no bidi isolation. */
+  | 'trap.latinInRtl'
   // ── traps aimed at Level 1 plumbing rules ──────────────────────────────────────────────
   // Without these, Level 1 precision is unmeasured and a greedy regex scores 100%.
   /** A dotted filename that is not a resource key. Guards `RawResourceKey`. */
@@ -101,7 +152,13 @@ export type ComponentFlagId =
   | 'enContactCtaHardcoded'
   | 'deFooterNoteHardcoded'
   | 'hiBadgeHardcoded'
-  | 'deTextInImage';
+  | 'deTextInImage'
+  /**
+   * Drops the `<bdi>` around a phone number inside Arabic prose. Without isolation the leading
+   * `+` reorders to the wrong end of the number - visible, wrong, and invisible to any check
+   * that only reads the text content.
+   */
+  | 'arPhoneNotIsolated';
 
 export type RouteBehaviourId =
   | 'serveDefaultLocale'
@@ -112,6 +169,11 @@ export type RouteBehaviourId =
 
 export type HeadFieldName =
   | 'htmlLang'
+  /**
+   * `<html dir>`. Overridable so an RTL locale can be served without it, which is the whole
+   * point of the Directionality checks - and the reason ar-SA exists in this fixture.
+   */
+  | 'htmlDir'
   | 'title'
   | 'description'
   | 'canonical'

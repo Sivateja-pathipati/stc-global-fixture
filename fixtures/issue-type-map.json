@@ -1,22 +1,35 @@
 {
-  "version": "1.1.0",
-  "note": "Maps the fixture's own defect vocabulary onto the detector's IssueType enum. Keyed per kind, not per entry: the relationship is taxonomic, and 150 per-entry copies would drift the first time a type is renamed. issueType null means no rule covers this kind yet - level says when it is expected to. Trap rows carry guards instead: the rules that must stay silent on them.",
+  "version": "1.3.0",
+  "note": "Maps the fixture's own defect vocabulary onto the detector's IssueType enum. Keyed per kind, not per entry: the relationship is taxonomic, and 150 per-entry copies would drift the first time a type is renamed. issueType is non-null ONLY when the rule exists in the detector today - it is what makes 'measurable' countable, and a guessed name there would score against a rule that does not exist. plannedIssueType records the name the Level 2/3 plans say WILL catch this kind; promoting it to issueType is the one-line diff that says the rule has landed. Traps carry guards (live) and plannedGuards (planned) instead: the rules that must stay silent.",
   "kinds": {
     "dom.altTextMissing": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": null
     },
     "dom.altTextUntranslated": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "dom.ariaUntranslated": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
+    },
+    "dom.bidiIsolationMissing": {
+      "issueType": null,
+      "plannedIssueType": "BidiIsolationMissing",
+      "level": 2
     },
     "dom.clipped": {
       "issueType": null,
       "level": 4
+    },
+    "dom.missingTextDirection": {
+      "issueType": null,
+      "plannedIssueType": "MissingRtlDirection",
+      "level": 2
     },
     "dom.overflow": {
       "issueType": null,
@@ -24,7 +37,8 @@
     },
     "dom.placeholderUntranslated": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "dom.textInImage": {
       "issueType": null,
@@ -36,26 +50,37 @@
     },
     "format.address": {
       "issueType": null,
-      "level": 2
+      "level": 2,
+      "plannedIssueType": "AddressFormatError"
     },
     "format.currency": {
       "issueType": null,
-      "level": 2
+      "level": 2,
+      "plannedIssueType": "CurrencyFormatError"
     },
     "format.date": {
       "issueType": null,
-      "level": 2
+      "level": 2,
+      "plannedIssueType": "DateFormatError"
     },
     "format.number": {
       "issueType": null,
-      "level": 2
+      "level": 2,
+      "plannedIssueType": "NumberFormatError"
     },
     "format.phone": {
       "issueType": null,
-      "level": 2
+      "level": 2,
+      "plannedIssueType": "PhoneFormatError"
     },
     "format.time": {
       "issueType": null,
+      "level": 2,
+      "plannedIssueType": "TimeFormatError"
+    },
+    "format.unitSystem": {
+      "issueType": null,
+      "plannedIssueType": "UnitSystemMismatch",
       "level": 2
     },
     "head.byteOrderMark": {
@@ -64,55 +89,93 @@
     },
     "head.canonical": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "CanonicalError"
     },
     "head.charset": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "CharsetDeclarationError"
     },
     "head.description": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "head.hreflang": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "HreflangError"
     },
     "head.lang": {
       "issueType": null,
+      "level": 3,
+      "plannedIssueType": "LangDeclarationMismatch"
+    },
+    "head.langMissing": {
+      "issueType": null,
+      "plannedIssueType": "MissingLangDeclaration",
       "level": 3
     },
     "head.og": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "head.title": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "header.contentLanguage": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "LangDeclarationMismatch"
     },
     "header.contentType": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "CharsetDeclarationError"
+    },
+    "plural.agreement": {
+      "issueType": null,
+      "plannedIssueType": "PluralAgreementError",
+      "level": 2
+    },
+    "plural.placeholderLeak": {
+      "issueType": null,
+      "plannedIssueType": "PluralPlaceholderLeak",
+      "level": 2
     },
     "route.localeIgnored": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "LocaleFallbackDetected"
     },
     "route.localeLostOnAuth": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "LocaleFallbackDetected"
     },
     "route.notFoundUnlocalized": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "LocaleFallbackDetected"
     },
     "route.precedenceViolation": {
       "issueType": null,
-      "level": 3
+      "level": 3,
+      "plannedIssueType": "LocaleFallbackDetected"
+    },
+    "script.mismatch": {
+      "issueType": null,
+      "plannedIssueType": "ScriptMismatch",
+      "level": 2
+    },
+    "style.toneInconsistency": {
+      "issueType": null,
+      "plannedIssueType": "ToneInconsistency",
+      "level": 2
     },
     "translation.byteOrderMark": {
       "issueType": "EncodingBomError",
@@ -128,11 +191,14 @@
     },
     "translation.diacriticsStripped": {
       "issueType": null,
-      "level": 2
+      "plannedIssueType": null,
+      "level": 5,
+      "note": "Genuinely stripped - 'Vortraege' as 'Vortrage'. Needs a dictionary to tell a missing umlaut from a word that never had one, so it is not reachable before Level 5."
     },
     "translation.hardcoded": {
       "issueType": null,
-      "level": 2
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "translation.icuSyntax": {
       "issueType": "IcuSyntaxError",
@@ -144,7 +210,8 @@
     },
     "translation.missing": {
       "issueType": null,
-      "level": 2
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "translation.mojibake": {
       "issueType": "EncodingError",
@@ -164,15 +231,29 @@
     },
     "translation.truncated": {
       "issueType": null,
-      "level": 2
+      "level": 4
+    },
+    "translation.unicodeNormalization": {
+      "issueType": null,
+      "plannedIssueType": null,
+      "level": 1,
+      "note": "NFD round-trip - 'Uber' as U + combining diaeresis. Visually identical, byte-different. No Level 1 rule reads combining marks today: UnsupportedCharacterRule's ranges stop short of U+0300-U+036F. Open item F6 decides whether that rule widens or a new one arrives."
     },
     "translation.untranslated": {
       "issueType": null,
-      "level": 2
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
     },
     "translation.wrongLanguage": {
       "issueType": null,
-      "level": 2
+      "level": 3,
+      "plannedIssueType": "WrongLanguage"
+    },
+    "trap.ambiguousDate": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["DateFormatError"]
     },
     "trap.bracedLiteral": {
       "issueType": null,
@@ -182,57 +263,138 @@
     "trap.brandName": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["WrongLanguage", "ScriptMismatch"]
     },
     "trap.cognate": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["WrongLanguage"]
+    },
+    "trap.dottedAddress": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["NumberFormatError"]
     },
     "trap.dottedIdentifier": {
       "issueType": null,
       "level": null,
       "guards": ["RawResourceKey"]
     },
+    "trap.foreignCurrency": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["CurrencyFormatError"]
+    },
+    "trap.foreignMeasurement": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["UnitSystemMismatch"]
+    },
     "trap.internationalPhone": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["PhoneFormatError"]
+    },
+    "trap.isoDate": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["DateFormatError", "NumberFormatError"]
+    },
+    "trap.latinInRtl": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["BidiIsolationMissing", "ScriptMismatch"]
     },
     "trap.latinNumerals": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["NumberFormatError"]
     },
     "trap.legalEntity": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["WrongLanguage"]
     },
     "trap.loanword": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["WrongLanguage"]
     },
     "trap.nullInProse": {
       "issueType": null,
       "level": null,
       "guards": ["NullOrUndefinedRendered"]
     },
+    "trap.parentheticalPlural": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["PluralPlaceholderLeak"]
+    },
     "trap.productCode": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["DateFormatError"]
+    },
+    "trap.quotedInformalRegister": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["ToneInconsistency"]
+    },
+    "trap.quotedSchedule": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["TimeFormatError"]
+    },
+    "trap.shortString": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["WrongLanguage"]
+    },
+    "trap.tableHeaderCount": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["PluralAgreementError"]
     },
     "trap.taggedForeignQuote": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["WrongLanguage"]
+    },
+    "trap.technicalTermInScript": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["ScriptMismatch"]
+    },
+    "trap.usAddressAbroad": {
+      "issueType": null,
+      "level": null,
+      "guards": [],
+      "plannedGuards": ["AddressFormatError"]
     },
     "trap.versionString": {
       "issueType": null,
       "level": null,
-      "guards": []
+      "guards": [],
+      "plannedGuards": ["NumberFormatError"]
     }
   }
 }

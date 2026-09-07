@@ -1,8 +1,65 @@
 # Defect catalogue
 
-Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edit by hand.
+Generated from `fixtures/manifest.json` v1.3.0 by `npm run gen:docs`. Do not edit by hand.
 
-**111 defects · 39 traps**
+**149 defects · 76 traps**
+
+## ar-SA
+
+### Defects
+
+| ID | Kind | Route | Severity | Expected | Actual |
+|---|---|---|---|---|---|
+| `AR-001` | translation.rawKey | home | critical | الخدمات | nav.services.label |
+| `AR-002` | translation.placeholder | home | critical | أخبرنا أين تتألم منصتك وسنرسل مهندساً، لا مندوب مبيعات. | أخبرنا أين تتألم منصتك وسنرسل {{role}}، لا مندوب مبيعات. |
+| `AR-003` | translation.marker | blog | critical | لم يتم العثور على مقالات | [missing translation] |
+| `AR-004` | translation.nullValue | pricing | major | تُحتسب المقاعد الإضافية بالسعر نفسه. | تُحتسب المقاعد الإضافية بسعر undefined. |
+| `AR-005` | translation.concatenated | contact | minor | مكاتبنا | مكاتبنا . |
+| `AR-006` | translation.icuSyntax | blog | critical | 3 مقالات | {count, plural, one {# مقالة} other {# مقالات}} |
+| `AR-007` | translation.mojibake | events | critical | أين تجدنا | Ø£ÙÙ ØªØ¬Ø¯ÙØ§ |
+| `AR-008` | translation.controlChar | blog | minor | عرض الكل | عرض‎ الكل |
+| `AR-009` | translation.byteOrderMark | about | minor | نوظّف اليوم 1,180 مهندساً في مراكز تسليم في حيدر آباد وبرلين وتورونتو. نحو ثلثي أعمالنا ار… | ﻿نوظّف اليوم 1,180 مهندساً في مراكز تسليم في حيدر آباد وبرلين وتورونتو. نحو ثلثي أعمالنا ا… |
+| `AR-010` | head.byteOrderMark | services | major | <!doctype html> | ﻿<!doctype html> |
+| `AR-011` | format.number | pricing | major | 99,5 % | 99.5% |
+| `AR-012` | format.currency | pricing | critical | 5 059,00 ر.س | ر.س 5 059,00 |
+| `AR-013` | format.date | events | critical | 17/03/2026، 2:00 م بتوقيت وسط أوروبا | 03/17/2026، 2:00 م بتوقيت وسط أوروبا |
+| `AR-014` | format.time | events | major | 02/04/2026، 9:30 ص بالتوقيت الشرقي الصيفي | 02/04/2026، 09:30 بتوقيت شرق أمريكا الصيفي |
+| `AR-015` | format.unitSystem | about | major | تعمل قاعات البيانات عند 21 °م. | تعمل قاعات البيانات عند 70 °ف. |
+| `AR-016` | script.mismatch | about | critical | يُنشر دليلنا الهندسي بلغة كل مركز تسليم المحلية. | Yunsharu daliluna al-handasi bi-lughat kulli markaz taslim al-mahalliyya. |
+| `AR-017` | dom.missingTextDirection | about | critical | dir="rtl" | dir="ltr" — the RTL locale served left-to-right |
+| `AR-018` | dom.bidiIsolationMissing | contact | major | <bdi>+49 30 901820</bdi> | +49 30 901820 — the <bdi> isolation removed |
+| `AR-019` | plural.agreement | pricing | major | 25 مقعداً مشمولاً | 25 مقاعد مشمولة |
+| `AR-020` | head.lang | about | critical | ar-SA | en |
+| `AR-021` | head.title | pricing | major | أسعار CloudBridge | CloudBridge pricing |
+| `AR-022` | head.canonical | services | critical | https://rgt-global-seeded.vercel.app/ar-SA/services | https://rgt-global-seeded.vercel.app/en-US/services |
+| `AR-023` | head.hreflang | contact | major | hreflang set includes de-DE | hreflang set omits de-DE |
+| `AR-024` | header.contentLanguage | home | major | ar-SA | en-US |
+| `AR-025` | translation.untranslated | about | critical | بدأت RGT Global حين ترك أربعة مهندسي منصات شركة تكامل أنظمة كبيرة، وهم مقتنعون بأن معظم مش… | RGT Global began when four platform engineers left a large systems integrator, convinced t… |
+| `AR-026` | translation.wrongLanguage | services | critical | يبدأ معظم العملاء بتقييم ثم ينمون إلى ارتباط ثابت. | La plupart des clients commencent par une évaluation puis évoluent vers un engagement perm… |
+| `AR-027` | dom.placeholderUntranslated | contact | major | اسمك الكامل | Your full name |
+
+### Traps — these must NOT be flagged
+
+| ID | Kind | Route | Value | Why flagging it is a false positive |
+|---|---|---|---|---|
+| `AR-901` | trap.brandName | home | RGT Global | A brand name is Latin in every locale by design. On an Arabic page it is also the most obv… |
+| `AR-902` | trap.brandName | pricing | تُحتسب فوترة CloudBridge لكل مقعد شهرياً. تُسعَّر ارتباطات الاستشارات على حدة. | The product name stays CloudBridge inside Arabic prose. A script check that measures the s… |
+| `AR-903` | trap.legalEntity | home | RGT Global Technologies Pvt. Ltd. | A registered company name is a legal string. Translating it would be the defect. |
+| `AR-904` | trap.versionString | home | إصدار المنصة 1.000 | "1.000" is a release number, not one thousand. A number check that demands the ar-SA comma… |
+| `AR-905` | trap.productCode | pricing | اذكر رمز المنتج هذا عند إصدار أمر شراء: 12/05/2024. | "12/05/2024" is a product code shaped exactly like a date, and both components are below 1… |
+| `AR-906` | trap.internationalPhone | contact | +49 30 901820 | A correct international number for a genuine German office, shown on the Arabic site. Refo… |
+| `AR-907` | trap.taggedForeignQuote | home | RGT Global rebuilt our deployment pipeline in eleven weeks. We now release twice a day ins… | A genuine English original, correctly marked lang="en" on the element. The attribute is th… |
+| `AR-908` | trap.loanword | home | Email | "Email" is the form used in Saudi technical writing. Latin script inside Arabic prose is c… |
+| `AR-909` | trap.latinNumerals | home | 14 | Latin digits are standard in Saudi web content. Demanding Arabic-Indic numerals would be a… |
+| `AR-910` | trap.dottedIdentifier | services | تُعرَّف خطوط المعالجة في deploy.config.yaml في جذر المستودع. | "deploy.config.yaml" is a filename, not a resource key. |
+| `AR-911` | trap.bracedLiteral | services | ثبّت المنطقة صراحةً، على سبيل المثال { "region": "eu-central-1" }. | Braces that are content: a JSON example, not an unresolved token. |
+| `AR-912` | trap.nullInProse | services | قيمة null للمنطقة تعني استخدام الإعداد الافتراضي للمنصة. | The word null used as terminology, inside Arabic prose. |
+| `AR-913` | trap.technicalTermInScript | about | OAuth وHTTPS مدعومان افتراضياً. | OAuth and HTTPS are Latin in every script. Whitelisting technical terms is what separates … |
+| `AR-914` | trap.latinInRtl | home | 1,180 | A standalone Latin-digit number in RTL context needs no bidi isolation - it is not embedde… |
+| `AR-915` | trap.foreignMeasurement | about | تسير رحلة الفريق السنوية على مسار طوله 5 أميال في كولورادو. | A Colorado trail signposted in miles, correct on a metric locale because the subject is Am… |
+| `AR-916` | trap.ambiguousDate | about | تُجدَّد عقود الدعم في 03/04/2026. | 03/04/2026 is undecidable, so the rule must skip rather than guess. |
+| `AR-917` | trap.foreignCurrency | pricing | يدفع العملاء الذين تصدر لهم فواتير من كياننا الأمريكي $1,349 شهرياً. | A deliberate second currency for a real US billing entity. |
+| `AR-918` | trap.shortString | home | 240 | Three characters. Below any workable minimum length for language identification, so the ru… |
 
 ## de-DE
 
@@ -21,7 +78,7 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `DE-009` | translation.wrongLanguage | services | critical | Schrittweise Migration weg von Altsystemen, während der Betrieb durchgehend weiterläuft. | Migration progressive depuis les systèmes hérités, sans interrompre l'activité. |
 | `DE-010` | translation.untranslated | home | major | Data Warehouses, Pipelines und Governance, die einer Prüfung standhalten und trotzdem schn… | Data Warehouses, Pipelines und Governance that survive an audit and still answer questions… |
 | `DE-011` | translation.mojibake | pricing | critical | Enthaltene Arbeitsplätze | Enthaltene ArbeitsplÃ¤tze |
-| `DE-012` | translation.diacriticsStripped | home | minor | Über uns | Über uns |
+| `DE-012` | translation.unicodeNormalization | home | minor | Über uns | Über uns |
 | `DE-013` | translation.diacriticsStripped | events | major | Workshops und Vorträge unserer Ingenieurinnen und Ingenieure. Die Teilnahme ist kostenlos,… | Workshops und Vortrage unserer Ingenieurinnen und Ingenieure. Die Teilnahme ist kostenlos,… |
 | `DE-014` | translation.controlChar | contact | minor | Absenden | Absenden‎ |
 | `DE-015` | format.currency | pricing | critical | 1.249,00 € | $1,249.00 |
@@ -50,6 +107,11 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `DE-038` | route.notFoundUnlocalized | notFound | major | Seite nicht gefunden | Page not found |
 | `DE-039` | translation.icuSyntax | blog | critical | 3 Artikel | {count, plural, one {# Artikel} other {# Artikel}} |
 | `DE-040` | translation.byteOrderMark | about | minor | RGT Global entstand, als vier Plattform-Ingenieure einen großen Systemintegrator verließen… | ﻿RGT Global entstand, als vier Plattform-Ingenieure einen großen Systemintegrator verließe… |
+| `DE-041` | format.unitSystem | about | major | Unser Campus in Hyderabad liegt 12 km vom Flughafen entfernt. | Unser Campus in Hyderabad liegt 7,5 Meilen vom Flughafen entfernt. |
+| `DE-042` | plural.agreement | pricing | major | 1 Sitzplatz inbegriffen | 1 Sitzplätze inbegriffen |
+| `DE-043` | plural.placeholderLeak | pricing | major | Projekte | Projekt(e) |
+| `DE-044` | style.toneInconsistency | contact | minor | Wir melden uns bei Ihnen innerhalb von zwei Werktagen. | Wir melden uns bei dir innerhalb von zwei Werktagen. |
+| `DE-045` | head.charset | about | major | utf-8 | iso-8859-1 |
 
 ### Traps — these must NOT be flagged
 
@@ -68,6 +130,15 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `DE-911` | trap.dottedIdentifier | services | Pipelines werden in deploy.config.yaml im Wurzelverzeichnis deklariert. | A configuration filename, not a resource key. Both are dotted lowercase identifiers, so a … |
 | `DE-912` | trap.bracedLiteral | services | Geben Sie eine Region explizit an, zum Beispiel { "region": "eu-central-1" }. | A JSON snippet quoted as documentation. The braces are content, not an unresolved token, s… |
 | `DE-913` | trap.nullInProse | services | Ein null-Wert für die Region bedeutet, dass die Standardregion verwendet wird. | The word null used as terminology in a sentence about configuration. NullOrUndefinedRender… |
+| `DE-914` | trap.foreignMeasurement | about | Die jährliche Teamwanderung folgt einem 5-Meilen-Trail in Colorado. | A Colorado trail is signposted in miles. Miles are correct here BECAUSE the subject is Ame… |
+| `DE-915` | trap.isoDate | about | Auditeinträge tragen in jedem Gebietsschema den Stempel 2026-03-04. | The same date on a locale whose own pattern is dd.MM.yyyy, where the temptation to "fix" i… |
+| `DE-916` | trap.ambiguousDate | about | Supportverträge verlängern sich am 03/04/2026. | 03/04/2026 is undecidable: neither component exceeds 12, so nothing on the page says wheth… |
+| `DE-917` | trap.dottedAddress | about | Das Standard-Gateway lauscht auf 192.168.1.1. | Worse on German, where "." IS the grouping separator, so 192.168.1.1 reads as a plausible … |
+| `DE-918` | trap.foreignCurrency | pricing | Kunden, die über unsere US-Gesellschaft abgerechnet werden, zahlen $1,349 pro Monat. | A second currency for a real US billing entity. Reporting the PRESENCE of a foreign curren… |
+| `DE-919` | trap.usAddressAbroad | pricing | Zahlungen an unsere US-Gesellschaft: 1200 Market St, San Francisco, CA 94102. | A genuine US postal address in a global remittance note. "City, ST 12345" is exactly what … |
+| `DE-920` | trap.parentheticalPlural | contact | Bitte Vorname(n) und Nachname angeben. | "Vorname(n)" is idiomatic German for a form label, not a leaked plural artefact. The diffe… |
+| `DE-921` | trap.quotedInformalRegister | contact | Unsere Karriereseite duzt bewusst: „Komm ins Team, wir zeigen dir alles.“ | The informal register is inside quotation marks, quoted from the careers page. A tone chec… |
+| `DE-922` | trap.quotedSchedule | contact | Der US-Webcast wird in der Einladung mit 3:45 PM EST angegeben. | A US webcast time quoted as the invitation prints it. The 12-hour clock is correct because… |
 
 ## en-US
 
@@ -109,6 +180,10 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `EN-032` | translation.hardcoded | contact | major | Send message | Get in touch today |
 | `EN-033` | translation.icuSyntax | blog | critical | 3 articles | {count, plural, one {# article} other {# articles}} |
 | `EN-034` | translation.byteOrderMark | about | minor | RGT Global began when four platform engineers left a large systems integrator, convinced t… | ﻿RGT Global began when four platform engineers left a large systems integrator, convinced … |
+| `EN-035` | format.unitSystem | about | minor | Data halls run at 70 °F. | Data halls run at 21 °C. |
+| `EN-036` | plural.agreement | pricing | major | 1 seat included | 1 seats included |
+| `EN-037` | plural.placeholderLeak | pricing | major | Projects | Project(s) |
+| `EN-038` | head.langMissing | events | critical | lang="en-US" | lang="" — present but empty |
 
 ### Traps — these must NOT be flagged
 
@@ -127,6 +202,12 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `EN-911` | trap.dottedIdentifier | services | Pipelines are declared in deploy.config.yaml at the repository root. | A configuration filename, not a resource key. Both are dotted lowercase identifiers, so a … |
 | `EN-912` | trap.bracedLiteral | services | Pin a region explicitly, for example { "region": "eu-central-1" }. | A JSON snippet quoted as documentation. The braces are content, not an unresolved token, s… |
 | `EN-913` | trap.nullInProse | services | A null region means the platform default is used. | The word null used as terminology in a sentence about configuration. NullOrUndefinedRender… |
+| `EN-914` | trap.isoDate | about | Audit entries are stamped 2026-03-04 in every locale. | ISO-8601 is locale-neutral by design. Rewriting it to a locale pattern would be the defect… |
+| `EN-915` | trap.ambiguousDate | about | Support contracts renew on 03/04/2026. | The same undecidable date under the opposite convention - if a rule guesses, one of these … |
+| `EN-916` | trap.dottedAddress | about | The default gateway listens on 192.168.1.1. | An IPv4 address is four dotted groups of digits and is not a grouped number. It satisfies … |
+| `EN-917` | trap.tableHeaderCount | pricing | 1 seat | "1 seat" is the pricing UNIT, not a count that disagrees with its noun. Bare "<n> <noun>" … |
+| `EN-918` | trap.parentheticalPlural | contact | Please give your first name(s) and surname. | "first name(s)" is idiomatic English on a form for the same reason. |
+| `EN-919` | trap.shortString | home | 14 | Two characters. Below any sane minimum length for language identification, so the rule mus… |
 
 ## hi-IN
 
@@ -171,6 +252,8 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `HI-035` | translation.icuSyntax | blog | critical | 3 लेख | {count, plural, one {# लेख} other {# लेख}} |
 | `HI-036` | translation.byteOrderMark | about | minor | आज हैदराबाद, बर्लिन और टोरंटो के वितरण केंद्रों में हमारे 1,180 इंजीनियर कार्यरत हैं। हमार… | ﻿आज हैदराबाद, बर्लिन और टोरंटो के वितरण केंद्रों में हमारे 1,180 इंजीनियर कार्यरत हैं। हमा… |
 | `HI-037` | head.byteOrderMark | services | major | <!doctype html> | ﻿<!doctype html> |
+| `HI-038` | format.unitSystem | about | major | हमारा हैदराबाद परिसर हवाई अड्डे से 12 किमी दूर है। | हमारा हैदराबाद परिसर हवाई अड्डे से 7.5 मील दूर है। |
+| `HI-039` | script.mismatch | about | critical | हमारी इंजीनियरिंग हैंडबुक प्रत्येक डिलीवरी केंद्र की स्थानीय भाषा में प्रकाशित होती है। | Hamari engineering handbook pratyek delivery centre ki sthaniya bhasha mein prakashit hoti… |
 
 ### Traps — these must NOT be flagged
 
@@ -189,3 +272,7 @@ Generated from `fixtures/manifest.json` v1.1.0 by `npm run gen:docs`. Do not edi
 | `HI-911` | trap.dottedIdentifier | services | पाइपलाइन रिपॉज़िटरी की जड़ में deploy.config.yaml में घोषित की जाती हैं। | A configuration filename, not a resource key. Both are dotted lowercase identifiers, so a … |
 | `HI-912` | trap.bracedLiteral | services | क्षेत्र स्पष्ट रूप से निर्दिष्ट करें, उदाहरण के लिए { "region": "eu-central-1" }। | A JSON snippet quoted as documentation. The braces are content, not an unresolved token, s… |
 | `HI-913` | trap.nullInProse | services | क्षेत्र का null मान होने पर प्लेटफ़ॉर्म का डिफ़ॉल्ट उपयोग होता है। | The word null used as terminology in a sentence about configuration. NullOrUndefinedRender… |
+| `HI-914` | trap.foreignMeasurement | about | वार्षिक टीम ट्रेक कोलोराडो में 5-मील के ट्रेल पर चलता है। | Same near-miss in a second metric locale, so the rule cannot pass by special-casing German… |
+| `HI-915` | trap.technicalTermInScript | about | OAuth और HTTPS डिफ़ॉल्ट रूप से समर्थित हैं। | OAuth and HTTPS are Latin in every script. A script check that counts out-of-range codepoi… |
+| `HI-916` | trap.foreignCurrency | pricing | हमारी अमेरिकी इकाई द्वारा बिल किए गए ग्राहक $1,349 प्रति माह भुगतान करते हैं। | The same near-miss on a locale whose own symbol is a different glyph again. |
+| `HI-917` | trap.shortString | home | 14 | Two characters. Below any sane minimum length for language identification, so the rule mus… |
